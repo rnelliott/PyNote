@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-class Projects(models.Model):
+class Project(models.Model):
     """
     Model for project/post by users
     """
