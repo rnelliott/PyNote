@@ -21,7 +21,7 @@ def project_details(request, pk):
     render the Project details to projectdetails.html.
     Return a 404 if Project is not found.
     """
-    #
+    # Display details on a given Project
     project = get_object_or_404(Projects, pk=pk)
     project.views += 1
     project.save()
@@ -32,3 +32,16 @@ def create_or_edit_project(request, pk=None):
     Create view that can either create or edit a Project, 
     edits if exists or creates if not. 
     """
+    #
+    project = get_object_or_404(Projects, pk=pk) if pk else None
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, request.FILES, instance=project)
+        if form.is_valid():
+            project = form.save()
+            return redirect(project_details, project.pk)            
+    else:
+        form = ProjectForm(instance=project)
+    return render(request, "projectformhtml", {"form": form})
+
+
+
