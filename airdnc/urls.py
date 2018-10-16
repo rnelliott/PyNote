@@ -20,7 +20,9 @@ from django.views.static import serve
 from .settings import MEDIA_ROOT
 
 urlpatterns = [
+    # if user goes to admin/, load admin app
     url(r'^admin/', admin.site.urls),
+    # if user goes to root/index, redirect to projects/
     url(r'^$', RedirectView.as_view(url='projects/')),
     # if user goes to projects/, parse url in urls.py in projects app
     url(r'projects/', include('projects.urls')),
