@@ -25,7 +25,7 @@ def project_details(request, pk):
     project = get_object_or_404(Projects, pk=pk)
     project.views += 1
     project.save()
-    return render(request, "projectdetails.html", {"post": post})
+    return render(request, "projectdetails.html", {"project": project})
 
 def create_or_edit_project(request, pk=None):
     """
