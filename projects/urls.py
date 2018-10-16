@@ -9,5 +9,5 @@ urlpatterns= [
     # If creating a new project
     url(r'^new/$', create_or_edit_project, name='new_project'),
     # Id editing a project
-    url(r'^(?P<pk>\d+)/edit/$'create_or_edit_project, name='edit_project'),
+    url(r'^(?P<pk>\d+)/edit/$', create_or_edit_project, name='edit_project'),
 ]
