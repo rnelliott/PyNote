@@ -21,6 +21,11 @@ def project_details(request, pk):
     render the Project details to projectdetails.html.
     Return a 404 if Project is not found.
     """
+    #
+    project = get_object_or_404(Projects, pk=pk)
+    project.views += 1
+    project.save()
+    return render(request, "projectdetails.html", {"post": post})
 
 def create_or_edit_project(request, pk=None):
     """
