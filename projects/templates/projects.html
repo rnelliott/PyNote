@@ -1,0 +1,26 @@
+<!-- Base html will be loaded -->
+{% extneds 'base.html' %}
+<!-- Anything placed in this block will load in ''block content' tags n base.html -->
+{% block content %}
+{% for project in projects %}
+<div class="row">
+    <div class="col-md-2 col-sm-3 text-center">
+        <a href="#" class="story-img">
+            <img src="/media/img/profile.jpg">
+        </a>
+        <p><span class="boldtext">Author:</span> Dave </p>
+    </div>
+    <div class="col-md-10 col-sm-9">
+        <h3>{{ project.title }}</h3>
+        <div class="row">
+            <div class="col-xs-9">
+                <p>{{ project.content | truncatewords:30 }}</p>
+                <p><a href="{% url 'project_deatils' project.id %}" class="btn btn-default">Read More ...</a></p>
+                <p><span class="boldtext">Views: </span></p> {{ project.views }}
+                <p><span class="boldtext">Tag: </span></p> {{ project.tag }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock  %}
