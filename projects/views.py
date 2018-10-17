@@ -41,7 +41,7 @@ def create_or_edit_project(request, pk=None):
             return redirect(project_details, project.pk)            
     else:
         form = ProjectForm(instance=project)
-    return render(request, "projectformhtml", {"form": form})
+    return render(request, "projectform.html", {"form": form})
 
 
 
