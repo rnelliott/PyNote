@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
     'projects',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -114,6 +115,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS =[
+    'django.contrib.auth.backends.ModelBackend',
+    'accounts.backends.CaseInsensitiveAuth'
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
