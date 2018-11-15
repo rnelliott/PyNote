@@ -32,7 +32,6 @@ def create_or_edit_project(request, pk=None):
     Create view that can either create or edit a Project, 
     edits if exists or creates if not. 
     """
-    #
     project = get_object_or_404(Projects, pk=pk) if pk else None
     if request.method == 'POST':
         form = ProjectForm(request.POST, request.FILES, instance=project)
