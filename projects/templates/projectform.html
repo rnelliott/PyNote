@@ -4,7 +4,10 @@
 <h1>Add a new project:</h1>
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form | as_bootstrap }}
+    {{ form.media }}
+    {{ form.as_p }}
     <button type="submit" class="btn btn-info">Save</button>
+    <!-- <input type="submit"/> -->
+    <!-- {{ form | as_bootstrap }}
 </form>
 {% endblock %}
