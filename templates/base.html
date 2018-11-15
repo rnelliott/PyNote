@@ -6,21 +6,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <!-- Compiled and minified MaterializeCSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">    
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>AirDnC</title>
 </head>
 
 <body>
-    <nav>
+    <nav class="navbar navbar-masthead navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -41,29 +35,26 @@
                     {% else %}
                     <li><a href="{% url 'login' %}">Login</a></li>
                     {% endif %}
-            <div class="nav-wrapper">
-                <!-- <a class="navbar-brand" href="{% url 'get_projects' %}"><img src="/media/img/logo.png"></a> -->
-                <a href="{% url 'get_projects' %}" class="brand-logo">AirDnC</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="{% url 'new_project' %}">Sass</a></li>                
-
                 </ul>
             </div>
         </div>
     </nav>
 
-    <ul class="sidenav" id="mobile-demo">
-        <li><a href="{% url 'new_project' %}">Sass</a></li>        
-    </ul>
+    <div id="masthead">
+        <div class="container">
+            <div class="row">
+                <h1> AirDnC
+                    <p id="logo" class="lead">Connecting the best developers to their clients</p>
+                </h1>
+            </div>
+        </div>
+    </div>
 
-    <section class="wave"></section>
-    
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel">
-                    <!-- Project entries -->                
+                    <!-- Project entries -->
                     {% block content %}
                     {% endblock %}
                     <!-- END -->
@@ -73,18 +64,11 @@
     </div>
 
     <!-- Footer -->
-    <!-- <footer>
+    <footer>
         <div class="container">
             <p>Made by Dave O'Dea</p>
         </div>
-    </footer> -->
+    </footer>
 </body>
-<!-- Compiled and minified MaterializeCSS JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('.sidenav').sidenav();
-    });
-</script>
 
 </html>
