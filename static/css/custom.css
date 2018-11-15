@@ -1,3 +1,43 @@
+/* Custom CSS */
+body {
+	font-family: Arial;
+	margin: 0;
+	padding: 0;
+}
+
+section{
+	width: 100%;
+	min-height: 95vh;
+}
+
+.wave{
+	position: relative;
+	background-image: linear-gradient(to right bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12);;
+}
+.wave:before{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 315px;
+	background: url(/media/img/wave.webp);
+	background-size: cover;
+	background-repeat: no-repeat
+}
+
+nav{
+	background-color: transparent;	
+}
+
+nav ul a{
+	color: black;
+}
+
+nav .brand-logo{
+	color: black;
+}
+
 /* CSS from https://github.com/Code-Institute-Solutions/blog_miniproject1/blob/master/static/css/custom.css*/
 .navbar-form input,
 .form-inline input {
@@ -47,7 +87,7 @@ h1 a {
 .navbar-brand {
 	padding: 10px 10px;
 }
-.navbar-brand img{
+.navbar-brand img {
 	width: 55px;
 	height: 35px;
 }
@@ -56,7 +96,7 @@ h1 a {
 	color: #12ab82;
 }
 
-.story-img{
+.story-img {
 	margin-top: 25%;
 	display: block;
 }
@@ -142,25 +182,21 @@ a:hover {
 	}
 }
 
-
 /* CSS from auth app */
-body {
-    font-family: Arial;
-    padding-top: 50px;
-}
+
 
 footer {
-    margin-top: 40px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    border-top: 1px solid #ededed;
-    color: #A9A9A9;
+	margin-top: 40px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	border-top: 1px solid #ededed;
+	color: #a9a9a9;
 }
 
 .icon-bar {
-    background-color: #fff;
+	background-color: #fff;
 }
 
 .accountform {
-    padding-top: 20px;
+	padding-top: 20px;
 }
