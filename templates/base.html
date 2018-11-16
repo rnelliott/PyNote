@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-masthead navbar-default navbar-fixed-top">
+    <nav>
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -46,16 +46,7 @@
         </div>
     </nav>
 
-    <!-- <div id="masthead">
-        <div class="container">
-            <div class="row">
-                <h1> AirDnC
-                    <p id="logo" class="lead">Connecting the best developers to their clients</p>
-                </h1>
-            </div>
-        </div>
-    </div> -->
-
+    
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -70,11 +61,18 @@
     </div>
 
     <!-- Footer -->
-    <footer>
+    <!-- <footer>
         <div class="container">
             <p>Made by Dave O'Dea</p>
         </div>
-    </footer>
+    </footer> -->
 </body>
+<!-- Compiled and minified MaterializeCSS JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.sidenav').sidenav();
+    });
+</script>
 
 </html>
