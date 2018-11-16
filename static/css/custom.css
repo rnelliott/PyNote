@@ -1,4 +1,6 @@
 /* Custom CSS */
+
+/* General */
 body {
 	font-family: Arial;
 	margin: 0;
@@ -10,90 +12,16 @@ section{
 	min-height: 95vh;
 }
 
-.wave{
-	position: relative;
-	background-image: linear-gradient(to right bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12);;
-}
-.wave:before{
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 315px;
-	background: url(/media/img/wave.webp);
-	background-size: cover;
-	background-repeat: no-repeat
-}
-
-nav{
-	background-color: transparent;	
-}
-
-nav ul a{
-	color: black;
-}
-
-nav .brand-logo{
-	color: black;
-}
-
-/* CSS from https://github.com/Code-Institute-Solutions/blog_miniproject1/blob/master/static/css/custom.css*/
-.navbar-form input,
-.form-inline input {
-	width: auto;
-}
-
-/* body {
-	font-family: Arial;
-	padding-top: 50px;
-}
-
-footer {
-	margin-top: 40px;
-	padding-top: 40px;
-	padding-bottom: 40px;
-	background-color: #ededed;
-} */
-
 h1,
 h1 a {
 	color: #555555;
 	text-decoration: none;
 }
 
-#masthead {
-	padding-left: 10px;
-	min-height: 199px;
-}
-
-#masthead h1 {
-	font-size: 55px;
-	line-height: 1;
-	margin-top: 50px;
-}
-
-#masthead .well {
-	margin-top: 31px;
-	min-height: 127px;
-}
-
-.navbar.affix {
-	position: fixed;
-	top: 0;
-	width: 100%;
-}
-
-.navbar-brand {
-	padding: 10px 10px;
-}
-.navbar-brand img {
-	width: 55px;
-	height: 35px;
-}
-
-#logo {
-	color: #12ab82;
+/* CSS from https://github.com/Code-Institute-Solutions/blog_miniproject1/blob/master/static/css/custom.css*/
+.navbar-form input,
+.form-inline input {
+	width: auto;
 }
 
 .story-img {
@@ -176,27 +104,20 @@ a:hover {
 	font-weight: bold;
 }
 
-@media screen and (min-width: 768px) {
-	#masthead h1 {
-		font-size: 80px;
-	}
-}
-
 /* CSS from auth app */
-
-
-footer {
-	margin-top: 40px;
-	padding-top: 40px;
-	padding-bottom: 40px;
-	border-top: 1px solid #ededed;
-	color: #a9a9a9;
-}
-
 .icon-bar {
 	background-color: #fff;
 }
 
 .accountform {
 	padding-top: 20px;
+}
+
+/* Footer */
+footer {
+	margin-top: 40px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	border-top: 1px solid #ededed;
+	color: #a9a9a9;
 }
