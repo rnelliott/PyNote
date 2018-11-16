@@ -39,6 +39,7 @@ def create_or_edit_project(request, pk=None):
     if request.method == 'POST':
         form = ProjectForm(request.POST, request.FILES, instance=project)
         if form.is_valid():
+            form.author = request.user
             project = form.save()
             return redirect(project_details, project.pk)            
     else:

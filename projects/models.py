@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
 from ckeditor.fields import RichTextField
@@ -6,6 +7,7 @@ class Projects(models.Model):
     """
     Model for project/post by users
     """
+    author = models.ForeignKey(User, null=True, blank=True)
     title = models.CharField(max_length=200)
     # content = models.TextField()
     content = RichTextField(config_name='awesome_ckeditor')
