@@ -14,7 +14,7 @@
             <h3>{{ project.title }}</h3>
             <div class="row">
                 <div class="col-xs-9">
-                    <p>{{ project.content }}</p>
+                    <p>{{ project.content | safe}}</p>
                     <p><span class="boldtext">Published on:</span> {{ project.published_date }} </p>
                     <p><span class="boldtext">Views:</span> {{project.views}}</p>
                     <p><span class="boldtext">Tag:</span> {{ project.tag }}</p>
