@@ -10,9 +10,9 @@ def get_projects(request):
     Create view with all existing Projects, which exist before now,
     render them to the projects.html template
     """
-    # Filter projects by published_date
-    projects = Projects.objects.filter(published_date__lte=timezone.now()
-                                        ).order_by('-published_date')
+    # Filter projects by only those where logged in project user/owner
+    # is same as logged in user
+    projects = Projects.objects.filter(user__exact=request.user)  
     return render(request, "projects.html", {"projects": projects})
 
 
