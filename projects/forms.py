@@ -6,4 +6,6 @@ class ProjectForm(forms.ModelForm):
         # Model to use
         model = Projects
         # User editable fields from the model Project
-        fields = ('title', 'content', 'image', 'tag', 'published_date')
+        fields = ('title', 'user', 'content', 'image', 'tag', 'published_date')
+        # Remove fields
+        exclude = ["user"]
