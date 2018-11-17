@@ -34,9 +34,9 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
+                        {% if user.is_authenticated %}
                         <li><a href="{% url 'get_projects' %}"><i class="fa fa-book" aria-hidden="true"></i> Notes</a></li>
                         <li><a href="{% url 'new_project' %}"><i class="fa fa-plus" aria-hidden="true"></i> New Note</a></li>
-                        {% if user.is_authenticated %}
                         <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
                         {% else %}
                         <li><a href="{% url 'login' %}"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
