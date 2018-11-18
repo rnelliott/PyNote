@@ -19,7 +19,7 @@ h1 a {
 }
 
 .social-create-links{
-	padding-top: 20vh;
+	padding-top: 25vh;
 }
 
 /* CSS from https://github.com/Code-Institute-Solutions/blog_miniproject1/blob/master/static/css/custom.css*/
@@ -139,7 +139,7 @@ footer {
 .btn-social {
 	position: relative;
 	padding-left: 44px;
-	text-align: left;
+	text-align: center;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis
