@@ -132,7 +132,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'accounts.backends.CaseInsensitiveAuth',
     # Social auth
-    'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.github.GithubOAuth2',
 ]
 
 # Internationalization
