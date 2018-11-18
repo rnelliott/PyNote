@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
+<div class="col-lg-4 col-lg-offset-4">
     <form method="post" action="{% url 'login' %}?next={{ next }}" class="accountform">
         <fieldset class="form-group">
             <legend>Login</legend>
             {% csrf_token %}
             {{ user_form | as_bootstrap }}
-            
-             <p><a href="{% url 'password_reset' %}">Forgot my password</a></p>
-             
-            <button type="submit" class="btn btn-primary">Login</button>
-            <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
+            <p>Forgot password? <a href="{% url 'password_reset' %}"><b>Reset</b></a></p>
+               <button type="submit" class="btn btn-primary">Login</button>
+            <a href="{% url 'register' %}" class="btn btn-primary" style="float: right;">Register</a>
         </fieldset>
     </form>
+</div>
 {% endblock %}

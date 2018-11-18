@@ -8,4 +8,4 @@ class ProjectForm(forms.ModelForm):
         # User editable fields from the model Project
         fields = ('title', 'user', 'content', 'image', 'tag', 'published_date')
         # Remove fields
-        exclude = ["user"]
+        exclude = ['user', 'published_date']
