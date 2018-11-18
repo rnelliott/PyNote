@@ -43,7 +43,7 @@
                         <li><a href="{% url 'register' %}"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a></li>
                         {% endif %}
                         {% if user.is_authenticated %}
-                        <li><a href="{% url 'profile' %}"><i class="fa fa-user" aria-hidden="true"></i> Hi, {{ request.user.username }}</a></li>
+                        <li><a href="{% url 'profile' %}"><i class="fa fa-user" aria-hidden="true"></i> Hi, {{ user }}</a></li>
                         {% endif %}
                     </ul>
                 </div><!-- /.navbar-collapse -->

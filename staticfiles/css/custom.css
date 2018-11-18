@@ -146,7 +146,7 @@ a:hover {
 /* CSS from auth app */
 body {
     font-family: Arial;
-    padding-top: 50px;
+    /* padding-top: 50px; */
 }
 
 footer {
