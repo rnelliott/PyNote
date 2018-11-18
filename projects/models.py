@@ -8,7 +8,7 @@ class Projects(models.Model):
     Model for project/post by users
     """
     user = models.ForeignKey(User, null=True, blank=True)
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, verbose_name='Name')
     # content = models.TextField()
     content = RichTextField(config_name='awesome_ckeditor')
     created_date = models.DateTimeField(auto_now_add=True)
