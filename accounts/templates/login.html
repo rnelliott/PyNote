@@ -1,16 +1,33 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
-<div class="col-lg-4 col-lg-offset-4">
-    <form method="post" action="{% url 'login' %}?next={{ next }}" class="accountform">
-        <fieldset class="form-group">
-            <legend>Login</legend>
-            {% csrf_token %}
-            {{ user_form | as_bootstrap }}
-            <p>Forgot password? <a href="{% url 'password_reset' %}"><b>Reset</b></a></p>
-               <button type="submit" class="btn btn-primary">Login</button>
-            <a href="{% url 'register' %}" class="btn btn-primary" style="float: right;">Register</a>
-        </fieldset>
-    </form>
+<div class="row">
+    <div class="col-lg-4 offset-lg-1">
+        <form method="post" action="{% url 'login' %}?next={{ next }}" class="accountform">
+            <fieldset class="form-group">
+                <legend>Login to your account</legend>
+                {% csrf_token %}
+                {{ user_form | as_bootstrap }}
+                <p>Forgot password? <a href="{% url 'password_reset' %}"><b>Reset</b></a></p>
+                <button type="submit" class="btn btn-outline-primary">Login</button>
+                <a href="{% url 'register' %}" class="btn btn-outline-success" style="float: right;">Register</a>
+            </fieldset>
+        </form>
+    </div>
+    <div class="col-lg-4 offset-lg-1 social-create-links-login d-lg">
+        <legend>or with:</legend>
+        <a href="{% url 'social:begin' 'github' %}" class="btn btn-block btn-social btn-github">
+            <span class="fa fa-github"></span>
+            GitHub
+        </a>
+        <a href="{% url 'social:begin' 'github' %}" class="btn btn-block btn-social btn-twitter">
+            <span class="fa fa-github"></span>
+            Twitter
+        </a>
+        <a href="{% url 'social:begin' 'github' %}" class="btn btn-block btn-social btn-google">
+            <span class="fa fa-google"></span>
+            Googlle
+        </a>
+    </div>
 </div>
 {% endblock %}
