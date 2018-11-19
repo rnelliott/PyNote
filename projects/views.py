@@ -15,6 +15,14 @@ def get_projects(request):
     projects = Projects.objects.filter(user__exact=request.user)  
     return render(request, "projects.html", {"projects": projects})
 
+@login_required
+def get_projects_sidenav(request):
+    """
+    Render all existing Projects to sidebar nav items
+    """
+    projects = Projects.objects.filter(user__exact=request.user)  
+    return render(request, "base.html", {"projects": projects})
+
 
 @login_required
 def project_details(request, pk):
