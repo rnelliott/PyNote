@@ -25,15 +25,21 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'get_projects' %}"class="nav-link"><i class="fa fa-book" aria-hidden="true"></i> Notes</a></li>
-                    <li><a href="{% url 'new_project' %}"class="nav-link"><i class="fa fa-plus" aria-hidden="true"></i> New Note</a></li>
-                    <li><a href="{% url 'logout' %}"class="nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+                    <li><a href="{% url 'get_projects' %}" class="nav-link"><i class="fa fa-book" aria-hidden="true"></i>
+                            Notes</a></li>
+                    <li><a href="{% url 'new_project' %}" class="nav-link"><i class="fa fa-plus" aria-hidden="true"></i>
+                            New Note</a></li>
+                    <li><a href="{% url 'logout' %}" class="nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                            Logout</a></li>
                     {% else %}
-                    <li><a href="{% url 'login' %}"class="nav-link"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
-                    <li><a href="{% url 'register' %}"class="nav-link"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a></li>
+                    <li><a href="{% url 'login' %}" class="nav-link"><i class="fa fa-sign-in" aria-hidden="true"></i>
+                            Login</a></li>
+                    <li><a href="{% url 'register' %}" class="nav-link"><i class="fa fa-user-plus" aria-hidden="true"></i>
+                            Register</a></li>
                     {% endif %}
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'profile' %}"class="nav-link"><i class="fa fa-user" aria-hidden="true"></i> Hi, {{ user }}</a></li>
+                    <li><a href="{% url 'profile' %}" class="nav-link"><i class="fa fa-user" aria-hidden="true"></i>
+                            Hi, {{ user }}</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -55,12 +61,11 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <!-- <footer>
-        <div class="container">
-            <p>Made by Dave O'Dea</p>
+    <footer class="footer">
+        <div class="container" style="text-align:center">
+            <span class="text-muted" >Made by <a href="https://daveodea.com">Dave O'Dea</a></span>
         </div>
-    </footer> -->
+    </footer>
 </body>
 
 <!-- jQuery CDN - Slim version (=without AJAX) -->

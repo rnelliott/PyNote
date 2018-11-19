@@ -6,6 +6,11 @@ body {
 	margin: 0;
 	padding: 0;
 }
+body, wrapper {
+	min-height:100vh;
+ }
+ 
+
 
 section {
 	width: 100%;
@@ -126,13 +131,15 @@ a:hover {
 }
 
 /* Footer */
-footer {
-	margin-top: 40px;
-	padding-top: 40px;
-	padding-bottom: 40px;
-	border-top: 1px solid #ededed;
-	color: #a9a9a9;
-}
+.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 60px;
+	line-height: 60px; /* Vertically center the text there */
+	background-color: rgb(255, 255, 255);
+  }
 
 /* Bootstrap CSS */
 /*
