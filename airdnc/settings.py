@@ -172,7 +172,9 @@ EMAIL_PORT = 587
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_CONFIGS = {
     'awesome_ckeditor': {
-        'toolbar': 'Full',        
+        'toolbar': 'Full',
+        'width' : "auto",
+        'height' : "auto"        
     },
 }
 
