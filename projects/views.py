@@ -5,6 +5,10 @@ from .forms import ProjectForm
 from django.contrib.auth.decorators import login_required
 
 @login_required
+def index(request):
+    return render(request, "index.html")
+
+@login_required
 def get_projects(request):
     """
     Create view with all existing Projects, which exist before now,
