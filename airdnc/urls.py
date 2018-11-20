@@ -25,7 +25,7 @@ urlpatterns = [
     # if user goes to admin/, load admin app
     url(r'^admin/', admin.site.urls),
     # if user goes to root/index, redirect to projects/
-    url(r'^$', RedirectView.as_view(url='projects/'), name='index'),
+    url(r'^$', index, name='index'),
     # if user goes to projects/, parse url in urls.py in projects app
     url(r'projects/', include('projects.urls')),
     # if user goes to media/, use RegEx to point to a path of a file

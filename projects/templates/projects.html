@@ -1,7 +1,9 @@
 <!-- Base html will be loaded -->
 {% extends 'base.html' %}
 <!-- Anything placed in this block will load in ''block content' tags n base.html -->
+
 {% block content %}
+<div id="ajax-content">
 {% for project in projects %}
 <div class="row">
     <div class="col-md-2 col-sm-3 text-center">
@@ -11,6 +13,7 @@
         <p><span class="boldtext">Developer:</span> {{ project.user }} </p>
     </div>
     <div class="col-md-10 col-sm-9">
+        <div class="ajax-content"></div>
         <h3>{{ project.title }}</h3>
         <div class="row">
             <div class="col-xs-9">
@@ -23,4 +26,6 @@
     </div>
 </div>
 {% endfor %}
+</div>
+<div id="ajax-content"></div>
 {% endblock %}

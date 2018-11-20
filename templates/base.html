@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
     <script src="https://use.fontawesome.com/d46ec8e634.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <title>AirDnC</title>
 </head>
@@ -31,7 +34,7 @@
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'get_projects' %}" class="nav-link"><i class="fa fa-book" aria-hidden="true"></i>
                         Notes</a></li>
-                <li><a href="{% url 'new_project' %}" class="nav-link"><i class="fa fa-plus" aria-hidden="true"></i>
+                <li><a href="#" class="nav-link"><i class="fa fa-plus" aria-hidden="true"></i>
                         New Note</a></li>
                 <li><a href="{% url 'logout' %}" class="nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i>
                         Logout</a></li>
@@ -88,8 +91,8 @@
                 </a>
                 <!-- Submenu content -->
                 <div id='submenu1' class="collapse sidebar-submenu">
-                    {% for project in projects %}                        
-                    <a href="{% url 'project_details' project.id %}" class="list-group-item list-group-item-action bg-dark text-white">
+                    {% for project in projects %}
+                    <a id="project-details" href="#" data-href="{% url 'project_details' project.id %}" class="list-group-item list-group-item-action bg-dark text-white">
                         <span class="menu-collapsed">{{ project.title | truncatewords:2 | safe }}</span>
                     </a>
                     {% endfor %}
@@ -178,6 +181,8 @@
             </div>
         </div><!-- Main Col END -->
     </div><!-- body-row END -->
+    {% block javascript %}
+    {% endblock %}
 
     <!-- <footer class="footer">
         <div class="container" style="text-align:center">
@@ -186,9 +191,7 @@
     </footer> -->
 </body>
 
-<!-- jQuery CDN - Slim version (=without AJAX) -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+
 <!-- Popper.JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
     crossorigin="anonymous"></script>
@@ -197,6 +200,15 @@
     crossorigin="anonymous"></script>
 
 <!-- Custom scripts -->
+<script>
+    $("#project-details").click(function (event) {
+        console.log('load project details fired!');
+        var target = $(this).attr("data-href");
+        $("#ajax-content").load(target)
+    });
+</script>
+
+<!-- SideNav -->
 <script>
     // Hide submenus
     $('#body-row .collapse').collapse('hide');
@@ -228,6 +240,16 @@
     }
 </script>
 
+
+<!-- Custom Style -->
+<style>
+    .cke_top {
+    /* border-bottom: 1px solid #d1d1d1; */
+    /* background: #f8f8f8; */
+    padding: 6px 8px 2px;
+    white-space: normal;
+}
+</style>
 <style>
     #body-row {
         margin-left: 0;
