@@ -71,7 +71,7 @@
     <!-- Sidebar -->
     {% if user.is_authenticated %}
     <div class="row" id="body-row">
-        <div id="sidebar-container" data-toggle="sidebar-colapse" class="sidebar-collapsed d-none d-md-block">
+        <div id="sidebar-container" data-toggle="sidebar-colapse" class="sidebar-collapsed">
             <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
             <!-- Bootstrap List Group -->
             <ul class="list-group">
@@ -81,6 +81,13 @@
                     </li> -->
                 <!-- /END Separator -->
                 <!-- Menu with submenu -->
+                <a href="#" class="bg-dark list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fa fa-search fa-fw mr-3"></span>
+                            <!-- <span class="menu-collapsed d-none">Messages <span class="badge badge-pill badge-primary ml-2">5</span></span> -->
+                            <input class="menu-collapsed d-none" type="text" placeholder="Search..">
+                        </div>
+                    </a>
                 <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-start align-items-center">
                         <span class="fa fa-dashboard fa-fw mr-3"></span>
