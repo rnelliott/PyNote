@@ -1,4 +1,15 @@
 /* Custom CSS */
+.btn-info {
+    color: #6d7fcc;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.btn-info:hover {
+    color: #fff;
+    background-color: #7f94f3;
+    border-color: #fff;
+}
 
 /* General */
 body {
