@@ -1,5 +1,9 @@
 /* Custom CSS */
-
+.btn-info {
+    color: #17a2b8;
+    background-color: transparent;
+    border-color: #17a2b8;
+}
 /* General */
 body {
 	font-family: Arial;
