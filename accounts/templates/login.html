@@ -1,4 +1,11 @@
 {% extends "base.html" %}
+<script>
+    $("#login-link").click(function (event) {
+        console.log('load project details fired!');
+        var target = $(this).attr("data-href");
+        $("#ajax-content").load(target)
+    });
+</script>
 {% load bootstrap_tags %}
 {% block content %}
 <div class="row">
@@ -9,7 +16,7 @@
                 {% csrf_token %}
                 {{ user_form | as_bootstrap }}
                 <p>Forgot password? <a href="{% url 'password_reset' %}"><b>Reset</b></a></p>
-                <button type="submit" class="btn btn-outline-primary">Login</button>
+                <button id="login-link" type="submit" class="btn btn-outline-primary">Login</button>
                 <a href="{% url 'register' %}" class="btn btn-outline-success" style="float: right;">Register</a>
             </fieldset>
         </form>
