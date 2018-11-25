@@ -6,10 +6,7 @@ from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 
 
-# Create your views here.
-def index(request):
-    """A view that displays the index page"""
-    return render(request, "index.html")
+
 
 
 def logout(request):

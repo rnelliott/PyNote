@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
-    return render(request, "index.html")
+    projects = Projects.objects.filter(user__exact=request.user)  
+    return render(request, "index.html", {"projects": projects})
 
 @login_required
 def get_projects(request):

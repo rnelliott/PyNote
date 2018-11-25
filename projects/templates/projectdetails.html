@@ -1,14 +1,18 @@
 {% block javascript %}
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
 <script>
-    $("#project-edit").click(function (event) {
-        console.log('edit button fired!');
+    // Back to projects
+    $("#get_projects").click(function (event) {
+        console.log('back to projects button fired!');
         var target = $(this).attr("data-href");
         $("#ajax-content").load(target)
     });
 </script>
 {% endblock %}
 {% block content %}
-<div class="ajax-content">
+<div id="ajax-content">
     <div class="row">
         <div class="col-md-2 col-sm-3 text-center">
             <a class="story-img" href="#">
@@ -27,7 +31,7 @@
                     <p><span class="boldtext">Published on:</span> {{ project.published_date }} </p>
                     <p><span class="boldtext">Views:</span> {{project.views}}</p>
                     <p><span class="boldtext">Tag:</span> {{ project.tag }}</p>
-                    <a href="{% url 'get_projects' %}" class="btn btn-default">Back To Blog</a>
+                    <a id="get_projects" data-href="{% url 'get_projects' %}" class="btn btn-default">Back To Blog</a>
                     <a id="project-edit" href="#" data-href="{% url 'edit_project' project.id %}" class="btn btn-default">Edit
                         Post</a>
                     <hr>
