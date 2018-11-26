@@ -1,10 +1,11 @@
 {% block javascript %}
 <script>
     // Back to projects
-    $("#get_projects").click(function (event) {
-        console.log('back to projects button fired!');
-        var target = $(this).attr("data-href");
-        $("#ajax-content").load(target)
+    $('.iD').click(function () {
+        var dataHref = $(this).attr('data-href')
+        console.log('clicked', $(this).attr('data-href'));
+        $("#ajax-content").load(dataHref)
+        //$('#third').trigger('click');
     });
 </script>
 {% endblock %}
@@ -28,7 +29,7 @@
                     <p><span class="boldtext">Published on:</span> {{ project.published_date }} </p>
                     <p><span class="boldtext">Views:</span> {{project.views}}</p>
                     <p><span class="boldtext">Tag:</span> {{ project.tag }}</p>
-                    <a id="get_projects" data-href="{% url 'get_projects' %}" class="btn btn-default">Back To Blog</a>
+                    <a id="get_projects" data-href="{% url 'get_projects' %}" class="iD btn btn-default">Back To Blog</a>
                     <a id="project-edit" href="#" data-href="{% url 'edit_project' project.id %}" class="btn btn-default">Edit
                         Post</a>
                     <hr>

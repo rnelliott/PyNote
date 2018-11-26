@@ -4,10 +4,11 @@
 {% block javascript %}
 <script>
     // Back to projects
-    $("#read_project").click(function (event) {
-        console.log('read project button fired!');        
-        var target = $(this).attr("data-href");
-        $("#ajax-content").load(target)
+    $('.iD').click(function () {
+        var dataHref = $(this).attr('data-href')
+        console.log('clicked', $(this).attr('data-href'));
+        $("#ajax-content").load(dataHref)
+        //$('#third').trigger('click');
     });
 </script>
 {% endblock %}
@@ -27,7 +28,8 @@
             <div class="row">
                 <div class="col-xs-9">
                     {{ project.content | truncatewords:30 | safe }}
-                    <p><a id="read_project" data-href="{% url 'project_details' project.id %}" class="btn btn-default">Read More ...</a></p>
+                    <p><a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iD btn btn-default">Read
+                            More ...</a></p>
                     <p><span class="boldtext">Views: </span></p> {{ project.views }}
                     <p><span class="boldtext">Tag: </span></p> {{ project.tag }}
                 </div>
