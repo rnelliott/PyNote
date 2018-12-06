@@ -97,7 +97,7 @@ In addition, if it is not obvious, you should also describe how to run your code
 - Run the server: `python3 manage.py runserver`
 
 ## Requirements:
-```
+```python
 astroid==2.0.4
 autopep8==1.4
 certifi==2018.10.15
