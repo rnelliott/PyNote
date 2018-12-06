@@ -23,7 +23,10 @@ TODO
     - Also used for asynchronous HTTP (Ajax) requests.
 
 - [Django](https://www.djangoproject.com/)
-    MVT (Mode-View-Template) framweork used to build the application. 
+    - MVT (Mode-View-Template) framweork used to build the application. 
+
+- [PostgreSQL](https://www.postgresql.org/)
+    - Relational database store for model data.
 
 ## Testing
 
