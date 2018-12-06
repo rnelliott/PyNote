@@ -99,12 +99,16 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 ## Credits
 
+### Acknowledgements
+- Social buttons for Bootstrap:
+    https://github.com/lipis/bootstrap-social
+
 ### Content
 - The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
 
 ### Media
 - The photos used in this site were obtained from ...
 
-### Acknowledgements
+
 
 - I received inspiration for this project from X
