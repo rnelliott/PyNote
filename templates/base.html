@@ -13,7 +13,9 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- jQuery CDN -->
-    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <!-- <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script> -->
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <link rel="stylesheet" href="{% static 'css/style4.css' %}">
@@ -40,7 +42,8 @@
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         {% for project in projects %}
                         <li>
-                            <a id="read_project_nav" data-href="{% url 'project_details' project.id %}" class="iD">{{ project.title | truncatechars:15 }}</a>
+                            <a id="read_project_nav" data-href="{% url 'project_details' project.id %}" class="iD">{{
+                                project.title | truncatechars:15 }}</a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -207,7 +210,7 @@
 </script>
 
 <!-- Custom scripts -->
-<script>    
+<script>
     $("#profile-link").click(function (event) {
         console.log('load project details fired!');
         var target = $(this).attr("data-href");
