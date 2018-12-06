@@ -81,14 +81,14 @@ In addition, if it is not obvious, you should also describe how to run your code
 - Install requirements: `pip install -r requirements.txt`
 
 - Ensure you have set the following environment variables:
-    - DATABASE_URL
-    - EMAIL_ADDRESS
-    - EMAIL_PASSWORD
-    - SECRET_KEY (arbitrary string)
+    - `DATABASE_URL`
+    - `EMAIL_ADDRESS`
+    - `EMAIL_PASSWORD`
+    - `SECRET_KEY` (arbitrary string)
 
     For Social auth:
-    - SOCIAL_AUTH_GITHUB_KEY
-    - SOCIAL_AUTH_GITHUB_SECRET
+    - `SOCIAL_AUTH_GITHUB_KEY`
+    - `SOCIAL_AUTH_GITHUB_SECRET`
 
 - Make migrations: `python3 manage.py makemigrations`
 
