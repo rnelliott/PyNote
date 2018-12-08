@@ -1,41 +1,40 @@
 <!-- Base html will be loaded -->
 
-<!-- Anything placed in this block will load in ''block content' tags n base.html -->
+<!--
+  Anything placed in this block will load in ''block content' tags n base.html
+-->
 {% block javascript %}
 <script>
-    // Back to projects
-    $('.iD').click(function () {
-        var dataHref = $(this).attr('data-href')
-        console.log('clicked', $(this).attr('data-href'));
-        $("#ajax-content").load(dataHref)
-        //$('#third').trigger('click');
-    });
+  // Back to projects
+  $(".iD").click(function () {
+    var dataHref = $(this).attr("data-href");
+    console.log("clicked", $(this).attr("data-href"));
+    $("#ajax-content").load(dataHref);
+    //$('#third').trigger('click');
+  });
 </script>
-{% endblock %}
+{% endblock %} 
 {% block content %}
 <div id="ajax-content">
     {% for project in projects %}
     <div class="row">
-        <div class="col-md-2 col-sm-3 text-center">
-            <a href="#" class="story-img">
-                <img src="/media/img/profile.jpg">
-            </a>
-            <p><span class="boldtext">Developer:</span> {{ project.user }} </p>
-        </div>
-        <div class="col-md-10 col-sm-9">
-            <div class="ajax-content"></div>
-            <h3>{{ project.title }}</h3>
-            <div class="row">
-                <div class="col-xs-9">
-                    {{ project.content | truncatewords:30 | safe }}
-                    <p><a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iD btn btn-default">Read
-                            More ...</a></p>
-                    <p><span class="boldtext">Views: </span></p> {{ project.views }}
-                    <p><span class="boldtext">Tag: </span></p> {{ project.tag }}
+        <div class="offset-sm-3 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.title }}</h5>
+                    <p class="card-text">
+                        {{ project.content | truncatewords:30 | safe}}
+                    </p>
+                    <a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iD btn btn-primary" style="float:right">Read
+                        More ...</a>
                 </div>
+                <div class="card-footer text-muted">
+                        {{ project.published_date }}
+                      </div>
             </div>
         </div>
     </div>
+    <br>
     {% endfor %}
 </div>
 {% endblock %}

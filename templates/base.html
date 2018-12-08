@@ -42,8 +42,7 @@
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         {% for project in projects %}
                         <li>
-                            <a id="read_project_nav" data-href="{% url 'project_details' project.id %}" class="iD">{{
-                                project.title | truncatechars:15 }}</a>
+                            <a id="read_project_nav" data-href="{% url 'project_details' project.id %}" class="iD">{{ project.title | truncatechars:15 }}</a>
                         </li>
                         {% endfor %}
                     </ul>

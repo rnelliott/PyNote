@@ -173,8 +173,8 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_CONFIGS = {
     'awesome_ckeditor': {
         'toolbar': 'Full',
-        'width' : "auto",
-        'height' : "auto"        
+        'width': "auto",
+        'height': "auto"        
     },
 }
 
