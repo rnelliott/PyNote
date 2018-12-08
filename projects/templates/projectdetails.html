@@ -16,7 +16,7 @@
             {% if project.image %}
             <img class="img-blogpost" src="/media/{{ project.image }}">
             {% endif %}
-            <h1>{{ project.title }}<a id="project-edit" href="#" data-href="{% url 'edit_project' project.id %}" class="btn btn-default">Edit</a></h1>
+            <h1>{{ project.title }}<a id="project-edit" href="#" data-href="{% url 'edit_project' project.id %}" class="iD btn btn-default">Edit</a></h1>
             <div>
                 <span class="alignleft"><a href="#" id="get_projects" data-href="{% url 'get_projects' %}" class="iD badge badge-pill badge-danger"><i class="fa fa-arrow-left"></i></a>
                     </span>

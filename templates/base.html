@@ -121,7 +121,7 @@
                         <ul class="nav navbar-nav ml-auto">
                             {% if user.is_authenticated %}
                             <li class="nav-item">
-                                <a href="#" id="profile-link" class="nav-link" data-href="{% url 'profile' %}"><i class="fa fa-user-o"></i> Hi, {{ user }} !</a>
+                                <a href="#" id="profile-link" class="iD nav-link" data-href="{% url 'profile' %}"><i class="fa fa-user-o"></i> Hi, {{ user }} !</a>
                             </li>
                             {% else %}
                             <li class="nav-item">
@@ -183,7 +183,7 @@
 <!-- Mousetrap library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mousetrap/1.6.2/mousetrap.js"></script>
 <!-- Custom JS -->
-<script src="{% static 'js/custom.js' %}"></script>
+<!-- <script src="{% static 'js/custom.js' %}"></script> -->
 
 <!-- Mousetrap calls -->
 <script>
@@ -212,8 +212,13 @@
 
 <!-- Custom scripts -->
 <script>
-    $("#profile-link").click(function (event) {
-        console.log('load project details fired!');
+    $(".iD").click(function (event) {
+        console.log('fired!', $(this).attr('data-href'));
+        var target = $(this).attr("data-href");
+        $("#ajax-content").load(target)
+    });
+    $(".iDProjects").click(function (event) {
+        console.log('clicked read more', $(this).attr('data-href'));
         var target = $(this).attr("data-href");
         $("#ajax-content").load(target)
     });

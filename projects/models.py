@@ -9,8 +9,8 @@ class Projects(models.Model):
     """
     user = models.ForeignKey(User, null=True, blank=True)
     title = models.CharField(max_length=200, verbose_name='Name')
-    # content = models.TextField()
-    content = RichTextField(config_name='awesome_ckeditor')
+    content = models.TextField()
+    # content = RichTextField(config_name='awesome_ckeditor')
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
     views = models.IntegerField(default=0)

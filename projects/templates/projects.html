@@ -5,9 +5,9 @@
 {% block javascript %}
 <script>
   // Back to projects
-  $(".iD").click(function () {
+  $(".iDProjects").click(function () {
     var dataHref = $(this).attr("data-href");
-    console.log("clicked", $(this).attr("data-href"));
+    console.log("clicked read more", $(this).attr("data-href"));
     $("#ajax-content").load(dataHref);
     //$('#third').trigger('click');
   });
@@ -24,7 +24,7 @@
                     <p class="card-text">
                         {{ project.content | truncatewords:5 | safe}}
                     </p>
-                    <a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iD btn btn-primary hvr-shrink"
+                    <a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iDProjects btn btn-primary hvr-shrink"
                         style="float:right">Read
                         More ...</a>
                 </div>
