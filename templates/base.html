@@ -119,7 +119,7 @@
                         <ul class="nav navbar-nav ml-auto">
                             {% if user.is_authenticated %}
                             <li class="nav-item">
-                                <a id="profile-link" class="nav-link" data-href="{% url 'profile' %}">Hi, {{ user }} !</a>
+                                <a href="#" id="profile-link" class="nav-link" data-href="{% url 'profile' %}"><i class="fa fa-user-o"></i> Hi, {{ user }} !</a>
                             </li>
                             {% else %}
                             <li class="nav-item">
