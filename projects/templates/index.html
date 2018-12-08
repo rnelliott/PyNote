@@ -12,7 +12,7 @@
                     <p class="card-text">
                         {{ project.content | truncatewords:5 | safe}}
                     </p>
-                    <a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iD btn btn-primary"
+                    <a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iD btn btn-primary hvr-shrink"
                         style="float:right">Read
                         More ...</a>
                 </div>

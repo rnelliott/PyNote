@@ -119,7 +119,10 @@ wrapt==1.10.11
 TODO
 ### Acknowledgements
 - Social buttons for Bootstrap:
-    https://github.com/lipis/bootstrap-social
+   - https://github.com/lipis/bootstrap-social
+
+- Hover CSS:
+   - https://github.com/IanLunn/Hover
 
 ### Content
 TODO

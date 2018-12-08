@@ -1,7 +1,6 @@
 <!-- Base html will be loaded -->
-
 <!--
-  Anything placed in this block will load in ''block content' tags n base.html
+  Anything placed in this block will load in 'block content' tags n base.html
 -->
 {% block javascript %}
 <script>
@@ -25,7 +24,7 @@
                     <p class="card-text">
                         {{ project.content | truncatewords:5 | safe}}
                     </p>
-                    <a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iD btn btn-primary"
+                    <a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iD btn btn-primary hvr-shrink"
                         style="float:right">Read
                         More ...</a>
                 </div>
@@ -37,4 +36,6 @@
         {% endfor %}
     </div>
 </div>
+
+
 {% endblock %}
