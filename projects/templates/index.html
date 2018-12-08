@@ -3,25 +3,25 @@
 <!-- Anything placed in this block will load in ''block content' tags n base.html -->
 {% block content %}
 <div id="ajax-content">
-    {% for project in projects %}
     <div class="row">
-        <div class="offset-sm-3 col-sm-6">
+        {% for project in projects %}
+        <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{ project.title }}</h5>
                     <p class="card-text">
-                        {{ project.content | truncatewords:30 | safe}}
+                        {{ project.content | truncatewords:5 | safe}}
                     </p>
-                    <a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iD btn btn-primary" style="float:right">Read
+                    <a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iD btn btn-primary"
+                        style="float:right">Read
                         More ...</a>
                 </div>
                 <div class="card-footer text-muted">
-                        {{ project.published_date }}
-                      </div>
+                    {{ project.published_date }}
+                </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    <br>
-    {% endfor %}
 </div>
 {% endblock %}
