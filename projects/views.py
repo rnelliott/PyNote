@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
-    projects = Projects.objects.filter(user__exact=request.user)  
+    projects = Projects.objects.filter(user__exact=request.user)
     return render(request, "index.html", {"projects": projects})
 
 @login_required
@@ -17,7 +17,7 @@ def get_projects(request):
     """
     # Filter projects by only those where logged in project user/owner
     # is same as logged in user
-    projects = Projects.objects.filter(user__exact=request.user)  
+    projects = Projects.objects.filter(user__exact=request.user)
     return render(request, "projects.html", {"projects": projects})
 
 @login_required
@@ -25,7 +25,7 @@ def get_projects_sidenav(request):
     """
     Render all existing Projects to sidebar nav items
     """
-    projects = Projects.objects.filter(user__exact=request.user)  
+    projects = Projects.objects.filter(user__exact=request.user)
     return render(request, "base.html", {"projects": projects})
 
 
@@ -45,16 +45,16 @@ def project_details(request, pk):
 @login_required
 def create_or_edit_project(request, pk=None):
     """
-    Create view that can either create or edit a Project, 
-    edits if exists or creates if not. 
+    Create view that can either create or edit a Project,
+    edits if exists or creates if not.
     """
     project = get_object_or_404(Projects, pk=pk) if pk else None
     if request.method == 'POST':
         form = ProjectForm(request.POST, request.FILES, instance=project)
-        if form.is_valid(): 
-            form.instance.user = request.user       
+        if form.is_valid():
+            form.instance.user = request.user
             project = form.save()
-            return redirect(project_details, project.pk)            
+            return redirect(project_details, project.pk)
     else:
         form = ProjectForm(instance=project)
     return render(request, "projectform.html", {"form": form})
