@@ -12,26 +12,28 @@
 <div id="ajax-content">
     {% block content %}
     <div class="row">
-        <div class="offset-sm-2 col-sm-8">
+        <div class="offset-sm-1 col-sm-10">
             {% if project.image %}
             <img class="img-blogpost" src="/media/{{ project.image }}">
             {% endif %}
-            <h1>{{ project.title }}<a id="project-edit" href="{% url 'edit_project' project.id %}" class="iD btn btn-default">Edit</a></h1>
+            <h5>{{ project.title }}<a id="project-edit" href="{% url 'edit_project' project.id %}" class="iD btn btn-default"><i
+                        class="fa fa-pencil"></i></a></h5>
             <div>
                 <span class="alignleft"><a href="#" id="get_projects" data-href="{% url 'get_projects' %}" class="iD badge badge-pill badge-danger"><i
-                            class="fa fa-arrow-left"></i></a>
+                            class="fa fa-arrow-left"></i> back</a>
                 </span>
                 <span class="alignright">
-                    <span class="badge badge-pill badge-primary">Date: {{ project.published_date}}</span>
+                    <span class="badge badge-pill badge-primary"><i class="fa fa-clock-o"></i> {{ project.published_date}}</span>
                     {% if project.views %}
-                    <span class="badge badge-pill badge-info">Views: {{ project.views }}</span>
+                    <span class="badge badge-pill badge-info"><i class="fa fa-eye"></i> {{ project.views }}</span>
                     {% endif %}
-                    <span class="badge badge-pill badge-warning">Tags: {{ project.tags}}</span>
+                    <span class="badge badge-pill badge-warning"><i class="fa fa-tag"></i> {{ project.tags}}</span>
                     </p>
                 </span>
             </div>
         </div>
-        <div class="offset-sm-2 col-sm-8">
+        <div class="offset-sm-1 col-sm-10">
+            <hr>
             <p>{{ project.content | safe}}</p>
             <hr>
         </div>
