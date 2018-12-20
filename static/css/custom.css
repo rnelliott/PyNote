@@ -20,6 +20,10 @@
     border-color: #fff;
 }
 
+.card {
+	min-height: 100%;
+}
+
 /* General */
 body {
 	font-family: Arial;
