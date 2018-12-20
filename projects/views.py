@@ -54,7 +54,7 @@ def create_or_edit_project(request, pk=None):
         if form.is_valid():
             form.instance.user = request.user
             project = form.save()
-            return redirect(project_details, project.pk)
+            return redirect(index)
     else:
         form = ProjectForm(instance=project)
     return render(request, "projectform.html", {"form": form})
