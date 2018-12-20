@@ -93,7 +93,7 @@ a:focus {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(115, 135, 213, 0.356);
     z-index: 998;
     opacity: 0;
     transition: all 0.5s ease-in-out;
