@@ -1,21 +1,20 @@
 <!-- Base html will be loaded -->
 {% extends 'base.html' %}
 <!-- Anything placed in this block will load in ''block content' tags n base.html -->
- 
+
 {% block content %}
 <div id="ajax-content">
     <div class="row">
-        {% for project in projects %}
-        <div class="col-sm-4">
+            {% for project in projects %}
+        <div class="col-sm-4 projects-row">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{ project.title }}</h5>
                     <p class="card-text">
                         {{ project.content | truncatewords:5 | safe}}
                     </p>
-                    <a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iDProjects btn btn-primary hvr-shrink"
-                        style="float:right">Read
-                        More ...</a>
+                    <a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iDProjects btn btn-outline-success hvr-shrink"
+                        style="float:right"><i class="fa fa-arrow-right"></i></a>
                 </div>
                 <div class="card-footer text-muted">
                     {{ project.published_date }}

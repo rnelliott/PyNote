@@ -24,6 +24,10 @@
 	min-height: 100%;
 }
 
+.projects-row {
+	padding-bottom: 25px;
+}
+
 /* General */
 body {
 	font-family: Arial;

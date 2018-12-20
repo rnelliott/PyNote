@@ -18,7 +18,7 @@ def get_projects(request):
     # Filter projects by only those where logged in project user/owner
     # is same as logged in user
     projects = Projects.objects.filter(user__exact=request.user)
-    return render(request, "projects.html", {"projects": projects})
+    return render(request, "index.html", {"projects": projects})
 
 @login_required
 def get_projects_sidenav(request):

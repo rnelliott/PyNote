@@ -18,8 +18,9 @@
             {% endif %}
             <h1>{{ project.title }}<a id="project-edit" href="{% url 'edit_project' project.id %}" class="iD btn btn-default">Edit</a></h1>
             <div>
-                <span class="alignleft"><a href="#" id="get_projects" data-href="{% url 'get_projects' %}" class="iD badge badge-pill badge-danger"><i class="fa fa-arrow-left"></i></a>
-                    </span>
+                <span class="alignleft"><a href="#" id="get_projects" data-href="{% url 'get_projects' %}" class="iD badge badge-pill badge-danger"><i
+                            class="fa fa-arrow-left"></i></a>
+                </span>
                 <span class="alignright">
                     <span class="badge badge-pill badge-primary">Date: {{ project.published_date}}</span>
                     {% if project.views %}
@@ -31,32 +32,9 @@
             </div>
         </div>
         <div class="offset-sm-2 col-sm-8">
-                <p>{{ project.content | safe}}</p>
-                <hr>
+            <p>{{ project.content | safe}}</p>
+            <hr>
         </div>
     </div>
-</div>
-
-{% for project in projects %}
-<div class="row">
-    <div class="offset-sm-3 col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{ project.title }}</h5>
-                <p class="card-text">
-                    {{ project.content | truncatewords:30 | safe}}
-                </p>
-                <a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iD btn btn-primary"
-                    style="float:right">Read
-                    More ...</a>
-            </div>
-            <div class="card-footer text-muted">
-                {{ project.published_date }}
-            </div>
-        </div>
-    </div>
-</div>
-<br>
-{% endfor %}
 </div>
 {% endblock %}
