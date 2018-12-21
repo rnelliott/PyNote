@@ -43,57 +43,22 @@
             <ul class="list-unstyled components">
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fa fa-sticky-note-o"></i>
+                        <i class="fa fa-sticky-note-o fa-fw"></i>
                         Notes
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         {% for project in projects %}
                         <li>
-                            <a id="read_project_nav" data-href="{% url 'project_details' project.id %}" class="iD">{{
-                                project.title | truncatechars:15 }}</a>
+                            <a id="read_project_nav" data-href="{% url 'project_details' project.id %}" class="iD">{{ project.title | truncatechars:15 }}</a>
                         </li>
                         {% endfor %}
                     </ul>
                 </li>
                 <li>
                     <a href="#">
-                        <i class="fa fa-briefcase"></i>
+                        <i class="fa fa-briefcase fa-fw"></i>
                         About
                     </a>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fa fa-copy"></i>
-                        Pages
-                    </a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-image"></i>
-                        Portfolio
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-question"></i>
-                        FAQ
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-paper-plane"></i>
-                        Contact
-                    </a>
-                </li>
             </ul>
 
             <ul class="list-unstyled CTAs">
@@ -129,7 +94,7 @@
                             <li class="nav-item">
                                 <div id="custom-search-input">
                                     <div class="input-group col-md-12">
-                                        <input type="text" class="form-control input-lg" placeholder="Buscar" />
+                                        <input type="text" class="form-control input-lg" placeholder="Search" />
                                         <span class="input-group-btn">
                                             <button class="btn btn-info btn-lg" type="button">
                                                 <i class="fa fa-search"></i>
@@ -137,7 +102,7 @@
                                         </span>
                                     </div>
                                 </div>
-                            </li>                            
+                            </li>
                             {% else %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'login' %}">Login</a>
@@ -239,7 +204,10 @@
         });
         // Collapse/expand sidebar
         Mousetrap.bind(['ctrl+/', 'command+/'], function (e) {
-            $('#sidebar').toggleClass('active');
+            $('#sidebar').addClass('active');
+            $('.overlay').addClass('active');
+            $('.collapse.in').toggleClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
         });
         // New note
         Mousetrap.bind('ctrl+shift+n', function (e) {
