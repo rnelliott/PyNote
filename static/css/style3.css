@@ -3,6 +3,7 @@
 */
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
@@ -75,12 +76,13 @@ a:focus {
     text-align: center;
     background: #45617c;
     position: absolute;
-    top: 20px;
+    top: 23px;
     right: 10px;
     cursor: pointer;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
+    border-radius: 50px;
 }
 
 #dismiss:hover {
@@ -98,6 +100,7 @@ a:focus {
     opacity: 0;
     transition: all 0.5s ease-in-out;
 }
+
 .overlay.active {
     display: block;
     opacity: 1;
