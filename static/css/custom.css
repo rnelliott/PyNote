@@ -1,5 +1,15 @@
 /* Custom CSS */
 
+.btn-success{
+	background-color: #45617c;
+	border: none;
+}
+
+.btn-danger{
+	background-color: #45617c73;
+	border: none;
+}
+
 .alignleft{
 	float: left;
 }
