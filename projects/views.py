@@ -4,10 +4,12 @@ from .models import Projects
 from .forms import ProjectForm
 from django.contrib.auth.decorators import login_required
 
+
 @login_required
 def index(request):
     projects = Projects.objects.filter(user__exact=request.user)
     return render(request, "index.html", {"projects": projects})
+
 
 @login_required
 def get_projects(request):
@@ -19,6 +21,7 @@ def get_projects(request):
     # is same as logged in user
     projects = Projects.objects.filter(user__exact=request.user)
     return render(request, "index.html", {"projects": projects})
+
 
 @login_required
 def get_projects_sidenav(request):
@@ -42,6 +45,7 @@ def project_details(request, pk):
     project.save()
     return render(request, "projectdetails.html", {"project": project})
 
+
 @login_required
 def create_or_edit_project(request, pk=None):
     """
@@ -60,4 +64,12 @@ def create_or_edit_project(request, pk=None):
     return render(request, "projectform.html", {"form": form})
 
 
-
+# Delete a project/note
+@login_required
+def delete_project(request, pk):
+    """
+    Delete the project, return all existing projects
+    """
+    project = get_object_or_404(Projects, pk=pk)
+    project.delete()
+    return redirect(index)
