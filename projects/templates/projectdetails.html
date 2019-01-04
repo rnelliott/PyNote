@@ -19,8 +19,9 @@
             <h5>{{ project.title }}<a id="project-edit" href="{% url 'edit_project' project.id %}" class="iD btn btn-default"><i
                         class="fa fa-pencil"></i></a></h5>
             <div>
-                <span class="alignleft"><a href="#" id="get_projects" data-href="{% url 'get_projects' %}" class="iD badge badge-pill badge-danger"><i
+                <span class="alignleft"><a href="#" id="get_projects" data-href="{% url 'get_projects' %}" class="iD badge badge-pill badge-success"><i
                             class="fa fa-arrow-left"></i> back</a>
+                    
                 </span>
                 <span class="alignright">
                     <span class="badge badge-pill badge-primary"><i class="fa fa-clock-o"></i> {{ project.published_date}}</span>
