@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ project.title }}</h5>
                     <p class="card-text">
-                        {{ project.content | truncatewords:5 | safe}}
+                        {{ project.content | truncatewords:15 | safe}}
                     </p>
                     <span class="alignright"><a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}"
                             class="iDProjects btn btn-success hvr-shrink" style="float:right"><i class="fa fa-arrow-right"></i></a></span>
