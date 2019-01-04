@@ -48,8 +48,8 @@ INSTALLED_APPS = [
     # Accounts/auth
     'accounts',
     # CKEditor
-    'ckeditor',
-    'ckeditor_uploader',
+    # 'ckeditor',
+    # 'ckeditor_uploader',
     # Social auth
     'social_django',
 ]
