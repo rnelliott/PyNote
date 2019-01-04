@@ -2,7 +2,7 @@
 
 A Django note-taking application.
 
-Allows users to create, store and organise their notes.
+Allow users to create, store and organise their notes.
 
  
 ## UX
