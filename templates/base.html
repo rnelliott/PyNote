@@ -63,10 +63,10 @@
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                    <a href="{% url 'new_project' %}" class="article"><i class="fa fa-plus fa-fw"></i> Create</a>
                 </li>
                 <li>
-                    <a href="{% url 'logout' %}" class="article">Logout <i class="fa fa-sign-out"></i></a>
+                    <a href="{% url 'logout' %}" class="article"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </li>
             </ul>
             {% endif %}
