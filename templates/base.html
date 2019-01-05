@@ -41,9 +41,9 @@
 
             {% if user.is_authenticated %}
             <ul class="list-unstyled CTAs">
-                    <li>
-                        <a href="{% url 'new_project' %}" class="article"><i class="fa fa-plus fa-fw"></i> Create</a>
-                    </li>
+                <li>
+                    <a href="{% url 'new_project' %}" class="article"><i class="fa fa-plus fa-fw"></i> Create</a>
+                </li>
             </ul>
             <ul class="list-unstyled components">
                 <li class="active">
@@ -90,16 +90,10 @@
                         <ul class="nav navbar-nav ml-auto">
                             {% if user.is_authenticated %}
                             <li class="nav-item">
-                                <div id="custom-search-input">
-                                    <div class="input-group col-md-12">
-                                        <input type="text" class="form-control input-lg" placeholder="Search" />
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-info btn-lg" type="button">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </div>
+                                <form method="GET" action="{% url 'search_project' %}" class="form-inline my-2 my-lg-0">
+                                    <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+                                </form>
                             </li>
                             {% else %}
                             <li class="nav-item">
