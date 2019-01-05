@@ -1,5 +1,9 @@
 /* Custom CSS */
 
+.form-control:focus{
+	color: #fff;
+}
+
 .btn-success{
 	background-color: #45617c;
 	border: none;
