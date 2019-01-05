@@ -178,8 +178,6 @@ a.article,
 a.article:hover {
     background: #45617c !important;
     color: #fff !important;
-    position: fixed;
-    bottom: 10vh;
 }
 
 /* ---------------------------------------------------

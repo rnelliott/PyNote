@@ -3,6 +3,7 @@ from django.utils import timezone
 from .models import Projects
 from .forms import ProjectForm
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 
 @login_required
@@ -73,3 +74,11 @@ def delete_project(request, pk):
     project = get_object_or_404(Projects, pk=pk)
     project.delete()
     return redirect(index)
+
+
+# Search
+def search_project(request):
+    query = request.GET.get('search')
+    results = Projects.objects.filter(Q(title__icontains=query))
+
+    return render(request, "index.html", {"projects": results})
