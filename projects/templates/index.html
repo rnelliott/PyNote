@@ -7,25 +7,29 @@
     <div class="row">
         {% for project in projects %}
         <div class="col-sm-4 projects-row">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{ project.title }}</h5>
-                    <p class="card-text">
-                        {{ project.content | truncatewords:15 | safe}}
-                    </p>
-                    <span class="alignright"><a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}"
-                            class="iDProjects btn btn-success hvr-shrink" style="float:right"><i class="fa fa-arrow-right"></i></a></span>
-                    <span class="alignleft">
-                        <a data-href="{% url 'delete_project' project.id %}" class="iDProjects btn btn-danger hvr-shrink"
-                            style="float:right"><i class="fa fa-trash"></i></a>
-                    </span>
-                </div>
-                <div class="card-footer text-muted">
-                    {{ project.published_date }}
-                </div>
-            </div>
+            <a href="#" id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iDProjects">
+                <div class="card">
+                    <div class="card-body hvr-shrink">
+                        <h5>{{ project.title }}</h5>
+                        <p class="card-text">
+                            {{ project.content | truncatewords:10 | safe}}
+                        </p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <!-- <span class="alignright"><a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}"
+                            class="iDProjects btn btn-success hvr-shrink" style="float:right"><i class="fa fa-arrow-right"></i></a></span> -->
+                        <!-- <span class="alignleft">
+                                <a data-href="{% url 'delete_project' project.id %}" class="iDProjects btn btn-danger hvr-shrink"
+                                style="float:right"><i class="fa fa-trash"></i></a>
+                            </span> -->
+                        <span class="alignright">
+                            {{ project.published_date }}
+                        </span>
+                    </div>
+            </a>
         </div>
-        {% endfor %}
     </div>
+    {% endfor %}
+</div>
 </div>
 {% endblock %}

@@ -35,11 +35,16 @@
 }
 
 .card {
-	min-height: 100%;
+	min-height: 15vh;
+	max-height: 30vh;
+}
+
+.card-body{
+	min-height: 15vh
 }
 
 .projects-row {
-	padding-bottom: 25px;
+	padding-bottom: 15px;
 }
 
 /* General */
