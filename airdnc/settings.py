@@ -205,7 +205,7 @@ TINYMCE_DEFAULT_CONFIG = {
             table code lists fullscreen  insertdatetime  nonbreaking
             contextmenu directionality searchreplace wordcount visualblocks
             visualchars code fullscreen autolink lists  charmap print  hr
-            anchor pagebreak
+            anchor pagebreak autosave
             ''',
     'toolbar1': '''
             fullscreen preview bold italic underline | fontselect,
@@ -213,11 +213,11 @@ TINYMCE_DEFAULT_CONFIG = {
             aligncenter alignjustify | indent outdent | bullist numlist table |
             | link image media | codesample |
             ''',
-    'toolbar2': '''
-            visualblocks visualchars |
-            charmap hr pagebreak nonbreaking anchor |  code |
-            ''',
+    # 'toolbar2': '''
+    #         visualblocks visualchars |
+    #         charmap hr pagebreak nonbreaking anchor |  code |
+    #         ''',
     'contextmenu': 'formats | link image',
-    'menubar': True,
-    'statusbar': True,
+    'menubar': False,
+    'statusbar': False,
     }
