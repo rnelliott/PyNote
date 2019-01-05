@@ -32,7 +32,6 @@ urlpatterns = [
     url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
     # if user goes to accounts/, parse url in urls.py i accounts app
     url(r'^accounts/', include(urls_accounts)),
-    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     # Social auth URLS
     url(r'^oauth/', include('social_django.urls', namespace='social')),
 ]
