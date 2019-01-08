@@ -105,11 +105,21 @@
                             {% if user.is_authenticated %}
                             <li class="nav-item">
                                 <form method="GET" action="{% url 'search_project' %}" class="form-inline my-2 my-lg-0">
-                                    <input id="search-bar-main" name="search" class="form-control mr-sm-2" type="search" placeholder="Search"
-                                        aria-label="Search" required>
+                                    <input id="search-bar-main" name="search" class="form-control mr-sm-2" type="search"
+                                        placeholder="Search" aria-label="Search" required>
                                     <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button> -->
                                 </form>
                             </li>
+                            <div class="dropdown">
+                                <a href="#" class="btn btn-secondary" id="dropdownMenuButton" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">{{ user }} <i class="fa fa-chevron-down"></i></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a data-href="{% url 'profile' %}" class="iD nav-link"><i class="fa fa-user-o fa-fw"></i>
+                                        Proile</a>
+                                    <a href="{% url 'logout' %}" class="iD nav-link"><i class="fa fa-sign-out fa-fw"></i>
+                                        Log out</a>
+                                </div>
+                            </div>
                             {% else %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'login' %}">Login</a>
