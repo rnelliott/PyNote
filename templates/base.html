@@ -42,31 +42,22 @@
             </div>
 
             <div class="sidebar-header">
-                <a href="#" id="profile-link" class="iD nav-link" data-href="{% url 'profile' %}"><i class="fa fa-user-o"></i>
+                <a id="profile-link" class="iD nav-link" href="{% url 'index' %}"><i class="fa fa-home"></i>
                     Hi, {{ user }} !</a>
             </div>
-
             {% if user.is_authenticated %}
             <ul class="list-unstyled CTAs">
-                <li>
-                    <form method="GET" action="{% url 'search_project' %}" class="article">
-                        <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
-                            required>
-                        <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button> -->
-                    </form>
-                </li>
                 <li>
                     <a href="{% url 'new_project' %}" class="article"><i class="fa fa-plus fa-fw"></i> Create</a>
                 </li>
             </ul>
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="{% url 'index' %}"><i class="fa fa-home fa-fw"></i> Home</a>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fa fa-sticky-note-o fa-fw"></i>
                         Notes
                     </a>
-                    <ul class="list-unstyled" id="homeSubmenu">
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
                         {% for project in projects %}
                         <li>
                             <a href="#" id="read_project_nav" data-href="{% url 'project_details' project.id %}" class="iD">{{ project.title | truncatechars:15 }}</a>
