@@ -144,9 +144,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Show/hide keyboard shortcuts: <span class="badge badge-light" style="float:right">?</span></p>
-                    <p>Expand/collapse sidebar: <span class="badge badge-light" style="float:right">command + /</span></p>
+                    <p>Show/hide shortcuts: <span class="badge badge-light" style="float:right">?</span></p>
+                    <p>Side menu: <span class="badge badge-light" style="float:right">ctrl + alt + /</span></p>
                     <p>New note: <span class="badge badge-light" style="float:right">ctrl + shift + n</span></p>
+                    <p>Search bar focus: <span class="badge badge-light" style="float:right">ctrl + shift + s</span></p>
                 </div>
                 <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -218,7 +219,7 @@
             $('#exampleModalCenter').modal('toggle');
         });
         // Collapse/expand sidebar
-        Mousetrap.bind(['ctrl+/', 'command+/'], function (e) {
+        Mousetrap.bind(['ctrl+alt+/', 'command+/'], function (e) {
             $('#sidebar').addClass('active');
             $('.overlay').addClass('active');
             $('.collapse.in').toggleClass('in');
