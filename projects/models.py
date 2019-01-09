@@ -12,6 +12,7 @@ class Projects(models.Model):
     # Create unique-sharable ID
     uuid = uuid.uuid4()
     uuid = models.CharField(max_length=64, default=uuid, unique=True)
+    is_sharable = models.BooleanField(default=False)
     user = models.ForeignKey(User, null=True, blank=True)
     title = models.CharField(max_length=200, verbose_name='Name')
     # content = models.TextField()
