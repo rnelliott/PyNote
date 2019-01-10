@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="ajax-content">
+    <div class="row">
+        <div class="offset-sm-1 col-sm-10">
+            {% if project.image %}
+            <img class="img-blogpost" src="/media/{{ project.image }}">
+            {% endif %}
+            
+            <div>
+                <span class="alignleft"><a href="#" id="get_projects" data-href="{% url 'get_projects' %}" class="iD badge badge-pill badge-success"><i
+                            class="fa fa-arrow-left"></i> back</a>
+                </span>
+                <span class="alignright">
+                    <span class="badge badge-pill badge-primary"><i class="fa fa-clock-o"></i> {{ project.published_date}}</span>
+                    {% if project.views %}
+                    <span class="badge badge-pill badge-info"><i class="fa fa-eye"></i> {{ project.views }}</span>
+                    {% endif %}
+                    <span class="badge badge-pill badge-warning"><i class="fa fa-tag"></i> {{ project.tag}}</span>
+                    </p>
+                </span>
+            </div>
+        </div>
+        <div class="offset-sm-1 col-sm-10">
+            <hr>
+            <p>{{ project.content | safe}}</p>
+            <hr>
+        </div>
+    </div>
+</div>
+{% endblock %}

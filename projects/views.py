@@ -79,6 +79,13 @@ def delete_project(request, pk):
 # Search
 def search_project(request):
     query = request.GET.get('search')
-    results = Projects.objects.filter(Q(title__icontains=query) | Q(content__icontains=query) )
+    results = Projects.objects.filter(Q(title__icontains=query) | Q(content__icontains=query))
 
     return render(request, "index.html", {"projects": results})
+
+
+# Sharable URLs
+def public_url(request, url):
+    # project = get_object_or_404(Projects, uuid=url)
+    results = Projects.objects.filter(Q(uuid__icontains=url))
+    return render(request, "sharedproject.html", {"project": results})

@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import index, get_projects, project_details, create_or_edit_project, delete_project, search_project
+from .views import index, get_projects, project_details, create_or_edit_project, delete_project, search_project, public_url
 
 urlpatterns= [
     # root dir for the projects app
@@ -16,4 +16,7 @@ urlpatterns= [
     url(r'^(?P<pk>\d+)/delete/$', delete_project, name='delete_project'),
     # search
     url(r'^results/$', search_project, name='search_project'),
+    # sharable urls
+    url(r'^public/([a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12})$', public_url, name='public_url'),
+
 ]
