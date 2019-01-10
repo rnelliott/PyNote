@@ -1,5 +1,14 @@
 /* Custom CSS */
 
+.modal-lg{
+	width: 750px;
+	margin: auto;
+}
+
+.max-width{
+	width: 100%;
+}
+
 .form-control:focus{
 	color: #45617c;
 }
