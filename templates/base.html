@@ -65,6 +65,21 @@
                         {% endfor %}
                     </ul>
                 </li>
+                <li class="active">
+                    <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fa fa-tag fa-fw"></i>
+                        Tags
+                    </a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu2">
+                        {% for project in projects %}
+                        {% if project.tag %}
+                        <li>
+                            <a href="#" id="read_project_nav" data-href="{% url 'project_details' project.id %}" class="iD">{{project.tag | truncatechars:15 }}</a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
             </ul>
 
             <ul class="list-unstyled CTAs">
@@ -81,7 +96,7 @@
             
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info btn-info-main">
                         <i class="fa fa-align-left"></i>
                         <!-- <span>Toggle Sidebar</span> -->
                     </button>
