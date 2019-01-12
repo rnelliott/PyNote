@@ -1,14 +1,3 @@
-{% block javascript %}
-<script>
-    // Back to projects
-    $('.iD').click(function () {
-        var dataHref = $(this).attr('data-href')
-        console.log('clicked', $(this).attr('data-href'));
-        $("#ajax-content").load(dataHref)
-        //$('#third').trigger('click');
-    });
-</script>
-{% endblock %}
 <div id="ajax-content">
     {% block content %}
     <div class="row">
@@ -20,7 +9,7 @@
                         class="fa fa-pencil-square-o fa-fw"></i></a>
                     <a href="#" data-toggle="modal" data-target="#sharableModal" class="iD"><i class="fa fa-share-square-o fa-fw"></i></a></h5>
             <div>
-                <span class="alignleft"><a href="#" id="get_projects" data-href="{% url 'get_projects' %}" class="iD badge badge-pill badge-success"><i
+                <span class="alignleft"><a id="get_projects" href="{% url 'get_projects' %}" class="iD badge badge-pill badge-success"><i
                             class="fa fa-arrow-left"></i> back</a>
                 </span>
                 <span class="alignright">

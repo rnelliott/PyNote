@@ -1,18 +1,7 @@
 {% extends 'base.html' %}
-<!-- {% block javascript %}
-<script>
-    // Back to projects
-    $('.iD').click(function () {
-        var dataHref = $(this).attr('data-href')
-        console.log('clicked', $(this).attr('data-href'));
-        $("#ajax-content").load(dataHref)
-        //$('#third').trigger('click');
-    });
-</script>
-{% endblock %} -->
+
 {% load bootstrap_tags %}
 {% block content %}
-<!-- <h1>Add a new project:</h1> -->
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.media }}
