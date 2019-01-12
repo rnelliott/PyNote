@@ -1,5 +1,9 @@
 /* Custom CSS */
 
+.btn-info-main{
+	color: #1d4975 !important;
+}
+
 .modal-lg{
 	width: 750px;
 	margin: auto;
