@@ -42,8 +42,11 @@
             </div>
 
             <div class="sidebar-header">
-                <a id="profile-link" class="iD nav-link" href="{% url 'index' %}"><i class="fa fa-home"></i>
-                    Hi, {{ user }} !</a>
+                <ul class="list-unstyled components">
+                    <li class="active">
+                        <a id="profile-link" class="iD nav-link" href="{% url 'index' %}"> PyNote</a>
+                    </li>
+                </ul>
             </div>
             {% if user.is_authenticated %}
             <ul class="list-unstyled CTAs">
@@ -84,7 +87,11 @@
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="{% url 'logout' %}" class="article"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <span class="alignleft">
+                        <a href="{% url 'logout' %}" class="article"><i class="fa fa-sign-out fa-fw"></i> Logout</a></span>
+                    <span class="alignright">
+                        <a id="profile-link" class="article" href="{% url 'profile' %}"><i class="fa fa-gear"></i>
+                            Settings</a></span>
                 </li>
             </ul>
             {% endif %}
@@ -93,12 +100,12 @@
 
         <!-- Page Content  -->
         <div id="content">
-            
+
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-info btn-info-main">
                         <i class="fa fa-align-left"></i>
-                        <!-- <span>Toggle Sidebar</span> -->
+                        <span>PyNote</span>
                     </button>
                     <button class="btn btn-info d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -141,7 +148,7 @@
                     </div>
                 </div>
             </nav>
-            
+
             {% block content %}
             <div id="ajax-content"></div>
             {% endblock %}
