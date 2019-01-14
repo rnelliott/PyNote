@@ -37,19 +37,26 @@
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
-            <div id="dismiss">
+            <!-- <div id="dismiss">
                 <i class="fa fa-arrow-left"></i>
-            </div>
+            </div> -->
 
             <div class="sidebar-header">
                 <ul class="list-unstyled components">
-                    <li class="active">
-                        <a id="profile-link" class="iD nav-link" href="{% url 'index' %}"> PyNote</a>
+                    <li class="active" id="dismiss">
+                        <a id="profile-link" class="iD nav-link" href="#"><i class="fa fa-align-left"></i> PyNote</a>
                     </li>
                 </ul>
             </div>
             {% if user.is_authenticated %}
             <ul class="list-unstyled CTAs">
+                <li>
+                    <form method="GET" action="{% url 'search_project' %}" class="form-inline my-2 my-lg-0">
+                        <input id="search-bar-main" name="search" class="form-control form-control-sidebar mr-sm-2" type="search"
+                            placeholder="Search" aria-label="Search" required>
+                        <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button> -->
+                    </form>
+                    </li>
                 <li>
                     <a href="{% url 'new_project' %}" class="article"><i class="fa fa-plus fa-fw"></i> Create</a>
                 </li>
@@ -85,15 +92,17 @@
                 </li>
             </ul>
 
-            <ul class="list-unstyled CTAs">
-                <li>
-                    <span class="alignleft">
-                        <a href="{% url 'logout' %}" class="article"><i class="fa fa-sign-out fa-fw"></i> Logout</a></span>
-                    <span class="alignright">
-                        <a id="profile-link" class="article" href="{% url 'profile' %}"><i class="fa fa-gear"></i>
-                            Settings</a></span>
-                </li>
-            </ul>
+            <div class="CTAs-bottom">
+                    <ul class="list-unstyled CTAs">
+                            <li>
+                                <span class="alignleft">
+                                    <a href="{% url 'logout' %}" class="article"><i class="fa fa-sign-out fa-fw"></i> Logout</a></span>
+                                <span class="alignright">
+                                    <a id="profile-link" class="article" href="{% url 'profile' %}"><i class="fa fa-gear"></i>
+                                        Settings</a></span>
+                            </li>
+                        </ul>
+            </div>
             {% endif %}
         </nav>
 
@@ -105,7 +114,7 @@
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-info btn-info-main">
                         <i class="fa fa-align-left"></i>
-                        <span>PyNote</span>
+                        <span> PyNote</span>
                     </button>
                     <button class="btn btn-info d-none ml-auto" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -126,6 +135,9 @@
                             <li class="nav-item">
                                 <a href="{%url 'index'%}" class="btn btn-secondary"><i class="fa fa-home"></i> Home</a>
                             </li>
+                            <li class="nav-item">
+                                    <a href="{%url 'new_project'%}" class="btn btn-secondary"><i class="fa fa-plus"></i> Create</a>
+                                </li>
                             <div class="dropdown">
                                 <a href="#" class="btn btn-secondary" id="dropdownMenuButton" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o"></i> {{ user }}</a>

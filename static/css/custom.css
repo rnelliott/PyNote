@@ -1,6 +1,21 @@
 /* Custom CSS */
 
+.CTAs-bottom{
+	padding-top: 100px; 
+}
+
 .btn-info-main{
+	color: #1d4975 !important;
+	font-size: 20px;
+}
+
+.btn-info-main:hover{
+	color: #1d4975;
+	background-color: transparent !important;
+	font-size: 20px;
+}
+
+.btn-secondary{
 	color: #1d4975 !important;
 }
 
@@ -13,8 +28,20 @@
 	width: 100%;
 }
 
+.form-control{
+	color: #1d4975;
+}
+
 .form-control:focus{
-	color: #45617c;
+	color: #1d4975;
+}
+
+.form-control-sidebar{
+	color: #fff !important;
+}
+
+.form-control-sidebar:invalid{
+	color: #fff;
 }
 
 .btn-success{
