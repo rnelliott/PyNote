@@ -1,4 +1,4 @@
-# AirDnC
+# AirDnC [![Build Status](https://travis-ci.com/davedodea/CI-Project5.svg?token=mSbTyy1sJpCTYfpkhqUw&branch=master)](https://travis-ci.com/davedodea/CI-Project5)
 
 A Django note-taking application.
 
