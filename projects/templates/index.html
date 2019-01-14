@@ -31,14 +31,16 @@
         </div>
         {% endfor %}
         {% else %}
-        <div class="col-sm-12 projects-row">
-            <div class=" jumbotron jumbotron-fluid">
-                <div class="offset-sm-3 col-sm-6 container">
-                    <h1 class="display-4">You haven't created any notes, yet!</h1>
-                    <p class="lead alert alert-primary alignright"><a href="{%url 'new_project'%}"> Create one now <i class="fa fa-arrow-right"></i></a></p>
+       <div class="container">
+            <div class="col-sm-12 projects-row">
+                    <div class=" jumbotron jumbotron-fluid">
+                        <div class="offset-sm-2 col-sm-8 container">
+                            <h1 class="display-4">You haven't created any notes, yet!</h1>
+                            <p class="lead alert alert-primary alignright"><a href="{%url 'new_project'%}"> Create one now <i class="fa fa-arrow-right"></i></a></p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+       </div>
         {% endif %}
     </div>
 </div>

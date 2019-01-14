@@ -5,14 +5,14 @@
             {% if project.image %}
             <img class="img-blogpost" src="/media/{{ project.image }}">
             {% endif %}
-            <h5>{{ project.title }} <a id="project-edit" href="{% url 'edit_project' project.id %}" class="iD"><i
-                        class="fa fa-pencil-square-o fa-fw"></i></a>
-                    <a href="#" data-toggle="modal" data-target="#sharableModal" class="iD"><i class="fa fa-share-square-o fa-fw"></i></a></h5>
+            <h5>{{ project.title }} <a id="project-edit" href="{% url 'edit_project' project.id %}" class="iD"><i class="fa fa-pencil-square-o fa-fw alert alert-info"></i></a>
+                <a href="#" data-toggle="modal" data-target="#sharableModal" class="iD"><i class="fa fa-share-square-o fa-fw alert alert-success"></i></a>
+                <a href="{% url 'delete_project' project.id %}" class="iD"><i class="fa fa-trash-o fa-fw alert alert-warning"></i></a></h5>
             <div>
                 <span class="alignleft"><a id="get_projects" href="{% url 'get_projects' %}" class="iD badge badge-pill badge-success"><i
                             class="fa fa-arrow-left"></i> back</a>
                 </span>
-                <span class="alignright">
+                <span class="alignright">                    
                     <span class="badge badge-pill badge-primary"><i class="fa fa-clock-o"></i> {{ project.published_date}}</span>
                     {% if project.views %}
                     <span class="badge badge-pill badge-info"><i class="fa fa-eye"></i> {{ project.views }}</span>
@@ -32,26 +32,26 @@
 
 <!-- Modal -->
 <div class="modal fade" id="sharableModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Share your note</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <p>Copy and send the url to your friends:</p>
-            <!-- <p>Side menu: <span class="badge badge-light" style="float:right">ctrl + alt + /</span></p> -->
-            <div class="alert alert-success" role="alert" >
-                <p id="modalUrl" class="max-width">https://airdnc.daveodea.com/projects/{{ project.uuid }}</p>
-              </div>
-        </div>
-        <!-- <div class="modal-footer">
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Share your note</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Copy and send the url to your friends:</p>
+                <!-- <p>Side menu: <span class="badge badge-light" style="float:right">ctrl + alt + /</span></p> -->
+                <div class="alert alert-success" role="alert">
+                    <p id="modalUrl" class="max-width">https://airdnc.daveodea.com/projects/{{ project.uuid }}</p>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
             <button class="btn btn-success" data-clipboard-target="#modalUrl"><i class="fa fa-copy"></i> Copy</button>
         </div> -->
+        </div>
     </div>
-</div>
 </div>
 {% endblock %}
