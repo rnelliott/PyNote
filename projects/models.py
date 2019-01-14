@@ -10,8 +10,8 @@ class Projects(models.Model):
     Model for project/post by users
     """
     # Create unique-sharable ID
-    uuid = uuid.uuid4()
-    uuid = models.CharField(max_length=64, default=uuid, unique=True)
+    # uuid = uuid.uuid4()
+    # uuid = models.CharField(max_length=64, default=uuid, unique=True)
     is_sharable = models.BooleanField(default=False)
     user = models.ForeignKey(User, null=True, blank=True)
     title = models.CharField(max_length=200, verbose_name='Name')
