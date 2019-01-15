@@ -1,81 +1,86 @@
 /* Custom CSS */
 
-.nav-link{
+.fa-search-light:before {
+    content: "\f002";
+    color: #1d4975;
+}
+
+.nav-link-main {
 	color: #1d4975 !important;
 }
 
-.CTAs-bottom{
-	padding-top: 100px; 
+.CTAs-bottom {
+	padding-top: 100px;
 }
 
-.btn-info-main{
+.btn-info-main {
 	color: #1d4975 !important;
 	font-size: 20px;
 }
 
-.btn-info-main:hover{
+.btn-info-main:hover {
 	color: #1d4975;
 	background-color: transparent !important;
 	font-size: 20px;
 }
 
-.btn-secondary{
+.btn-secondary {
 	color: #1d4975 !important;
 }
 
-.modal-lg{
+.modal-lg {
 	width: 750px;
 	margin: auto;
 }
 
-.max-width{
+.max-width {
 	width: 100%;
 }
 
-.form-control{
+.form-control {
 	color: #1d4975;
 }
 
-.form-control:focus{
+.form-control:focus {
 	color: #1d4975;
 }
 
-.form-control-sidebar{
+.form-control-sidebar {
 	color: #fff !important;
 }
 
-.form-control-sidebar:invalid{
+.form-control-sidebar:invalid {
 	color: #fff;
 }
 
-.btn-success{
+.btn-success {
 	background-color: #45617c;
 	border: none;
 }
 
-.btn-danger{
+.btn-danger {
 	background-color: #45617c73;
 	border: none;
 }
 
-.alignleft{
+.alignleft {
 	float: left;
 }
 
-.alignright{
+.alignright {
 	float: right;
 }
 
 .btn-info {
-    color: #6d7fcc;
-    background-color: transparent;
-    border-color: transparent;
+	color: #6d7fcc;
+	background-color: transparent;
+	border-color: transparent;
 }
 
 .btn-info:hover {
-    color: #fff;
-    background-color: #7f94f3;
-    border-color: #fff;
+	color: #fff;
+	background-color: #7f94f3;
+	border-color: #fff;
 }
 
 .card {
@@ -83,7 +88,7 @@
 	max-height: 30vh;
 }
 
-.card-body{
+.card-body {
 	min-height: 15vh
 }
 
@@ -97,10 +102,12 @@ body {
 	margin: 0;
 	padding: 0;
 }
-body, wrapper {
-	min-height:100vh;
- }
- 
+
+body,
+wrapper {
+	min-height: 100vh;
+}
+
 
 
 section {
@@ -113,12 +120,13 @@ h1 a {
 	color: #555555;
 	text-decoration: none;
 }
+
 .bg-light {
-    background-color: transparent!important;
+	background-color: transparent !important;
 }
 
-.bg-primary{
-	background-color: #fff!important;
+.bg-primary {
+	background-color: #fff !important;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -129,11 +137,12 @@ h1 a {
 	color: #6c7a89;
 }
 
-@media only screen and (min-width: 999px) {	
-	.social-create-links-register{
+@media only screen and (min-width: 999px) {
+	.social-create-links-register {
 		padding-top: 25vh;
 	}
-	.social-create-links-login{
+
+	.social-create-links-login {
 		padding-top: 15vh;
 	}
 }
@@ -241,7 +250,7 @@ a:hover {
 	height: 60px;
 	line-height: 60px;
 	background-color: rgb(255, 255, 255);
-  }
+}
 
 /* Bootstrap CSS */
 /*
