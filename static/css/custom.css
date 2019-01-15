@@ -1,5 +1,9 @@
 /* Custom CSS */
 
+.nav-link{
+	color: #1d4975 !important;
+}
+
 .CTAs-bottom{
 	padding-top: 100px; 
 }
