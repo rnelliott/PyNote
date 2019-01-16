@@ -11,9 +11,9 @@
                 <div class="card">
                     <div class="card-body hvr-shrink">
                         <h5><a href="#" id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iDProjects">{{ project.title }}</h5>
-                        <!-- <p class="card-text">
-                                    {{ project.content | truncatewords:3 | safe}}
-                                </p> -->
+                        <p class="card-text">
+                                    {{ project.content | truncatewords:10 | safe}}
+                                </p>
                         </a>
                     </div>
                     <div class="card-footer text-muted">
