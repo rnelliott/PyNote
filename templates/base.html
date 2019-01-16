@@ -34,10 +34,6 @@
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
-            <!-- <div id="dismiss">
-                <i class="fa fa-arrow-left"></i>
-            </div> -->
-
             <div class="sidebar-header">
                 <ul class="list-unstyled components">
                     <li class="active" id="dismiss">
@@ -47,6 +43,9 @@
             </div>
             {% if user.is_authenticated %}
             <ul class="list-unstyled CTAs">
+                    <li>
+                            <a href="{% url 'index' %}" class="article"><i class="fa fa-home fa-fw"></i> Home</a>
+                        </li>
                 <li>
                     <form method="GET" action="{% url 'search_project' %}" class="form-inline my-2 my-lg-0">
                         <div class="input-group mb-3">
@@ -124,7 +123,7 @@
                         <ul class="nav navbar-nav ml-auto">
                             {% if user.is_authenticated %}
                             <li class="nav-item">
-                                
+
                                 <form method="GET" action="{% url 'search_project' %}" class="form-inline my-2 my-lg-0">
                                     <div class="input-group mb-3">
                                         <input id="search-bar-main" name="search" class="form-control mr-sm-2" type="search" placeholder="Search notes ..." required>
