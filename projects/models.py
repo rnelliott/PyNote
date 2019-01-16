@@ -5,6 +5,13 @@ from tinymce import HTMLField
 
 import uuid
 
+class Category(models.Model):
+    name = models.CharField(max_length=200)
+    user = models.ForeignKey(User, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
 class Projects(models.Model):
     """
     Model for project/post by users
@@ -12,6 +19,7 @@ class Projects(models.Model):
     # Create unique-sharable ID
     # uuid = uuid.uuid4()
     # uuid = models.CharField(max_length=64, default=uuid, unique=True)
+    category = models.ForeignKey('Category')
     is_sharable = models.BooleanField(default=False)
     user = models.ForeignKey(User, null=True, blank=True)
     title = models.CharField(max_length=200, verbose_name='Name')
