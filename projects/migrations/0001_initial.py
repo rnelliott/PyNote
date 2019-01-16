@@ -11,7 +11,6 @@ import uuid
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -22,17 +21,21 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Projects',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('uuid', models.CharField(default=uuid.UUID('d734ea8a-ec25-4ffc-ab27-96cd38f6ae10'), max_length=64, unique=True)),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
+                ('uuid', models.CharField(default=uuid.UUID(
+                    'd734ea8a-ec25-4ffc-ab27-96cd38f6ae10'), max_length=64, unique=True)),
                 ('is_sharable', models.BooleanField(default=False)),
                 ('title', models.CharField(max_length=200, verbose_name='Name')),
                 ('content', tinymce.models.HTMLField(verbose_name='Content')),
                 ('created_date', models.DateTimeField(auto_now_add=True)),
-                ('published_date', models.DateTimeField(blank=True, default=django.utils.timezone.now, null=True)),
+                ('published_date', models.DateTimeField(
+                    blank=True, default=django.utils.timezone.now, null=True)),
                 ('views', models.IntegerField(default=0)),
                 ('tag', models.CharField(blank=True, max_length=30, null=True)),
                 ('image', models.ImageField(blank=True, null=True, upload_to='img')),
-                ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('user', models.ForeignKey(blank=True, null=True,
+                                           on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]
