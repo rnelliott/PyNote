@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Projects
+from .models import Projects, Category
 from .forms import ProjectForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -8,8 +8,9 @@ from django.db.models import Q
 
 @login_required
 def index(request):
+    categories = Category.objects.filter(user__exact=request.user)
     projects = Projects.objects.filter(user__exact=request.user)
-    return render(request, "index.html", {"projects": projects})
+    return render(request, "index.html", {"projects": projects, "categories": categories})
 
 
 @login_required
@@ -79,7 +80,9 @@ def delete_project(request, pk):
 # Search
 def search_project(request):
     query = request.GET.get('search')
-    results = Projects.objects.filter(Q(title__icontains=query) | Q(content__icontains=query))
+    results = Projects.objects.filter(
+                Q(title__icontains=query) | Q(content__icontains=query)
+                    ).filter(user__exact=request.user)
 
     return render(request, "search.html", {"projects": results})
 

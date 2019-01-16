@@ -76,16 +76,14 @@
                 </li>
                 <li class="active">
                     <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fa fa-tag fa-fw"></i>
-                        Tags
+                        <i class="fa fa-book fa-fw"></i>
+                        Categories
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu2">
-                        {% for project in projects %}
-                        {% if project.tag %}
+                        {% for category in categories %}
                         <li>
-                            <a href="#" id="read_project_nav" data-href="{% url 'project_details' project.id %}" class="iD">{{project.tag | truncatechars:15 }}</a>
+                            <a href="#" id="read_project_nav" href="" class="iD">{{category.name | truncatechars:15 }}</a>
                         </li>
-                        {% endif %}
                         {% endfor %}
                     </ul>
                 </li>
