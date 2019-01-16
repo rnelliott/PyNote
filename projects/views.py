@@ -81,7 +81,7 @@ def search_project(request):
     query = request.GET.get('search')
     results = Projects.objects.filter(Q(title__icontains=query) | Q(content__icontains=query))
 
-    return render(request, "index.html", {"projects": results})
+    return render(request, "search.html", {"projects": results})
 
 
 # Sharable URLs
