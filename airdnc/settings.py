@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'cart',
     # Products
     'products',
+    # Checkout
+    'checkout',
     # Accounts/auth
     'accounts',
     # CKEditor
