@@ -8,7 +8,7 @@
             {% if projects|length > 0 %}
             {% for project in projects %}
             <div class="col-sm-3 projects-row">
-                <div class="card">
+                <div class="card text-primary border-primary">
                     <div class="card-body hvr-shrink">
                         <h5><a href="#" id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iDProjects">{{ project.title }}</h5>
                         <p class="card-text">
