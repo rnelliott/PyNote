@@ -1,24 +1,24 @@
-from django.conf import settings
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404, render, reverse, redirect
-from django.utils import timezone
 from django.contrib import messages
-
-import stripe
-from products.models import Product
-
-from .forms import MakePayment, OrderForm
+from .forms import MakePaymentForm, OrderForm
 from .models import OrderLineItem
+from django.conf import settings
+from django.utils import timezone
+from products.models import Product
+import stripe
+
 
 # Create your views here.
+
 stripe.api_key = settings.STRIPE_SECRET
 
 
-@login_required
+@login_required()
 def checkout(request):
     if request.method == "POST":
         order_form = OrderForm(request.POST)
-        payment_form = MakePayment(request.POST)
+        payment_form = MakePaymentForm(request.POST)
 
         if order_form.is_valid() and payment_form.is_valid():
             order = order_form.save(commit=False)
@@ -48,21 +48,17 @@ def checkout(request):
                 messages.error(request, "Your card was declined!")
 
             if customer.paid:
-                messages.error(request, "You have successfully paid!")
+                messages.error(request, "You have successfully paid")
                 request.session['cart'] = {}
                 return redirect(reverse('products'))
             else:
-                messages.error(request, "Unable to take payment!")
-
+                messages.error(request, "Unable to take payment")
         else:
             print(payment_form.errors)
             messages.error(
                 request, "We were unable to take a payment with that card!")
     else:
-        payment_form = MakePayment()
+        payment_form = MakePaymentForm()
         order_form = OrderForm()
 
-        return render(request, "checkout.html",
-                      {"order_form": order_form,
-                       "payment_form": payment_form,
-                       "publishable": settings.STRIPE_PUBLISHABLE})
+    return render(request, "checkout.html", {'order_form': order_form, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})

@@ -4,7 +4,7 @@
 {% load bootstrap_tags %}
 
 {% block head_js %}
-<script type="text/javascript" src="https://js/stripe.com/v2/"></script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
     //<![CDATA[
     Stripe.publishableKey = '{{ publishable }}';
@@ -51,5 +51,7 @@
     <div class="form-group col-md-12">
         <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit payment">
     </div>
+
+    {% csrf_token %}
 </form>
 {% endblock %}
