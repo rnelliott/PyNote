@@ -59,7 +59,7 @@ def checkout(request):
             messages.error(
                 request, "We were unable to take a payment with that card!")
     else:
-        payment_form = MakePaymentForm()
+        payment_form = MakePayment()
         order_form = OrderForm()
 
         return render(request, "checkout.html",
