@@ -11,9 +11,9 @@
                 <div class="card">
                     <div class="card-body hvr-shrink">
                         <h5><a href="#" id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}" class="iDProjects">{{ project.title }}</h5>
-                        <!-- <p class="card-text">
-                                    {{ project.content | truncatewords:3 | safe}}
-                                </p> -->
+                        <p class="card-text">
+                                    {{ project.content | truncatewords:10 | safe}}
+                                </p>
                         </a>
                     </div>
                     <div class="card-footer text-muted">
@@ -35,7 +35,7 @@
                 <div class="col-sm-12 projects-row">
                     <div class=" jumbotron jumbotron-fluid">
                         <div class="offset-sm-2 col-sm-8 container">
-                            <h1 class="display-4">Oops, no notes match your search.</h1>
+                            <h1 class="display-4">You haven't created any notes, yet!</h1>
                             <p class="lead alert alert-primary alignright"><a href="{%url 'new_project'%}"> Create one now <i class="fa fa-arrow-right"></i></a></p>
                         </div>
                     </div>
