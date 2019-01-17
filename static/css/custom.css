@@ -1,8 +1,17 @@
 /* Custom CSS */
+.border-primary {
+	border: 1px solid !important;
+	border-color: #1d4975 !important;
+}
+
+.text-primary {
+	color: #1d4975 !important;
+}
+
 
 .fa-search-light:before {
-    content: "\f002";
-    color: #1d4975;
+	content: "\f002";
+	color: #1d4975;
 }
 
 .nav-link-main {
