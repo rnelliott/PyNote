@@ -20,6 +20,7 @@ from django.views.static import serve
 
 from accounts import urls as urls_accounts
 from cart import urls as urls_cart
+from checkout import urls as urls_checkout
 from products import urls as urls_products
 from products.views import all_products
 from projects.views import index
@@ -31,18 +32,20 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # if user goes to root/index, redirect to projects/
     url(r'^$', index, name='index'),
-    # if user goes to projects/, parse url in urls.py in projects app
-    url(r'projects/', include('projects.urls')),
-    # if user goes to media/, use RegEx to point to a path of a file
-    url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
     # if user goes to accounts/, parse url in urls.py i accounts app
     url(r'^accounts/', include(urls_accounts)),
-    # Social auth URLS
-    url(r'^oauth/', include('social_django.urls', namespace='social')),
+    # if user goes to projects/, parse url in urls.py in projects app
+    url(r'projects/', include('projects.urls')),
     # Tinymce
     url(r'^tinymce/', include('tinymce.urls')),
-    # Cart
-    url(r'^cart/', include(urls_cart)),
     # Products
     url(r'^products/', include(urls_products)),
+    # Social auth URLS
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
+    # Cart
+    url(r'^cart/', include(urls_cart)),
+    # Checkout
+    url(r'^checkout/', include(urls_checkout)),
+    # if user goes to media/, use RegEx to point to a path of a file
+    url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
 ]
