@@ -13,13 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic import RedirectView
 from django.views.static import serve
-from .settings import MEDIA_ROOT
+
 from accounts import urls as urls_accounts
+from products import urls as urls_products
+from products.views import all_products
 from projects.views import index
+
+from .settings import MEDIA_ROOT
 
 urlpatterns = [
     # if user goes to admin/, load admin app
@@ -36,4 +40,6 @@ urlpatterns = [
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     # Tinymce
     url(r'^tinymce/', include('tinymce.urls')),
+    # Products
+    url(r'^products/', include(urls_products)),
 ]
