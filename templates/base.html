@@ -43,9 +43,9 @@
             </div>
             {% if user.is_authenticated %}
             <ul class="list-unstyled CTAs">
-                    <li>
-                            <a href="{% url 'index' %}" class="article"><i class="fa fa-home fa-fw"></i> Home</a>
-                        </li>
+                <li>
+                    <a href="{% url 'index' %}" class="article"><i class="fa fa-home fa-fw"></i> Home</a>
+                </li>
                 <li>
                     <form method="GET" action="{% url 'search_project' %}" class="form-inline my-2 my-lg-0">
                         <div class="input-group mb-3">
@@ -146,6 +146,14 @@
                                         Log out</a>
                                 </div>
                             </div>
+                            {% if product_count > 0 %}
+                            <li class="nav-item">
+                                <a href="{% url 'view_cart' %}" class="btn btn-secondary">
+                                    <i class="fa fa-shopping-cart"></i> Cart
+                                    <label for="" class="badge badge-warning">{{ product_count}}</label>
+                                </a>
+                            </li>
+                            {% endif %}
                             {% else %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'login' %}">Login</a>
