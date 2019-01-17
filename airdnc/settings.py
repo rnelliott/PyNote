@@ -45,6 +45,10 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     # Projects
     'projects',
+    # Cart
+    'cart',
+    # Products
+    'products',
     # Accounts/auth
     'accounts',
     # CKEditor
@@ -85,6 +89,8 @@ TEMPLATES = [
                 # Social auth
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
+                # Cart
+                'cart.contexts.cart_contents',
             ],
         },
     },
