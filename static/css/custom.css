@@ -1,21 +1,21 @@
 /* Custom CSS */
 .border-primary {
 	border: 1px solid !important;
-	border-color: #1d4975 !important;
+	border-color: #2c3e50 !important;
 }
 
 .text-primary {
-	color: #1d4975 !important;
+	color: #2c3e50 !important;
 }
 
 
 .fa-search-light:before {
 	content: "\f002";
-	color: #1d4975;
+	color: #2c3e50;
 }
 
 .nav-link-main {
-	color: #1d4975 !important;
+	color: #2c3e50 !important;
 }
 
 .CTAs-bottom {
@@ -23,18 +23,18 @@
 }
 
 .btn-info-main {
-	color: #1d4975 !important;
+	color: #2c3e50 !important;
 	font-size: 20px;
 }
 
 .btn-info-main:hover {
-	color: #1d4975;
+	color: #2c3e50;
 	background-color: transparent !important;
 	font-size: 20px;
 }
 
 .btn-secondary {
-	color: #1d4975 !important;
+	color: #2c3e50 !important;
 }
 
 .modal-lg {
@@ -47,11 +47,11 @@
 }
 
 .form-control {
-	color: #1d4975;
+	color: #2c3e50;
 }
 
 .form-control:focus {
-	color: #1d4975;
+	color: #2c3e50;
 }
 
 .form-control-sidebar {
