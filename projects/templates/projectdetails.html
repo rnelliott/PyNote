@@ -1,10 +1,7 @@
 <div id="ajax-content">
     {% block content %}
     <div class="row">
-        <div class="offset-sm-1 col-sm-10">
-            {% if project.image %}
-            <img class="img-blogpost" src="/media/{{ project.image }}">
-            {% endif %}
+        <div class="offset-sm-1 col-sm-10">            
             <h5>{{ project.title }} <a id="project-edit" href="{% url 'edit_project' project.id %}" class="iD"><i class="fa fa-pencil-square-o fa-fw alert alert-info"></i></a>
                 <a href="#" data-toggle="modal" data-target="#sharableModal" class="iD"><i class="fa fa-share-square-o fa-fw alert alert-success"></i></a>
                 <a href="{% url 'delete_project' project.id %}" class="iD"><i class="fa fa-trash-o fa-fw alert alert-warning"></i></a></h5>
