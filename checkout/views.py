@@ -7,7 +7,7 @@ from django.contrib import messages
 import stripe
 from products.models import Product
 
-from .forms import MakePaymentForm, OrderForm
+from .forms import MakePayment, OrderForm
 from .models import OrderLineItem
 
 # Create your views here.
@@ -18,7 +18,7 @@ stripe.api_key = settings.STRIPE_SECRET
 def checkout(request):
     if request.method == "POST":
         order_form = OrderForm(request.POST)
-        payment_form = MakePaymentForm(request.POST)
+        payment_form = MakePayment(request.POST)
 
         if order_form.is_valid() and payment_form.is_valid():
             order = order_form.save(commit=False)
