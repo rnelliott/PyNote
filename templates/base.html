@@ -149,17 +149,6 @@
                                         Log out</a>
                                 </div>
                             </div>
-                            <li class="nav-item">
-                                {% if profile %}
-                                <a role="button" class="btn btn-outline-success" data-toggle="tooltip" data-placement="left" title="You are on the premium plan!">
-                                    Premium
-                                </a>
-                                {% else %}
-                                <a role="button" class="btn btn-outline-info" href="{% url 'products:products' %}" data-toggle="tooltip" data-placement="left" title="You are on the free plan!">
-                                    <i class="fa fa-star-o"></i> Upgrade
-                                </a>
-                                {% endif %}
-                            </li>
                             {% if product_count %}
                             <li class="nav-item">
                                 <a href="{% url 'view_cart' %}" class="btn btn-secondary">
@@ -168,6 +157,17 @@
                                 </a>
                             </li>
                             {% endif %}
+                            <li class="nav-item">
+                                    {% if profile %}
+                                    <a role="button" class="btn btn-outline-success" data-toggle="tooltip" data-placement="left" title="You are on the premium plan!">
+                                        Premium
+                                    </a>
+                                    {% else %}
+                                    <a role="button" class="btn btn-outline-info" href="{% url 'products:products' %}" data-toggle="tooltip" data-placement="left" title="You are on the free plan!">
+                                        <i class="fa fa-star-o"></i> Upgrade
+                                    </a>
+                                    {% endif %}
+                                </li>
                             {% else %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'login' %}">Login</a>
