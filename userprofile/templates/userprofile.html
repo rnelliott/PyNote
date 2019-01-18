@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% load bootstrap_tags %}
 {% block content %}
-<div class="offset-lg-2 col-lg-8">
+<div class="offset-lg-1 col-lg-10">
   <div class="row">
-    <div class="col-lg-12">
+    <div class="offset-lg-3 col-lg-6">
       <span class="alignleft">
-        <h2>Hi, {{ user.first_name }}!</h2>
+        <h2>Edit profile</h2>
       </span>
       <span class="alignright">
         {% if user.premium %}
@@ -19,21 +19,26 @@
         {% endif %}
       </span>
     </div>
+    <hr>
   </div>
-  <hr>
-  <form method="post">
-    {% csrf_token %}
-    {{ user_form | as_bootstrap }}
-    {{ profile_form | as_bootstrap }}
-    <button class="btn btn-success" type="submit">Update</button>
-  </form>
-  <div class="">
-    <p><i class="fa fa-user fa-fw"></i>Username: {{ user }}</p>
-    <p><i class="fa fa-envelope fa-fw"></i> Email: {{ user.email }}</p>
-    <p><i class="fa fa-clock-o fa-fw"></i>Joined: {{ user.date_joined }}</p>
-  </div>
-  <div class="row">
-    <a class="btn btn-success" href="{% url 'logout' %}">Logout</a>
+  <div class="offset-lg-4 col-lg-4">
+    <div class="row">
+      <form method="post">
+        {% csrf_token %}
+        {{ user_form | as_bootstrap }}
+        {{ profile_form | as_bootstrap }}
+        <div>
+          <span class="alignleft">
+            <button class="btn btn-success" type="submit">Update</button>
+          </span>
+        </div>
+        <div>
+          <span class="alignright">
+            <button class="btn btn-warning" href="{% url 'logout' %}">Logout</button>
+          </span>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 {% endblock %}
