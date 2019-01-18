@@ -1,3 +1,7 @@
+<!-- Base html will be loaded -->
+{% extends 'base.html' %}
+<!-- Anything placed in this block will load in ''block content' tags n base.html -->
+
 <div id="ajax-content">
     {% block content %}
     <div class="row">
@@ -6,7 +10,7 @@
                 <a href="#" data-toggle="modal" data-target="#sharableModal" class="iD"><i class="fa fa-share-square-o fa-fw alert alert-success"></i></a>
                 <a href="{% url 'delete_project' project.id %}" class="iD"><i class="fa fa-trash-o fa-fw alert alert-warning"></i></a></h5>
             <div>
-                <span class="alignleft"><a id="get_projects" href="{% url 'get_projects' %}" class="iD badge badge-pill badge-success"><i
+                <span class="alignleft"><a id="get_projects" href="{% url 'get_projects' %}" class="badge badge-pill badge-success"><i
                             class="fa fa-arrow-left"></i> back</a>
                 </span>
                 <span class="alignright">                    
