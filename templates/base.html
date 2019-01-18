@@ -159,11 +159,11 @@
                             {% endif %}
                             <li class="nav-item">
                                     {% if profile %}
-                                    <a role="button" class="btn btn-outline-success" data-toggle="tooltip" data-placement="left" title="You are on the premium plan!">
+                                    <a role="button" class="btn btn-outline-success" data-toggle="tooltip" data-placement="bottom" title="You are on the premium plan!">
                                         Premium
                                     </a>
                                     {% else %}
-                                    <a role="button" class="btn btn-outline-info" href="{% url 'products:products' %}" data-toggle="tooltip" data-placement="left" title="You are on the free plan!">
+                                    <a role="button" class="btn btn-outline-info" href="{% url 'products:products' %}" data-toggle="tooltip" data-placement="bottom" title="You are on the free plan!">
                                         <i class="fa fa-star-o"></i> Upgrade
                                     </a>
                                     {% endif %}
