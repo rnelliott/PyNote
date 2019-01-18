@@ -3,10 +3,12 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.utils import timezone
 
 from products.models import Product
+from userprofile.models import Profile
 
 from .forms import MakePaymentForm, OrderForm
 from .models import OrderLineItem
@@ -52,8 +54,17 @@ def checkout(request):
 
             if customer.paid:
                 messages.error(request, "You have successfully paid")
+                """
+                Find the user profile from request, then,
+                set Profile.premium to 'True'
+                """
+                user_profile_premium = Profile.objects.get(id=request.user.id)
+                premium = user_profile_premium
+                premium.premium = True  # change field
+                premium.save()
+
                 request.session['cart'] = {}
-                return redirect(reverse('products'))
+                return redirect('update_profile')
             else:
                 messages.error(request, "Unable to take payment")
         else:
