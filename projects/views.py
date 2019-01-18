@@ -70,7 +70,7 @@ def create_or_edit_project(request, pk=None):
         if less than 5 -> proceed,
         othrewise -> redirect upgrade page.
         """
-        count_users_notes = Category.objects.all().count()
+        count_users_notes = Projects.objects.all().count()
         if count_users_notes < 5:
             form = ProjectForm(instance=project)
         else:
