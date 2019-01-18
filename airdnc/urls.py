@@ -40,7 +40,7 @@ urlpatterns = [
     # Tinymce
     url(r'^tinymce/', include('tinymce.urls')),
     # Products
-    url(r'^products/', include(urls_products)),
+    url(r'^products/', include(urls_products, namespace="products")),
     # Social auth URLS
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     # Cart
