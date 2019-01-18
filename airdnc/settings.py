@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     'checkout',
     # Accounts/auth
     'accounts',
+    # Userprofile
+    'userprofile',
     # CKEditor
     # 'ckeditor',
     # 'ckeditor_uploader',
