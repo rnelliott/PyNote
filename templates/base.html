@@ -279,8 +279,8 @@
     </script>
 
     <!-- Disable tooltips on touch enbaled devices -->
-    <script> 
-        $(function () {
+    <script>
+        $(document).ready(function () {
             function isTouchDevice() {
                 return true == ("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch);
             }
@@ -289,7 +289,7 @@
             }
 
             $('[data-toggle="tooltip"]').tooltip()
-        })
+        });
     </script>
 
 </body>
