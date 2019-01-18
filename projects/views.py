@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 
 from products.views import all_products
+from userprofile.models import Profile
 
 from .forms import ProjectForm
 from .models import Category, Projects
@@ -13,7 +14,15 @@ from .models import Category, Projects
 def index(request):
     categories = Category.objects.filter(user__exact=request.user)
     projects = Projects.objects.filter(user__exact=request.user)
-    return render(request, "index.html", {"projects": projects, "categories": categories})
+    profile = Profile.objects.filter(
+        Q(premium=True)).filter(user__exact=request.user)
+    if profile:
+        return render(request, "index.html", {"projects": projects,
+                                              "categories": categories,
+                                              "profile": profile})
+    else:
+        return render(request, "index.html", {"projects": projects,
+                                              "categories": categories, })
 
 
 @login_required

@@ -149,7 +149,18 @@
                                         Log out</a>
                                 </div>
                             </div>
-                            {% if product_count > 0 %}
+                            <li class="nav-item">
+                                {% if profile %}
+                                <button type="button" class="btn btn-outline-success" data-toggle="tooltip" data-placement="left" title="You are on the premium plan!">
+                                    Premium
+                                </button>
+                                {% else %}
+                                <button type="button" class="btn btn-outline-info" href="{% url 'products:products' %}" data-toggle="tooltip" data-placement="left" title="You are on the free plan!">
+                                    <i class="fa fa-star-o"></i> Upgrade
+                                </button>
+                                {% endif %}
+                            </li>
+                            {% if product_count %}
                             <li class="nav-item">
                                 <a href="{% url 'view_cart' %}" class="btn btn-secondary">
                                     <i class="fa fa-shopping-cart"></i> Cart

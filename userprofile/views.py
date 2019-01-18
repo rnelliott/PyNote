@@ -6,9 +6,12 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from projects.views import index
-
+from .models import Profile
+from django.db.models import Q
 
 # Create your views here.
+
+
 @login_required
 @transaction.atomic
 def update_profile(request):
@@ -26,7 +29,16 @@ def update_profile(request):
     else:
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
-    return render(request, 'userprofile.html', {
-        'user_form': user_form,
-        'profile_form': profile_form
-    })
+    profile = Profile.objects.filter(
+        Q(premium=True)).filter(user__exact=request.user)
+    if profile:
+        return render(request, 'userprofile.html', {
+            'user_form': user_form,
+            'profile_form': profile_form,
+            'profile': profile
+        })
+    else:
+        return render(request, 'userprofile.html', {
+            'user_form': user_form,
+            'profile_form': profile_form
+        })
