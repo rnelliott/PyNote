@@ -1,10 +1,12 @@
 from django.db import models
 from products.models import Product
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 
 class Order(models.Model):
+    user = models.ForeignKey(User, null=True, blank=True)
     full_name = models.CharField(max_length=50, blank=False)
     phone_number = models.CharField(max_length=20, blank=False)
     country = models.CharField(max_length=40, blank=False)
