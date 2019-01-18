@@ -22,6 +22,7 @@ from accounts import urls as urls_accounts
 from cart import urls as urls_cart
 from checkout import urls as urls_checkout
 from products import urls as urls_products
+from userprofile import urls as urls_userprofile
 from products.views import all_products
 from projects.views import index
 
@@ -46,6 +47,8 @@ urlpatterns = [
     url(r'^cart/', include(urls_cart)),
     # Checkout
     url(r'^checkout/', include(urls_checkout)),
+    # Profile
+    url(r'^profile/', include(urls_userprofile)),
     # if user goes to media/, use RegEx to point to a path of a file
     url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
 ]
