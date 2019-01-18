@@ -2,7 +2,22 @@
 {% block content %}
 <div class="offset-lg-2 col-lg-8">
     <div class="row">
-        <h2>Hi, {{ user.first_name }}!</h2>
+        <div class="col-lg-12">
+            <span class="alignleft">
+                <h2>Hi, {{ user.first_name }}!</h2>
+            </span>
+            <span class="alignright">
+                {% if user.premium %}
+                <button type="button" class="btn btn-outline-success" data-toggle="tooltip" data-placement="left" title="You are on the premium plan!">
+                    Premium
+                </button>
+                {% else %}
+                <button type="button" class="btn btn-outline-info" data-toggle="tooltip" data-placement="left" title="You are on the free plan!">
+                    Free
+                </button>
+                {% endif %}
+            </span>
+        </div>
     </div>
     <hr>
     <div class="">
