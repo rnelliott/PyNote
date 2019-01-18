@@ -1,9 +1,12 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.utils import timezone
-from .models import Projects, Category
-from .forms import ProjectForm
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
+from django.db.models import Count, Q
+from django.shortcuts import get_object_or_404, redirect, render
+from django.utils import timezone
+
+from products.views import all_products
+
+from .forms import ProjectForm
+from .models import Category, Projects
 
 
 @login_required
@@ -62,7 +65,16 @@ def create_or_edit_project(request, pk=None):
             project = form.save()
             return redirect(index)
     else:
-        form = ProjectForm(instance=project)
+        """
+        Count how many notes a user has,
+        if less than 5 -> proceed,
+        othrewise -> redirect upgrade page.
+        """
+        count_users_notes = Category.objects.all().count()
+        if count_users_notes < 5:
+            form = ProjectForm(instance=project)
+        else:
+            return redirect(all_products)
     return render(request, "projectform.html", {"form": form})
 
 
@@ -81,8 +93,8 @@ def delete_project(request, pk):
 def search_project(request):
     query = request.GET.get('search')
     results = Projects.objects.filter(
-                Q(title__icontains=query) | Q(content__icontains=query)
-                    ).filter(user__exact=request.user)
+        Q(title__icontains=query) | Q(content__icontains=query)
+    ).filter(user__exact=request.user)
 
     return render(request, "search.html", {"projects": results})
 
