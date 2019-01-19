@@ -29,7 +29,6 @@ def login(request):
                 auth.login(request, user)
                 messages.error(request, "You have successfully logged in")
                 sweetify.success(request, 'You logged in!', timer=1500, toast=True)
-
                 if request.GET and request.GET['next'] != '':
                     next = request.GET['next']
                     return HttpResponseRedirect(next)
