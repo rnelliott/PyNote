@@ -9,6 +9,7 @@ from django.utils import timezone
 
 from products.models import Product
 from userprofile.models import Profile
+from checkout.models import Order
 
 from .forms import MakePaymentForm, OrderForm
 from .models import OrderLineItem
@@ -62,6 +63,14 @@ def checkout(request):
                 premium = user_profile_premium
                 premium.premium = True  # change field
                 premium.save()
+                """
+                Find the order belonging to this user, then,
+                set Order.paid to 'True'
+                """
+                order_is_paid = Order.objects.get(user=request.user.id)
+                paid = order_is_paid
+                paid.paid = True
+                paid.save()
 
                 request.session['cart'] = {}
                 return redirect('update_profile')
