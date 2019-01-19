@@ -11,6 +11,7 @@ def view_cart(request):
 def add_to_cart(request, id):
     """Add a quantity of the specified product to the cart"""
     quantity = int(request.POST.get('quantity'))
+    # quantity = 1
 
     cart = request.session.get('cart', {})
     if id in cart:
@@ -19,7 +20,7 @@ def add_to_cart(request, id):
         cart[id] = cart.get(id, quantity)
 
     request.session['cart'] = cart
-    return redirect(reverse('index'))
+    return redirect(reverse('checkout'))
 
 
 def adjust_cart(request, id):
