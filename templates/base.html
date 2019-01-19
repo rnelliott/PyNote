@@ -25,6 +25,9 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <!-- Sweetalertjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.js"></script>
     <title>AirDnC</title>
     {% block head_js %}
     {% endblock head_js %}
@@ -142,12 +145,12 @@
                             </li>
                             <div class="dropdown">
                                 {% if profile %}
-                                <a href="#" class="btn btn-secondary" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > {{ user }} <span class="badge badge-warning" data-toggle="tooltip" data-placement="top" title="Premium User, thanks!"><i class="fa fa-star fa-lg"></i></span></a>
+                                <a href="#" class="btn btn-secondary" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ user }} <span class="badge badge-warning" data-toggle="tooltip" data-placement="top" title="Premium User, thanks!"><i class="fa fa-star fa-lg"></i></span></a>
                                 {% else %}
                                 <a href="#" class="btn btn-secondary" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o"></i> {{ user }} </a>
                                 <a role="button" class="btn btn-outline-info" href="{% url 'products:products' %}" data-toggle="tooltip" data-placement="bottom" title="You are on the free plan!">
-                                        <i class="fa fa-star-o"></i> Upgrade
-                                      </a>
+                                    <i class="fa fa-star-o"></i> Upgrade
+                                </a>
                                 {% endif %}
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a href="{% url 'update_profile' %}" class="nav-link nav-link-main"><i class="fa fa-user-md fa-fw"></i>
@@ -209,7 +212,8 @@
     </div>
 
     <div class="overlay"></div>
-
+    {% load sweetify %}
+    {% sweetify %}
 
     <script>
         $(document).ready(function () {
@@ -222,6 +226,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mousetrap/1.6.2/mousetrap.js"></script>
     <!-- ClipboardJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+
 
 
 

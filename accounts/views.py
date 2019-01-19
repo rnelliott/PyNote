@@ -1,18 +1,19 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect
-from django.contrib import messages, auth
-from django.core.urlresolvers import reverse
-from .forms import UserLoginForm, UserRegistrationForm
-from django.template.context_processors import csrf
+import sweetify
+from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse
+from django.shortcuts import HttpResponseRedirect, redirect, render
+from django.template.context_processors import csrf
 
-
-
+from .forms import UserLoginForm, UserRegistrationForm
 
 
 def logout(request):
     """A view that logs the user out and redirects back to the index page"""
     auth.logout(request)
     messages.success(request, 'You have successfully logged out')
+    sweetify.success(request, 'You logged out!', timer=1500)
+
     return redirect(reverse('index'))
 
 
@@ -27,6 +28,7 @@ def login(request):
             if user:
                 auth.login(request, user)
                 messages.error(request, "You have successfully logged in")
+                sweetify.success(request, 'You logged in!', timer=1500)
 
                 if request.GET and request.GET['next'] != '':
                     next = request.GET['next']
