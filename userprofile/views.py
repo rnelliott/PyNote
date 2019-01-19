@@ -8,6 +8,7 @@ from django.shortcuts import render
 from projects.views import index
 from .models import Profile
 from django.db.models import Q
+import sweetify
 
 # Create your views here.
 
@@ -23,9 +24,12 @@ def update_profile(request):
             profile_form.save()
             messages.success(request, (
                 'Your profile was successfully updated!'))
+            sweetify.success(
+                request, 'Your profile has been updated', timer=2000, toast=True)
             return redirect(update_profile)
         else:
             messages.error(request, ('Please correct the error below.'))
+            sweetif.error(request, 'Please correct the error below.', timer=2000, toast=True)
     else:
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)

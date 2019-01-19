@@ -12,7 +12,7 @@ def logout(request):
     """A view that logs the user out and redirects back to the index page"""
     auth.logout(request)
     messages.success(request, 'You have successfully logged out')
-    sweetify.success(request, 'You logged out!', timer=1500)
+    sweetify.success(request, 'You logged out!', timer=1500, toast=True)
 
     return redirect(reverse('index'))
 
@@ -28,7 +28,7 @@ def login(request):
             if user:
                 auth.login(request, user)
                 messages.error(request, "You have successfully logged in")
-                sweetify.success(request, 'You logged in!', timer=1500)
+                sweetify.success(request, 'You logged in!', timer=1500, toast=True)
 
                 if request.GET and request.GET['next'] != '':
                     next = request.GET['next']
@@ -68,6 +68,7 @@ def register(request):
 
             else:
                 messages.error(request, "unable to log you in at this time!")
+                sweetify.error(request, 'Sorry, you couldn\'t be logged in at this time', timer=2000, toast=True)
     else:
         user_form = UserRegistrationForm()
 

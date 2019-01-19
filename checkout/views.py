@@ -1,4 +1,5 @@
 import stripe
+import sweetify
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -7,9 +8,9 @@ from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.utils import timezone
 
+from checkout.models import Order
 from products.models import Product
 from userprofile.models import Profile
-from checkout.models import Order
 
 from .forms import MakePaymentForm, OrderForm
 from .models import OrderLineItem
@@ -52,9 +53,13 @@ def checkout(request):
                 )
             except stripe.error.CardError:
                 messages.error(request, "Your card was declined!")
+                sweetify.error(request, "your card was declined!",
+                               timer=2000, toast=True)
 
             if customer.paid:
-                messages.error(request, "You have successfully paid")
+                messages.error(request, "You have successfully paid!")
+                sweetify.success(
+                    request, 'You have successfully paid!', timer=1500, toast=True)
                 """
                 Find the user profile from request, then,
                 set Profile.premium to 'True'
@@ -71,15 +76,18 @@ def checkout(request):
                 paid = order_is_paid
                 paid.paid = True
                 paid.save()
-
                 request.session['cart'] = {}
                 return redirect('update_profile')
             else:
                 messages.error(request, "Unable to take payment")
+                sweetify.error(request, 'Unabel to take payment',
+                               timer=1500, toast=True)
         else:
             print(payment_form.errors)
             messages.error(
                 request, "We were unable to take a payment with that card!")
+            sweetify.error(request, 'We were unable to take a payment with that card!',
+                           timer=1500, toast=True)
     else:
         payment_form = MakePaymentForm()
         order_form = OrderForm()
