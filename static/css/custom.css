@@ -1,5 +1,9 @@
 /* Custom CSS */
 
+.payment-form-checkout{
+	padding-top: 15vh;
+}
+
 .badge{
 	vertical-align: super;
 }
