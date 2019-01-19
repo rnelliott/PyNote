@@ -145,6 +145,9 @@
                                 <a href="#" class="btn btn-secondary" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > {{ user }} <span class="badge badge-warning" data-toggle="tooltip" data-placement="top" title="Premium User, thanks!"><i class="fa fa-star fa-lg"></i></span></a>
                                 {% else %}
                                 <a href="#" class="btn btn-secondary" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o"></i> {{ user }} </a>
+                                <a role="button" class="btn btn-outline-info" href="{% url 'products:products' %}" data-toggle="tooltip" data-placement="bottom" title="You are on the free plan!">
+                                        <i class="fa fa-star-o"></i> Upgrade
+                                      </a>
                                 {% endif %}
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a href="{% url 'update_profile' %}" class="nav-link nav-link-main"><i class="fa fa-user-md fa-fw"></i>
