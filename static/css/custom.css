@@ -51,10 +51,6 @@
 	margin: auto;
 }
 
-.max-width {
-	width: 100%;
-}
-
 .form-control {
 	color: #2c3e50;
 }
@@ -99,15 +95,6 @@
 	color: #fff;
 	background-color: #7f94f3;
 	border-color: #fff;
-}
-
-.card {
-	min-height: 15vh;
-	max-height: 30vh;
-}
-
-.card-body {
-	min-height: 15vh
 }
 
 .projects-row {
