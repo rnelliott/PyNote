@@ -3,39 +3,38 @@
 {% load bootstrap_tags %}
 
 {% block content %}
+<div class="container">
 <div class="row row-flex">
-    {% for item in cart_items %}
-
-    <div class="offset-lg-2 col-lg-8 display panel panel-display">
-
-
-        <div class="caption">
-            <span class="alignleft">
-                <h3>{{ item.product.name }}</h3>
-                <p class="product-description">{{ item.product.description }}</p>
-                <p>@ €{{ item.product.price }} per month</p>
-            </span>
-            <span class="alignright">
-                <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon">Qty</div>
-                            <input name="quantity" type="number" min="0" max="12" class="form-control">
-                            <div class="input-group-addon">{{item.quantity}}</div>
-                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span><i class="fa fa-refresh"></i></button>
-                        </div>
-                    </div>
-            </span>
-            </form>
-            <p>Total: €{{ total }}</p>
-            </p>
-        </div>
-    </div>
-    {% endfor %}
-    <div class="offset-lg-3 col-lg-6">
-        <span class="alignleft"><a href="{% url 'index' %}" class="btn btn-warning" role="button"><i class="fa fa-arrow-left"></i> back to notes</a></span>
-        <span class="alignright"><a href="{% url 'checkout' %}" class="btn btn-success" role="button"><i class="fa fa-check"></i> Checkout</a></span>
+            {% for item in cart_items %}
+            <div class="offset-lg-2 col-lg-8 display panel panel-display">
+                <div class="caption">
+                    <span class="alignleft">
+                        <h3>{{ item.product.name }}</h3>
+                        <p class="product-description">{{ item.product.description }}</p>
+                        <p>@ €{{ item.product.price }} per month</p>
+                    </span>
+                    <span class="alignright">
+                        <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">Qty</div>
+                                    <input name="quantity" type="number" min="0" max="12" class="form-control">
+                                    <div class="input-group-addon">{{item.quantity}}</div>
+                                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span><i class="fa fa-refresh"></i></button>
+                                </div>
+                            </div>
+                    </span>
+                    </form>
+                    <p>Total: €{{ total }}</p>
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="offset-lg-3 col-lg-6">
+                <span class="alignleft"><a href="{% url 'index' %}" class="btn btn-warning" role="button"><i class="fa fa-arrow-left"></i> back to notes</a></span>
+                <span class="alignright"><a href="{% url 'checkout' %}" class="btn btn-success" role="button"><i class="fa fa-check"></i> Checkout</a></span>
+            </div>
     </div>
 </div>
 
