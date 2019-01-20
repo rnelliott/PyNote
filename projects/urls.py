@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import index, get_projects, project_details, create_or_edit_project, delete_project, search_project, public_url
+from .views import index, get_projects, project_details, create_project, delete_project, search_project, public_url, edit_project
 
 urlpatterns= [
     # root dir for the projects app
@@ -9,9 +9,9 @@ urlpatterns= [
     # If url passed with ID, open project_details
     url(r'^(?P<pk>\d+)$', project_details, name='project_details'),
     # If creating a new project
-    url(r'^new/$', create_or_edit_project, name='new_project'),
-    # Id editing a project
-    url(r'^(?P<pk>\d+)/edit/$', create_or_edit_project, name='edit_project'),
+    url(r'^new/$', create_project, name='new_project'),
+    # Edit project
+    url(r'^(?P<pk>\d+)/edit/$', edit_project, name='edit_project'),
     # delete a project
     url(r'^(?P<pk>\d+)/delete/$', delete_project, name='delete_project'),
     # search

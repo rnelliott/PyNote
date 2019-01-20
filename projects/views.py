@@ -14,12 +14,12 @@ from .models import Category, Projects
 def index(request):
     categories = Category.objects.filter(user__exact=request.user)
     projects = Projects.objects.filter(user__exact=request.user)
-    profile = Profile.objects.filter(
+    premium = Profile.objects.filter(
         Q(premium=True)).filter(user__exact=request.user)
-    if profile:
+    if premium:
         return render(request, "index.html", {"projects": projects,
                                               "categories": categories,
-                                              "profile": profile})
+                                              "premium": premium})
     else:
         return render(request, "index.html", {"projects": projects,
                                               "categories": categories, })
@@ -61,7 +61,19 @@ def project_details(request, pk):
 
 
 @login_required
-def create_or_edit_project(request, pk=None):
+def edit_project(request, pk=None):
+    """
+    Create view that can either create or edit a Project,
+    edits if exists or creates if not.
+    """
+    project = get_object_or_404(Projects, pk=pk) if pk else None
+
+    form = ProjectForm(instance=project)
+    return render(request, "projectform.html", {"form": form})
+
+
+@login_required
+def create_project(request, pk=None):
     """
     Create view that can either create or edit a Project,
     edits if exists or creates if not.
@@ -75,15 +87,14 @@ def create_or_edit_project(request, pk=None):
             return redirect(index)
     else:
         """
-        Count how many notes a user has,
-        if less than 5 -> proceed,
-        othrewise -> redirect upgrade page.
+        Check if user has 'premium' status.
         """
-        count_users_notes = Projects.objects.all().count()
-        if count_users_notes < 5:
+        premium = Profile.objects.filter(
+            Q(premium=True)).filter(user__exact=request.user)
+        if premium:
             form = ProjectForm(instance=project)
         else:
-            return redirect(get_projects)
+            return redirect(index)
     return render(request, "projectform.html", {"form": form})
 
 
