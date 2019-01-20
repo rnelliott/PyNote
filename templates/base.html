@@ -71,11 +71,14 @@
                         Notes
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        {% for project in projects %}
+                        {% for project in projects|slice:":5" %}
                         <li>
                             <a href="#" id="read_project_nav" data-href="{% url 'project_details' project.id %}" class="iD">{{project.title | truncatechars:15 }}</a>
                         </li>
                         {% endfor %}
+                        <li>
+                            <a href="{% url 'index' %}" class="iD"> see alll ...</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="active">
