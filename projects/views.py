@@ -1,3 +1,4 @@
+import sweetify
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count, Q
 from django.shortcuts import get_object_or_404, redirect, render
@@ -5,6 +6,7 @@ from django.utils import timezone
 
 from products.views import all_products
 from userprofile.models import Profile
+from products.models import Product
 
 from .forms import ProjectForm
 from .models import Category, Projects
@@ -46,56 +48,25 @@ def get_projects(request):
                                               "categories": categories, })
 
 
-# @login_required
-# def get_projects_sidenav(request):
-#     """
-#     Render all existing Projects to sidebar nav items
-#     """
-#     categories = Category.objects.filter(user__exact=request.user)
-#     projects = Projects.objects.filter(user__exact=request.user)
-#     premium = Profile.objects.filter(
-#         Q(premium=True)).filter(user__exact=request.user)
-#     if premium:
-#         return render(request, "base.html", {"projects": projects,
-#                                              "categories": categories,
-#                                              "premium": premium})
-#     else:
-#         return render(request, "base.html", {"projects": projects,
-#                                              "categories": categories, })
-
-
 @login_required
 def project_details(request, pk):
     """
-    Creat view returning a Project object referenced by its PrimaryKey/ID,
+    Create view returning a Project object referenced by its PrimaryKey/ID,
     render the Project details to projectdetails.html.
     Return a 404 if Project is not found.
     """
     # Display details on a given Project
+    categories = Category.objects.filter(user__exact=request.user)
+    projects = Projects.objects.filter(user__exact=request.user)
     project = get_object_or_404(Projects, pk=pk)
     project.views += 1
     project.save()
-    return render(request, "projectdetails.html", {"project": project})
+    return render(request, "projectdetails.html", {"project": project,
+                                                   "categories": categories})
 
 
 @login_required
-def edit_project(request, pk=None):
-    """
-    Create view that can either create or edit a Project,
-    edits if exists or creates if not.
-    """
-    project = get_object_or_404(Projects, pk=pk) if pk else None
-    if request.method == 'POST':
-        form = ProjectForm(request.POST, request.FILES, instance=project)
-        if form.is_valid():
-            form.instance.user = request.user
-            project = form.save()
-    form = ProjectForm(instance=project)
-    return render(request, "projectform.html", {"form": form})
-
-
-@login_required
-def create_project(request, pk=None):
+def create_or_edit_project(request, pk=None):
     """
     Create view that can either create or edit a Project,
     edits if exists or creates if not.
@@ -108,15 +79,7 @@ def create_project(request, pk=None):
             project = form.save()
             return redirect(index)
     else:
-        """
-        Check if user has 'premium' status.
-        """
-        premium = Profile.objects.filter(
-            Q(premium=True)).filter(user__exact=request.user)
-        if premium:
-            form = ProjectForm(instance=project)
-        else:
-            return redirect(index)
+        form = ProjectForm(instance=project)
     return render(request, "projectform.html", {"form": form})
 
 
@@ -134,11 +97,13 @@ def delete_project(request, pk):
 # Search
 def search_project(request):
     query = request.GET.get('search')
+    categories = Category.objects.filter(user__exact=request.user)
     results = Projects.objects.filter(
         Q(title__icontains=query) | Q(content__icontains=query)
     ).filter(user__exact=request.user)
 
-    return render(request, "search.html", {"projects": results})
+    return render(request, "search.html", {"projects": results,
+                                           "categories": categories})
 
 
 # Sharable URLs
