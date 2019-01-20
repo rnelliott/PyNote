@@ -6,36 +6,38 @@
 <div class="row row-flex">
     {% for item in cart_items %}
 
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-display">
+    <div class="offset-lg-2 col-lg-8 display panel panel-display">
 
 
         <div class="caption">
-            <h3>{{ item.product.name }}</h3>
-            <p class="product-description">{{ item.product.description }}</p>
-            <p>{{ item.product.price }}</p>
-            <p>
-
+            <span class="alignleft">
+                <h3>{{ item.product.name }}</h3>
+                <p class="product-description">{{ item.product.description }}</p>
+                <p>@ €{{ item.product.price }} per month</p>
+            </span>
+            <span class="alignright">
                 <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="exampleInputAmount" class="sr-only">New Qty</label>
                         <div class="input-group">
                             <div class="input-group-addon">Qty</div>
-                            <input name="quantity" type="number" min="0" max="999" class="form-control">
+                            <input name="quantity" type="number" min="0" max="12" class="form-control">
                             <div class="input-group-addon">{{item.quantity}}</div>
+                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span><i class="fa fa-refresh"></i></button>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
-                </form>
+            </span>
+            </form>
+            <p>Total: €{{ total }}</p>
             </p>
         </div>
     </div>
     {% endfor %}
+    <div class="offset-lg-3 col-lg-6">
+        <span class="alignleft"><a href="{% url 'index' %}" class="btn btn-warning" role="button"><i class="fa fa-arrow-left"></i> back to notes</a></span>
+        <span class="alignright"><a href="{% url 'checkout' %}" class="btn btn-success" role="button"><i class="fa fa-check"></i> Checkout</a></span>
+    </div>
 </div>
-<div class="row">
-    <p>Total</p>
-    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
-    <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
-</div>
+
 
 {% endblock %}
