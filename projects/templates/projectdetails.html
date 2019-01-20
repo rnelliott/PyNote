@@ -6,21 +6,21 @@
     {% block content %}
     <div class="row">
         <div class="offset-sm-1 col-sm-10">
-            <h5>{{ project.title }}
+            <h4>{{ project.title }}
                 <span class="alignright">
                         <a id="project-edit" href="{% url 'edit_project' project.id %}" class="iD"><span class="badge badge-pill badge-primary note-actions-edit"><i class="fa fa-pencil"></i></span></a>
                         <a href="#" data-toggle="modal" data-target="#sharableModal" class="iD"><span class="badge badge-pill badge-info note-actions-share"><i class="fa fa-share"></i></span></a>
                         <a href="{% url 'delete_project' project.id %}" class="iD"><span class="badge badge-pill badge-warning note-actions-trash"><i class="fa fa-trash"></i></span></a>
-                </span></h5>
+                </span></h4>
             <div>
-                <span class="alignleft"><a id="get_projects" href="{% url 'get_projects' %}" class="badge badge-pill badge-success note-details"><i class="fa fa-arrow-left"></i> back</a>
+                <span class="alignleft"><a href="{% url 'get_projects' %}"><span class="badge badge-pill badge-success note-details"><i class="fa fa-arrow-left"></i> back</a>
                 </span>
                 <span class="alignright">
-                    <span class="badge badge-pill badge-primary note-details"><i class="fa fa-clock-o"></i> {{ project.published_date}}</span>
-                    {% if project.views %}
-                    <span class="badge badge-pill badge-info note-details"><i class="fa fa-eye"></i> {{ project.views }}</span>
-                    {% endif %}
                     <span class="badge badge-pill badge-warning note-details"><i class="fa fa-book"></i> {{ project.category.name}}</span>
+                    {% if project.views %}
+                    <!-- <span class="badge badge-pill badge-info note-details"><i class="fa fa-eye"></i> {{ project.views }}</span> -->
+                    {% endif %}
+                    <span class="badge badge-pill badge-primary note-details"><i class="fa fa-clock-o"></i> {{ project.published_date}}</span>
                 </span>
             </div>
         </div>
