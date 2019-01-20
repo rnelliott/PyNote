@@ -5,20 +5,22 @@
 <div id="ajax-content">
     {% block content %}
     <div class="row">
-        <div class="offset-sm-1 col-sm-10">            
-            <h5>{{ project.title }} <a id="project-edit" href="{% url 'edit_project' project.id %}" class="iD"><i class="fa fa-pencil-square-o fa-fw alert alert-info"></i></a>
-                <a href="#" data-toggle="modal" data-target="#sharableModal" class="iD"><i class="fa fa-share-square-o fa-fw alert alert-success"></i></a>
-                <a href="{% url 'delete_project' project.id %}" class="iD"><i class="fa fa-trash-o fa-fw alert alert-warning"></i></a></h5>
+        <div class="offset-sm-1 col-sm-10">
+            <h5>{{ project.title }}
+                <span class="alignright">
+                        <a id="project-edit" href="{% url 'edit_project' project.id %}" class="iD"><span class="badge badge-pill badge-primary note-actions-edit"><i class="fa fa-pencil"></i></span></a>
+                        <a href="#" data-toggle="modal" data-target="#sharableModal" class="iD"><span class="badge badge-pill badge-info note-actions-share"><i class="fa fa-share"></i></span></a>
+                        <a href="{% url 'delete_project' project.id %}" class="iD"><span class="badge badge-pill badge-warning note-actions-trash"><i class="fa fa-trash"></i></span></a>
+                </span></h5>
             <div>
-                <span class="alignleft"><a id="get_projects" href="{% url 'get_projects' %}" class="badge badge-pill badge-success"><i
-                            class="fa fa-arrow-left"></i> back</a>
+                <span class="alignleft"><a id="get_projects" href="{% url 'get_projects' %}" class="badge badge-pill badge-success note-details"><i class="fa fa-arrow-left"></i> back</a>
                 </span>
-                <span class="alignright">                    
-                    <span class="badge badge-pill badge-primary"><i class="fa fa-clock-o"></i> {{ project.published_date}}</span>
+                <span class="alignright">
+                    <span class="badge badge-pill badge-primary note-details"><i class="fa fa-clock-o"></i> {{ project.published_date}}</span>
                     {% if project.views %}
-                    <span class="badge badge-pill badge-info"><i class="fa fa-eye"></i> {{ project.views }}</span>
+                    <span class="badge badge-pill badge-info note-details"><i class="fa fa-eye"></i> {{ project.views }}</span>
                     {% endif %}
-                    <span class="badge badge-pill badge-warning"><i class="fa fa-book"></i> {{ project.category.name}}</span>
+                    <span class="badge badge-pill badge-warning note-details"><i class="fa fa-book"></i> {{ project.category.name}}</span>
                 </span>
             </div>
         </div>
@@ -31,8 +33,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="sharableModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+<div class="modal fade" id="sharableModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">

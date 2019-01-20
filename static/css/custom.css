@@ -1,5 +1,20 @@
 /* Custom CSS */
 
+.note-details{
+	background-color: #7386D5;
+}
+
+.note-actions-edit{
+	background-color: #8A686C;
+}
+
+.note-actions-share{
+	background-color: #798DAA;
+}
+
+.note-actions-trash{
+	background-color: #924A78;
+}
 
 .payment-form-checkout {
 	padding-top: 15vh;
