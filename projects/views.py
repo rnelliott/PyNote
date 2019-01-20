@@ -41,6 +41,17 @@ def index(request):
 
 
 @login_required
+def get_categories(request, pk):
+    categories = Category.objects.filter(user__exact=request.user)
+    projects = Projects.objects.filter(user__exact=request.user)
+    projects_in_category = Projects.objects.filter(
+        Q(category=pk)).filter(user__exact=request.user)
+    return render(request, "categorysearch.html", {"projects": projects,
+                                                   "categories": categories,
+                                                   "projects_in_category": projects_in_category})
+
+
+@login_required
 def project_details(request, pk):
     """
     Create view returning a Project object referenced by its PrimaryKey/ID,
