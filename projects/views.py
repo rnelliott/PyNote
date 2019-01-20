@@ -33,17 +33,35 @@ def get_projects(request):
     """
     # Filter projects by only those where logged in project user/owner
     # is same as logged in user
+    categories = Category.objects.filter(user__exact=request.user)
     projects = Projects.objects.filter(user__exact=request.user)
-    return render(request, "index.html", {"projects": projects})
+    premium = Profile.objects.filter(
+        Q(premium=True)).filter(user__exact=request.user)
+    if premium:
+        return render(request, "index.html", {"projects": projects,
+                                              "categories": categories,
+                                              "premium": premium})
+    else:
+        return render(request, "index.html", {"projects": projects,
+                                              "categories": categories, })
 
 
-@login_required
-def get_projects_sidenav(request):
-    """
-    Render all existing Projects to sidebar nav items
-    """
-    projects = Projects.objects.filter(user__exact=request.user)
-    return render(request, "base.html", {"projects": projects})
+# @login_required
+# def get_projects_sidenav(request):
+#     """
+#     Render all existing Projects to sidebar nav items
+#     """
+#     categories = Category.objects.filter(user__exact=request.user)
+#     projects = Projects.objects.filter(user__exact=request.user)
+#     premium = Profile.objects.filter(
+#         Q(premium=True)).filter(user__exact=request.user)
+#     if premium:
+#         return render(request, "base.html", {"projects": projects,
+#                                              "categories": categories,
+#                                              "premium": premium})
+#     else:
+#         return render(request, "base.html", {"projects": projects,
+#                                              "categories": categories, })
 
 
 @login_required
