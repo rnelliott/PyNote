@@ -18,13 +18,9 @@ def index(request):
     projects = Projects.objects.filter(user__exact=request.user)
     premium = Profile.objects.filter(
         Q(premium=True)).filter(user__exact=request.user)
-    if premium:
-        return render(request, "index.html", {"projects": projects,
-                                              "categories": categories,
-                                              "premium": premium})
-    else:
-        return render(request, "index.html", {"projects": projects,
-                                              "categories": categories, })
+    return render(request, "index.html", {"projects": projects,
+                                          "categories": categories,
+                                          "premium": premium})
 
 
 @login_required
@@ -39,13 +35,9 @@ def get_projects(request):
     projects = Projects.objects.filter(user__exact=request.user)
     premium = Profile.objects.filter(
         Q(premium=True)).filter(user__exact=request.user)
-    if premium:
-        return render(request, "index.html", {"projects": projects,
-                                              "categories": categories,
-                                              "premium": premium})
-    else:
-        return render(request, "index.html", {"projects": projects,
-                                              "categories": categories, })
+    return render(request, "index.html", {"projects": projects,
+                                          "categories": categories,
+                                          "premium": premium})
 
 
 @login_required
@@ -62,6 +54,7 @@ def project_details(request, pk):
     project.views += 1
     project.save()
     return render(request, "projectdetails.html", {"project": project,
+                                                   "projects": projects,
                                                    "categories": categories})
 
 
@@ -71,6 +64,8 @@ def create_or_edit_project(request, pk=None):
     Create view that can either create or edit a Project,
     edits if exists or creates if not.
     """
+    categories = Category.objects.filter(user__exact=request.user)
+    projects = Projects.objects.filter(user__exact=request.user)
     project = get_object_or_404(Projects, pk=pk) if pk else None
     if request.method == 'POST':
         form = ProjectForm(request.POST, request.FILES, instance=project)
@@ -80,7 +75,9 @@ def create_or_edit_project(request, pk=None):
             return redirect(index)
     else:
         form = ProjectForm(instance=project)
-    return render(request, "projectform.html", {"form": form})
+    return render(request, "projectform.html", {"form": form,
+                                                "projects": projects,
+                                                "categories": categories})
 
 
 # Delete a project/note
