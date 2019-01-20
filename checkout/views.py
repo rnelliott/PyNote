@@ -10,6 +10,7 @@ from django.utils import timezone
 
 from checkout.models import Order
 from products.models import Product
+from projects.models import Projects, Category
 from userprofile.models import Profile
 
 from .forms import MakePaymentForm, OrderForm
@@ -22,6 +23,8 @@ stripe.api_key = settings.STRIPE_SECRET
 
 @login_required()
 def checkout(request):
+    categories = Category.objects.filter(user__exact=request.user)
+    projects = Projects.objects.filter(user__exact=request.user)
     if request.method == "POST":
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
@@ -92,4 +95,8 @@ def checkout(request):
         payment_form = MakePaymentForm()
         order_form = OrderForm()
 
-    return render(request, "checkout.html", {'order_form': order_form, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
+    return render(request, "checkout.html", {'order_form': order_form,
+                                             'payment_form': payment_form,
+                                             'projects': projects,
+                                             'categories': categories,
+                                             'publishable': settings.STRIPE_PUBLISHABLE})
