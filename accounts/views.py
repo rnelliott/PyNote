@@ -6,6 +6,7 @@ from django.shortcuts import HttpResponseRedirect, redirect, render
 from django.template.context_processors import csrf
 
 from .forms import UserLoginForm, UserRegistrationForm
+from projects.models import Projects, Category
 
 
 def logout(request):
@@ -19,6 +20,8 @@ def logout(request):
 
 def login(request):
     """A view that manages the login form"""
+    categories = Category.objects.filter(user__exact=request.user)
+    projects = Projects.objects.filter(user__exact=request.user)
     if request.method == 'POST':
         user_form = UserLoginForm(request.POST)
         if user_form.is_valid():
@@ -28,7 +31,8 @@ def login(request):
             if user:
                 auth.login(request, user)
                 messages.error(request, "You have successfully logged in")
-                sweetify.success(request, 'You logged in!', timer=1500, toast=True)
+                sweetify.success(request, 'You logged in!',
+                                 timer=1500, toast=True)
                 if request.GET and request.GET['next'] != '':
                     next = request.GET['next']
                     return HttpResponseRedirect(next)
@@ -67,7 +71,8 @@ def register(request):
 
             else:
                 messages.error(request, "unable to log you in at this time!")
-                sweetify.error(request, 'Sorry, you couldn\'t be logged in at this time', timer=2000, toast=True)
+                sweetify.error(
+                    request, 'Sorry, you couldn\'t be logged in at this time', timer=2000, toast=True)
     else:
         user_form = UserRegistrationForm()
 

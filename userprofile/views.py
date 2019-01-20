@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render
 from projects.views import index
 from .models import Profile
+from projects.models import Projects, Category
 from django.db.models import Q
 import sweetify
 
@@ -16,6 +17,8 @@ import sweetify
 @login_required
 @transaction.atomic
 def update_profile(request):
+    categories = Category.objects.filter(user__exact=request.user)
+    projects = Projects.objects.filter(user__exact=request.user)
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = ProfileForm(request.POST, instance=request.user.profile)
@@ -29,7 +32,8 @@ def update_profile(request):
             return redirect(update_profile)
         else:
             messages.error(request, ('Please correct the error below.'))
-            sweetify.error(request, 'Please correct the error below.', timer=2000, toast=True)
+            sweetify.error(
+                request, 'Please correct the error below.', timer=2000, toast=True)
     else:
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
@@ -39,10 +43,14 @@ def update_profile(request):
         return render(request, 'userprofile.html', {
             'user_form': user_form,
             'profile_form': profile_form,
-            'profile': premium
+            'profile': premium,
+            'projects': projects,
+            'categories': categories
         })
     else:
         return render(request, 'userprofile.html', {
             'user_form': user_form,
-            'profile_form': profile_form
+            'profile_form': profile_form,
+            'projects': projects,
+            'categories': categories
         })
