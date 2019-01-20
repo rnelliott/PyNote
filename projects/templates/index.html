@@ -2,47 +2,34 @@
 {% extends 'base.html' %}
 <!-- Anything placed in this block will load in ''block content' tags n base.html -->
 {% block content %}
-<div id="ajax-content">
-    <div class="container">
-        <div class="row">
-            {% if projects|length > 0 %}
-            {% for project in projects %}
-            <div class="col-sm-3 projects-row">
-                <div class="card text-primary border-primary">
-                    <div class="card-body hvr-shrink">
-                        <h5><a id="read_project{{ project.id }}" href="{% url 'project_details' project.id %}" >{{ project.title }}</h5>
-                        <p class="card-text">
-                                    {{ project.content | truncatewords:10 | safe}}
-                                </p>
-                        </a>
+{% if projects|length > 0 %}
+<div class="container-fluid">
+    <div class="row">
+        {% for project in projects %}
+        <div class="offsset-lg-1 col-lg-4 col-md-6 col-sm-12">
+            <a href="{% url 'project_details' project.id %}">
+                <div class="card hvr-shrink" style="margin-bottom: 10px;">
+                    <div class="card-header">
+                        {{ project.published_date }}
                     </div>
-                    <div class="card-footer text-muted">
-                        <!-- <span class="alignright"><a id="read_project{{ project.id }}" data-href="{% url 'project_details' project.id %}"
-                                            class="iDProjects btn btn-success hvr-shrink" style="float:right"><i class="fa fa-arrow-right"></i></a></span> -->
-                        <!-- <span class="alignleft">
-                                        <a data-href="{% url 'delete_project' project.id %}" class="iDProjects btn btn-danger hvr-shrink"
-                                            style="float:right"><i class="fa fa-trash"></i></a>
-                                    </span> -->
-                        <span class="alignright">
-                            {{ project.published_date }}
-                        </span>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                     </div>
                 </div>
-            </div>
-            {% endfor %}
-            {% else %}
-            <div class="container">
-                <div class="col-sm-12 projects-row">
-                    <div class=" jumbotron jumbotron-fluid">
-                        <div class="offset-sm-2 col-sm-8 container">
-                            <h1 class="display-4">You haven't created any notes, yet!</h1>
-                            <p class="lead alert alert-primary alignright"><a href="{%url 'new_project'%}"> Create one now <i class="fa fa-arrow-right"></i></a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<div class="col-sm-12 projects-row">
+    <div class=" jumbotron jumbotron-fluid">
+        <div class="offset-sm-2 col-sm-8 container">
+            <h1 class="display-4">You haven't created any notes, yet!</h1>
+            <p class="lead alert alert-primary alignright"><a href="{%url 'new_project'%}"> Create one now <i class="fa fa-arrow-right"></i></a></p>
         </div>
     </div>
 </div>
+{% endif %}
 {% endblock %}
