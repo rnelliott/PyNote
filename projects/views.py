@@ -23,21 +23,21 @@ def index(request):
                                           "premium": premium})
 
 
-@login_required
-def get_projects(request):
-    """
-    Create view with all existing Projects, which exist before now,
-    render them to the projects.html template
-    """
-    # Filter projects by only those where logged in project user/owner
-    # is same as logged in user
-    categories = Category.objects.filter(user__exact=request.user)
-    projects = Projects.objects.filter(user__exact=request.user)
-    premium = Profile.objects.filter(
-        Q(premium=True)).filter(user__exact=request.user)
-    return render(request, "index.html", {"projects": projects,
-                                          "categories": categories,
-                                          "premium": premium})
+# @login_required
+# def get_projects(request):
+#     """
+#     Create view with all existing Projects, which exist before now,
+#     render them to the projects.html template
+#     """
+#     # Filter projects by only those where logged in project user/owner
+#     # is same as logged in user
+#     categories = Category.objects.filter(user__exact=request.user)
+#     projects = Projects.objects.filter(user__exact=request.user)
+#     premium = Profile.objects.filter(
+#         Q(premium=True)).filter(user__exact=request.user)
+#     return render(request, "index.html", {"projects": projects,
+#                                           "categories": categories,
+#                                           "premium": premium})
 
 
 @login_required
