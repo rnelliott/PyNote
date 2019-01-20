@@ -4,7 +4,7 @@
 {% block content %}
 {% if projects|length > 0 %}
 <div class="container-fluid">
-    <div class="row" style="overflow:scroll; height: 75vh;">
+    <div class="row">
         {% for project in projects %}
         <div class="offsset-lg-1 col-lg-4 col-md-6 col-sm-12">
             <a href="{% url 'project_details' project.id %}">
