@@ -29,17 +29,17 @@ def update_profile(request):
             return redirect(update_profile)
         else:
             messages.error(request, ('Please correct the error below.'))
-            sweetif.error(request, 'Please correct the error below.', timer=2000, toast=True)
+            sweetify.error(request, 'Please correct the error below.', timer=2000, toast=True)
     else:
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
-    profile = Profile.objects.filter(
+    premium = Profile.objects.filter(
         Q(premium=True)).filter(user__exact=request.user)
-    if profile:
+    if premium:
         return render(request, 'userprofile.html', {
             'user_form': user_form,
             'profile_form': profile_form,
-            'profile': profile
+            'profile': premium
         })
     else:
         return render(request, 'userprofile.html', {
