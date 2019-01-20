@@ -83,7 +83,7 @@ def create_or_edit_project(request, pk=None):
         if count_users_notes < 5:
             form = ProjectForm(instance=project)
         else:
-            return redirect(all_products)
+            return redirect(get_projects)
     return render(request, "projectform.html", {"form": form})
 
 
