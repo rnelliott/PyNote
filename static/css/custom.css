@@ -1,5 +1,9 @@
 /* Custom CSS */
 
+.side-bar-search{
+	padding-left: 30px;
+}
+
 .note-details{
 	background-color: #7386D5;
 }
@@ -44,7 +48,7 @@
 }
 
 .CTAs-bottom {
-	padding-top: 100px;
+	padding-top: 10px;
 }
 
 .btn-info-main {
