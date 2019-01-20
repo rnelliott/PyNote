@@ -117,11 +117,6 @@
 	border-color: #fff;
 }
 
-.card {
-	min-height: 15vh;
-	max-height: 30vh;
-}
-
 .card-body {
 	min-height: 15vh
 }
