@@ -67,7 +67,11 @@ def edit_project(request, pk=None):
     edits if exists or creates if not.
     """
     project = get_object_or_404(Projects, pk=pk) if pk else None
-
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, request.FILES, instance=project)
+        if form.is_valid():
+            form.instance.user = request.user
+            project = form.save()
     form = ProjectForm(instance=project)
     return render(request, "projectform.html", {"form": form})
 
