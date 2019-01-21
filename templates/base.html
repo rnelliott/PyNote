@@ -48,21 +48,21 @@
             {% if user.is_authenticated %}
             <ul class="list-unstyled CTAs">
                 <li>
-                        <a href="{% url 'index' %}" class="article"><i class="fa fa-home fa-fw"></i> Home</a>
+                    <a href="{% url 'index' %}" class="article"><i class="fa fa-home fa-fw"></i> Home</a>
                 </li>
                 <li>
                     <a href="{% url 'new_project' %}" class="article"><i class="fa fa-plus fa-fw"></i> Create</a>
                 </li>
                 <li>
                     <div class="side-bar-search">
-                            <form method="GET" action="{% url 'search_project' %}" class="form-inline my-2 my-lg-0">
-                                    <div class="input-group mb-3">
-                                        <input id="search-bar-main" name="search" class="form-control form-control-sidebar mr-sm-2" type="search" placeholder="Search notes ..." required>
-                                        <div class="input-group-append">
-                                            <button class="btn btn-light my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
-                                        </div>
-                                    </div>
-                                </form>
+                        <form method="GET" action="{% url 'search_project' %}" class="form-inline my-2 my-lg-0">
+                            <div class="input-group mb-3">
+                                <input id="search-bar-main" name="search" class="form-control form-control-sidebar mr-sm-2" type="search" placeholder="Search notes ..." required>
+                                <div class="input-group-append">
+                                    <button class="btn btn-light my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </li>
             </ul>
@@ -89,11 +89,14 @@
                         Categories
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu2">
-                        {% for category in categories %}
+                        {% for category in categories|slice:":5" %}
                         <li>
                             <a href="{% url 'get_categories' pk=category.id %}" name="search"><i class="fa fa-square fa-fw" style="color: {{ category.color }}"></i> {{category.name | truncatechars:15 }}</a>
                         </li>
                         {% endfor %}
+                        <li>
+                            <a href="#" class="iD"> see alll ...</a>
+                        </li>
                     </ul>
                 </li>
             </ul>

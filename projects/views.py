@@ -8,7 +8,7 @@ from products.views import all_products
 from userprofile.models import Profile
 from products.models import Product
 
-from .forms import ProjectForm
+from .forms import ProjectForm, CategoryForm
 from .models import Category, Projects
 
 
@@ -69,6 +69,41 @@ def project_details(request, pk):
                                                    "categories": categories})
 
 
+# Create/edit a category
+@login_required
+def create_or_edit_category(request, pk=None):
+    """
+    Create view that can either create or edit a Project,
+    edits if exists or creates if not.
+    """
+    categories = Category.objects.filter(user__exact=request.user)
+    projects = Projects.objects.filter(user__exact=request.user)
+
+    category = get_object_or_404(Category, pk=pk) if pk else None
+    if request.method == 'POST':
+        form = CategoryForm(request.POST, request.FILES, instance=project)
+        if form.is_valid():
+            form.instance.user = request.user
+            category = form.save()
+            return redirect(index)
+    else:
+        form = ProjectForm(instance=category)
+    return render(request, "projectform.html", {"form": form,
+                                                "projects": projects,
+                                                "categories": categories})
+
+
+@login_required
+def manage_categories(request):
+    form = CategoryForm(request.POST, request.FILES)
+    if form.is_valid():
+        form.instance.user = request.user
+        category = form.save()
+        form = CategoryForm()
+    categories = Category.objects.all()
+    return render(request, "categories.html", {"form": form, "categories": categories})
+
+
 @login_required
 def create_or_edit_project(request, pk=None):
     """
@@ -91,7 +126,22 @@ def create_or_edit_project(request, pk=None):
                                                 "categories": categories})
 
 
+# Delete a category
+@login_required
+def delete_category(request, pk):
+    """
+    Delete the project, return all existing projects
+    """
+    category = get_object_or_404(Category, pk=pk) if pk else None
+    category.delete()
+    form = CategoryForm(request.POST, request.FILES)
+    categories = Category.objects.all()
+    sweetify.success(request, "You have deleted the category!", timer=500)
+    return render(request, "categories.html", {"form": form, "categories": categories})
+
 # Delete a project/note
+
+
 @login_required
 def delete_project(request, pk):
     """
