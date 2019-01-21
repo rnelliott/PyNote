@@ -47,16 +47,12 @@
             </div>
             {% if user.is_authenticated %}
             <ul class="list-unstyled CTAs">
-                <!-- <li>
+                <li>
                     <a href="{% url 'index' %}" class="article"><i class="fa fa-home fa-fw"></i> Home</a>
                 </li>
                 <li>
-                    <span class="alignleft">
-                        <a href="{% url 'new_project' %}" class="article"><i class="fa fa-plus fa-fw"></i> Note</a></span>
-                    <span class="alignright">
-                        <a id="profile-link" class="article" href="{% url 'manage_catagories' %}"><i class="fa fa-book"></i>
-                            Categories</a></span>
-                </li> -->
+                    <a href="{% url 'new_project' %}" class="article"><i class="fa fa-plus fa-fw"></i> Create</a>
+                </li>
                 <li>
                     <div class="side-bar-search">
                         <form method="GET" action="{% url 'search_project' %}" class="form-inline my-2 my-lg-0">
