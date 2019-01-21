@@ -20,8 +20,6 @@ def logout(request):
 
 def login(request):
     """A view that manages the login form"""
-    categories = Category.objects.filter(user__exact=request.user)
-    projects = Projects.objects.filter(user__exact=request.user)
     if request.method == 'POST':
         user_form = UserLoginForm(request.POST)
         if user_form.is_valid():
