@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
 from tinymce import HTMLField
+from colorfield.fields import ColorField
 
 import uuid
 
@@ -19,6 +20,7 @@ class Projects(models.Model):
     # Create unique-sharable ID
     # uuid = uuid.uuid4()
     # uuid = models.CharField(max_length=64, default=uuid, unique=True)
+    color = ColorField(default='#FF0000')
     category = models.ForeignKey('Category')
     is_sharable = models.BooleanField(default=False)
     user = models.ForeignKey(User, null=True, blank=True)
