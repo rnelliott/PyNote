@@ -1,21 +1,27 @@
 # AirDnC [![Build Status](https://travis-ci.com/davedodea/CI-Project5.svg?token=mSbTyy1sJpCTYfpkhqUw&branch=master)](https://travis-ci.com/davedodea/CI-Project5)
 
-A Django note-taking application.
+A modern note-taking application. Built with Python and the Django framework.
 
 Allow users to create, store and organise their notes.
 
  
 ## UX
-This application is built with a mobile first, responsive design.
+This application is built with a mobile first, responsive design in mind
 
 ## Features
-TODO
-### Existing Features
-TODO
-### Features Left to Implement
-TODO
-## Technologies Used
+- Full user account system for authenticaion.
+- Social sign-on for GitHub, Twitter and Google.
+- Users may create, store and organise the notes.
+- Categorise user notes.
+- Full search via notes and categories.
+- Payment plans via Stripe credit card payment processing.
 
+### Features Left to Implement
+- Sharable notes to public.
+- Sharable notes to other registered users.
+- Tags for notes.
+
+## Technologies Used
 - Python
 - JavaScript
 - HTML
@@ -31,19 +37,20 @@ TODO
 - [PostgreSQL](https://www.postgresql.org/)
     - Relational database store for model data.
     
+- [Heroku](https://www.heroku.com/)
+    - Platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+    
 - [Bootstrap](https://getbpptstrap.com)
-    - Bootstrap is used as the primary CSS framework
-
-## Testing
-
-TODO
+    - Bootstrap is used as the primary CSS framework.
 
 ## Deployment
 - The Django application and the PostgreSQL database are deployed to seperate Heroku instances.
 
-- Deployments are triggered via the pipeline connected directly to the master branch of the GitHub repository.
+- Testing is triggered via TravisCI upon PR's to the GitHub repository.
 
-- Ensure you have set the following config vars set in Heroku settings:
+- Once TravisCI builds, deployment is carried out on Heroku.
+
+- If you wish to deploy - ensure you have set the following config vars set in Heroku app settings:
     - 'DATABASE_URL'
     - 'EMAIL_ADDRESS
     - 'EMAIL_PASSWORD'
@@ -143,14 +150,10 @@ wrapt==1.10.11
 
 ## Credits
 TODO
+
 ### Acknowledgements
 - Social buttons for Bootstrap:
    - https://github.com/lipis/bootstrap-social
 
 - Hover CSS:
    - https://github.com/IanLunn/Hover
-
-### Content
-TODO
-### Media
-TODO
