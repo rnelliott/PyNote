@@ -147,7 +147,15 @@
                                 <a href="{%url 'index'%}" class="btn btn-secondary"><i class="fa fa-home"></i> Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{%url 'new_project'%}" class="btn btn-secondary"><i class="fa fa-plus"></i> Create</a>
+                                <div class="dropdown dropdown-menu-right">
+                                        <a href="#" class="btn btn-secondary" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-plus"></i> Create</a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                        <a href="{% url 'new_project' %}" class="nav-link nav-link-main"><i class="fa fa-user-md fa-fw"></i>
+                                            Note</a>
+                                        <a href="{% url 'manage_catagories' %}" class="iD nav-link nav-link-main"><i class="fa fa-sign-out fa-fw"></i>
+                                            Category</a>
+                                    </div>
+                                </div>
                             </li>
                             <li class="nav-item">
                                 <div class="dropdown dropdown-menu-right">
