@@ -73,6 +73,8 @@ INSTALLED_APPS = [
     'tinymce',
     # Alerts and notifications
     'sweetify',
+    # Colorfield
+    'colorfield'
 ]
 
 MIDDLEWARE = [
