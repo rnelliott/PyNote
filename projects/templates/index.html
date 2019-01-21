@@ -17,6 +17,9 @@
                             <h5 class="card-title"><i class="fa fa-circle-thin" style="color: {{ project.color }};"></i> {{ project.title | truncatechars:20}}</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                         </div>
+                        <div class="card-footer">
+                            {{ project.category.name }}
+                        </div>
                     </div>
                 </a>
             </div>
