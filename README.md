@@ -15,8 +15,11 @@ TODO
 ### Features Left to Implement
 TODO
 ## Technologies Used
-- [Bootstrap](https://getbpptstrap.com)
-    - Bootstrap is used as the primary CSS framework
+
+- Python
+- JavaScript
+- HTML
+- CSS
 
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
@@ -27,6 +30,9 @@ TODO
 
 - [PostgreSQL](https://www.postgresql.org/)
     - Relational database store for model data.
+    
+- [Bootstrap](https://getbpptstrap.com)
+    - Bootstrap is used as the primary CSS framework
 
 ## Testing
 
@@ -38,16 +44,23 @@ TODO
 - Deployments are triggered via the pipeline connected directly to the master branch of the GitHub repository.
 
 - Ensure you have set the following config vars set in Heroku settings:
-    - `DATABASE_URL`
-    - `EMAIL_ADDRESS`
-    - `EMAIL_PASSWORD`
-    - `SECRET_KEY` (arbitrary string)
-
-    For Social auth:
-    - `SOCIAL_AUTH_GITHUB_KEY`
-    - `SOCIAL_AUTH_GITHUB_SECRET`
-
-
+    - 'DATABASE_URL'
+    - 'EMAIL_ADDRESS
+    - 'EMAIL_PASSWORD'
+    - 'SECRET_KEY' (arbitrary string)
+    - 'DATABASE_URL'
+    - 'EMAIL_ADDRESS'
+    - 'EMAIL_PASSWORD'
+    - 'SECRET_KEY'
+    - 'SOCIAL_AUTH_GITHUB_KEY'
+    - 'SOCIAL_AUTH_GITHUB_SECRET'
+    - 'SOCIAL_AUTH_GOOGLE_OAUTH2_KEY'
+    - 'SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET'
+    - 'SOCIAL_AUTH_TWITTER_KEY'
+    - 'SOCIAL_AUTH_TWITTER_SECRET'
+    - 'STRIPE_PUBLISHABLE'
+    - 'STRIPE_SECRET'
+    
 ## Install locally
 
 - Clone the repository
@@ -59,14 +72,23 @@ TODO
 - Install requirements: `pip install -r requirements.txt`
 
 - Ensure you have set the following environment variables:
-    - `DATABASE_URL`
-    - `EMAIL_ADDRESS`
-    - `EMAIL_PASSWORD`
-    - `SECRET_KEY` (arbitrary string)
+    - 'DATABASE_URL'
+    - 'EMAIL_ADDRESS
+    - 'EMAIL_PASSWORD'
+    - 'SECRET_KEY' (arbitrary string)
+    - 'DATABASE_URL'
+    - 'EMAIL_ADDRESS'
+    - 'EMAIL_PASSWORD'
+    - 'SECRET_KEY'
+    - 'SOCIAL_AUTH_GITHUB_KEY'
+    - 'SOCIAL_AUTH_GITHUB_SECRET'
+    - 'SOCIAL_AUTH_GOOGLE_OAUTH2_KEY'
+    - 'SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET'
+    - 'SOCIAL_AUTH_TWITTER_KEY'
+    - 'SOCIAL_AUTH_TWITTER_SECRET'
+    - 'STRIPE_PUBLISHABLE'
+    - 'STRIPE_SECRET'
 
-    For Social auth:
-    - `SOCIAL_AUTH_GITHUB_KEY`
-    - `SOCIAL_AUTH_GITHUB_SECRET`
 
 - Make migrations: `python3 manage.py makemigrations`
 
@@ -77,85 +99,43 @@ TODO
 ```python
 requirements.txt
 
-algoliasearch==1.19.1
-algoliasearch-django==1.7.0
-asn1crypto==0.24.0
-astroid==2.0.4
-autopep8==1.4
-Brlapi==0.6.6
+astroid==2.1.0
 certifi==2018.11.29
 chardet==3.0.4
-chrome-gnome-shell==0.0.0
-command-not-found==0.3
-cryptography==2.1.4
-cupshelpers==1.0
-defer==1.0.6
 defusedxml==0.5.0
-distro-info==0.18
 dj-database-url==0.5.0
 Django==1.11.15
+django-colorfield==0.1.15
 django-forms-bootstrap==3.1.0
 django-js-asset==1.1.0
+django-tinymce4-lite==1.7.3
 gunicorn==19.9.0
-hidpidaemon==18.4.4
-httplib2==0.9.2
-idna==2.8
+idna==2.7
 isort==4.3.4
-jsonfield==2.0.2
-kernelstub==3.1.0
-keyring==10.6.0
-keyrings.alt==3.0
-language-selector==0.1
+jsmin==2.2.2
 lazy-object-proxy==1.3.1
-louis==3.5.0
-macaroonbakery==1.1.3
 mccabe==0.6.1
-netifaces==0.10.4
-oauthlib==2.1.0
-olefile==0.45.1
-pep8==1.7.1
-pexpect==4.2.1
+oauthlib==3.0.0
 Pillow==5.3.0
-protobuf==3.0.0
 psycopg2==2.7.5
 psycopg2-binary==2.7.5
-pycairo==1.16.2
 pycodestyle==2.4.0
-pycrypto==2.6.1
-pycups==1.9.73
-pydbus==0.6.0
-pygobject==3.26.1
 PyJWT==1.6.4
 pylint==2.1.1
-pymacaroons==0.13.0
-PyNaCl==1.1.2
-pyRFC3339==1.0
-python-apt==1.6.3
-python-xlib==0.20
 python3-openid==3.1.0
-pytz==2018.7
-pyxdg==0.25
-PyYAML==3.12
-Repoman==1.0.2
-reportlab==3.4.0
-requests==2.21.0
+pytz==2018.5
+requests==2.20.1
 requests-oauthlib==1.0.0
-requests-unixsocket==0.1.5
-SecretStorage==2.3.1
-sessioninstaller==0.0.0
-six==1.12.0
+six==1.11.0
 social-auth-app-django==3.1.0
 social-auth-core==2.0.0
-system-service==0.3
-systemd-python==234
+stripe==2.18.0
+sweetify==1.0.3
 typed-ast==1.1.0
-ubuntu-drivers-common==0.0.0
-ufw==0.35
 urllib3==1.24.1
 virtualenv==16.0.0
 whitenoise==4.1
 wrapt==1.10.11
-xkit==0.0.0
 
 
 ```
