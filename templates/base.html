@@ -91,7 +91,7 @@
                     <ul class="collapse list-unstyled" id="homeSubmenu2">
                         {% for category in categories %}
                         <li>
-                            <a href="{% url 'get_categories' pk=category.id %}" name="search">{{category.name | truncatechars:15 }}</a>
+                            <a href="{% url 'get_categories' pk=category.id %}" name="search"><i class="fa fa-square-o" style="color: {{ category.color }}"></i> {{category.name | truncatechars:15 }}</a>
                         </li>
                         {% endfor %}
                     </ul>

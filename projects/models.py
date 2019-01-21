@@ -7,6 +7,7 @@ from colorfield.fields import ColorField
 import uuid
 
 class Category(models.Model):
+    color = ColorField(default='#FF0000')
     name = models.CharField(max_length=200)
     user = models.ForeignKey(User, null=True, blank=True)
 
