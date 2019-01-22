@@ -18,6 +18,8 @@
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <!-- Font Awesome JS -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/simple-line-icons.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -35,70 +37,61 @@
 <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="#page-top"><h3>PyNote</h3></a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-outline" href="{% url 'login' %}">Log In</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-outline" href="{% url 'register' %}">Register</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <header class="masthead">
-        <div class="container h-100">
-            <div class="row h-100">
-                <div class="col-lg-7 my-auto">
-                    <div class="header-content mx-auto">
-                        <h1 class="mb-5">PyNote lets you create and organise your lifes notes!</h1>
-                        <a href="{% url 'login' %}" class="btn btn-outline btn-xl js-scroll-trigger">Start Now for Free!</a>
-                    </div>
+    
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand btn" href="#page-top"><h3>PyNote</h3></a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-ellipsis-h"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline" href="{% url 'login' %}">Log In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline" href="{% url 'register' %}">Register</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-lg-5 my-auto">
-                    <div class="device-container">
-                        <div class="device-mockup iphone6_plus portrait white">
-                            <div class="device">
-                                <div class="screen">
-                                    <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                                    <img src="{% static 'img/demo-screen-2.PNG' %}" class="img-fluid" alt="">
-                                </div>
-                                <div class="button">
-                                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+            </div>
+        </nav>
+    
+        <header class="masthead">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-lg-7 my-auto hidden-xs hidden-sm hidden-md" >
+                        <div class="header-content mx-auto">
+                            <h1 class="mb-5">PyNote lets you create and organise your lifes notes!</h1>
+                            <a href="{% url 'login' %}" class="btn btn-outline btn-xl js-scroll-trigger">Start Now for Free!</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 my-auto">
+                        <div class="device-container">
+                            <div class="device-mockup iphone6_plus portrait white">
+                                <div class="device">
+                                    <div class="screen">
+                                        <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                                        <img src="{% static 'img/demo-screen-2.PNG' %}" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="button">
+                                        <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </header>
+    </div>
 
 
 
     <footer>
-        <div class="container">
-            <p>&copy; Your Website 2018. All Rights Reserved.</p>
-            <ul class="list-inline">
-                <li class="list-inline-item">
-                    <a href="#">Privacy</a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="#">Terms</a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="#">FAQ</a>
-                </li>
-            </ul>
+        <div class="container footer-text">
+            <p>© 2019 PyNote | Made with &#10084; by
+                <a href="https://daveodea.com" target="_blank">Dave O'Dea</a>
         </div>
     </footer>
 
