@@ -53,8 +53,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Bootstrap forms
     'django_forms_bootstrap',
-    # Home
-    'home',
     # Projects
     'projects',
     # Home
