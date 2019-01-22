@@ -15,7 +15,7 @@ footer {
 }
 
 /* Large desktops and laptops */
-@media (min-width: 1200px) {
+@media (min-width: 480px) {
 	.desktop-hidden-cta {
 		display: none;
 	}
