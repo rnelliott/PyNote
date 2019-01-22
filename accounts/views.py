@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.shortcuts import HttpResponseRedirect, redirect, render
 from django.template.context_processors import csrf
-from projects.views import index
 
+from home.views import home
 from .forms import UserLoginForm, UserRegistrationForm
 from projects.models import Projects, Category
 
@@ -16,13 +16,10 @@ def logout(request):
     messages.success(request, 'You have successfully logged out')
     sweetify.success(request, 'You logged out!', timer=1500, toast=True)
 
-    return redirect(reverse('index'))
+    return redirect(reverse('home'))
 
-@login_required
+
 def login(request):
-    if request.user:
-        return redirect(index)
-
     """A view that manages the login form"""
     if request.method == 'POST':
         user_form = UserLoginForm(request.POST)
@@ -57,9 +54,6 @@ def profile(request):
 
 
 def register(request):
-    if request.user:
-        return redirect(index)
-        
     """A view that manages the registration form"""
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
