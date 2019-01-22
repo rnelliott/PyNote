@@ -1,5 +1,9 @@
 /* Custom CSS */
 
+footer {
+	background-color: #fff;
+}
+
 .navbar-menu-btn {
 	border: none;
 }
@@ -15,11 +19,6 @@
 	.desktop-hidden-cta {
 		display: none;
 	}
-}
-
-
-footer {
-	background-color: #fff;
 }
 
 .footer-text {
@@ -45,19 +44,20 @@ footer {
 
 #mainNav .navbar-brand:hover {
 	padding-top: 10px;
-	color: #fff;
-	background-color: #2c3e50;
+	color: #2c3e50;
+	background-color: #fff;
 }
 
 #mainNav .navbar-nav>li>a {
 	font-size: 15px;
 	color: #2c3e50;
+	border: none;
 }
 
 #mainNav .navbar-nav>li>a:hover {
 	font-size: 15px;
-	color: #fff;
-	background-color: #2c3e50;
+	color: #2c3e50;
+	background-color: #fff;
 	border: none;
 }
 
