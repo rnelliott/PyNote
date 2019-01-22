@@ -19,6 +19,7 @@ from django.views.generic import RedirectView
 from django.views.static import serve
 
 from accounts import urls as urls_accounts
+from home import urls as urls_home
 from cart import urls as urls_cart
 from checkout import urls as urls_checkout
 from products import urls as urls_products
@@ -30,9 +31,11 @@ from .settings import MEDIA_ROOT
 
 urlpatterns = [
     # if user goes to admin/, load admin app
+    url(r'^$', include(urls_home)),
+    # if user goes to admin/, load admin app
     url(r'^admin/', admin.site.urls),
     # if user goes to root/index, redirect to projects/
-    url(r'^$', index, name='index'),
+    # url(r'^$', index, name='index'),
     # if user goes to accounts/, parse url in urls.py i accounts app
     url(r'^accounts/', include(urls_accounts)),
     # if user goes to projects/, parse url in urls.py in projects app
