@@ -1,5 +1,5 @@
-# (https://travis-ci.com/davedodea/CI-Project5.svg?token=mSbTyy1sJpCTYfpkhqUw&branch=master)](https://travis-ci.com/davedodea/CI-Project5)
-# PyNote [![Build Status]
+[![Build Status](https://travis-ci.com/davedodea/PyNote.svg?branch=master)](https://travis-ci.com/davedodea/PyNote)
+# PyNote
 
 A modern note-taking application. Built with Python and the Django framework.
 
