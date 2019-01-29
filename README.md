@@ -1,4 +1,4 @@
-# AirDnC [![Build Status](https://travis-ci.com/davedodea/CI-Project5.svg?token=mSbTyy1sJpCTYfpkhqUw&branch=master)](https://travis-ci.com/davedodea/CI-Project5)
+# PyNote [![Build Status](https://travis-ci.com/davedodea/CI-Project5.svg?token=mSbTyy1sJpCTYfpkhqUw&branch=master)](https://travis-ci.com/davedodea/CI-Project5)
 
 A modern note-taking application. Built with Python and the Django framework.
 
