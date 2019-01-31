@@ -113,20 +113,27 @@ def create_or_edit_project(request, pk=None):
     categories = Category.objects.filter(user__exact=request.user)
     projects = Projects.objects.filter(user__exact=request.user)
     project = get_object_or_404(Projects, pk=pk) if pk else None
-    if request.method == 'POST':
-        form = ProjectForm(request.POST, request.FILES, instance=project)
-        if form.is_valid():
-            form.instance.user = request.user
-            project = form.save()
-            return redirect(index)
+    projects_count = Projects.objects.all().count()
+    if projects_count > 5:
+        sweetify.error(request, "You already have 5 notes!", html='<a class="btn btn-info btn-lg" href="//#">Upgrade <i class="fa fa-arrow-right"></i></a>',
+                       timer=5000)
+        return redirect(index)
     else:
-        form = ProjectForm(instance=project)
-    return render(request, "projectform.html", {"form": form,
-                                                "projects": projects,
-                                                "categories": categories})
-
+        if request.method == 'POST':
+            form = ProjectForm(request.POST, request.FILES, instance=project)
+            if form.is_valid():
+                form.instance.user = request.user
+                project = form.save()
+                return redirect(index)
+        else:
+            form = ProjectForm(instance=project)
+        return render(request, "projectform.html", {"form": form,
+                                                    "projects": projects,
+                                                    "categories": categories})
 
 # Delete a category
+
+
 @login_required
 def delete_category(request, pk):
     """
