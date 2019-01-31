@@ -182,8 +182,18 @@ footer {
 	border-color: #fff;
 }
 
+.card{
+	min-width: 100%;
+	min-height: 100%;
+}
+
 .card-body {
-	min-height: 15vh
+	min-height: 200px;
+	max-height: 200px;
+}
+
+.card-row{
+	padding-bottom: 50px;
 }
 
 .projects-row {
@@ -913,5 +923,5 @@ html {
 .input-group>.form-control:not(:last-child) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    padding-right: 10vw;
+    padding-right: 1vw;
 }
