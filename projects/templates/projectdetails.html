@@ -8,9 +8,9 @@
         <div class="offset-sm-1 col-sm-10">
             <h4>{{ project.title }}
                 <span class="alignright">
-                        <a id="project-edit" href="{% url 'edit_project' project.id %}" class="iD"><span class="badge badge-pill badge-primary note-actions-edit"><i class="fa fa-pencil"></i></span></a>
-                        <a href="#" data-toggle="modal" data-target="#sharableModal" class="iD"><span class="badge badge-pill badge-info note-actions-share"><i class="fa fa-share"></i></span></a>
-                        <a href="{% url 'delete_project' project.id %}" class="iD"><span class="badge badge-pill badge-warning note-actions-trash"><i class="fa fa-trash"></i></span></a>
+                    <a id="project-edit" href="{% url 'edit_project' project.id %}" class="iD"><span class="badge badge-pill badge-primary note-actions-edit"><i class="fa fa-pencil"></i></span></a>
+                    <a href="#" data-toggle="modal" data-target="#sharableModal" class="iD"><span class="badge badge-pill badge-info note-actions-share"><i class="fa fa-share"></i></span></a>
+                    <a href="#" class="iD-delete"><span class="badge badge-pill badge-warning note-actions-trash"><i class="fa fa-trash"></i></span></a>
                 </span></h4>
             <div>
                 <span class="alignleft"><a href="{% url 'index' %}"><span class="badge badge-pill badge-success note-details"><i class="fa fa-arrow-left"></i> back</a>
@@ -55,4 +55,31 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block javascript %}
+<!-- SweetAlert Delete -->
+<script>
+    $('.iD-delete').click(function (event) {
+        var url = "{% url 'delete_project' project.id %}"
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You can't undo this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#009688',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire(
+                    $(window.location.href = "{% url 'delete_project' project.id %}"),
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success',
+                )
+            }
+        })
+    })
+</script>
 {% endblock %}
