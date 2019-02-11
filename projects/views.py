@@ -156,7 +156,6 @@ def delete_project(request, pk):
     """
     project = get_object_or_404(Projects, pk=pk)
     project.delete()
-    sweetify.success(request, "You have deleted the note!")
     return redirect(index)
 
 
