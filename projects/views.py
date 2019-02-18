@@ -3,15 +3,15 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Count, Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
-
+from products.models import Product
 from products.views import all_products
 from userprofile.models import Profile
-from products.models import Product
 
-from .forms import ProjectForm, CategoryForm
+from .forms import CategoryForm, ProjectForm
 from .models import Category, Projects
 
 
+# Render index page
 @login_required
 def index(request):
     categories = Category.objects.filter(user__exact=request.user)
@@ -23,23 +23,9 @@ def index(request):
                                           "premium": premium})
 
 
-# @login_required
-# def get_projects(request):
-#     """
-#     Create view with all existing Projects, which exist before now,
-#     render them to the projects.html template
-#     """
-#     # Filter projects by only those where logged in project user/owner
-#     # is same as logged in user
-#     categories = Category.objects.filter(user__exact=request.user)
-#     projects = Projects.objects.filter(user__exact=request.user)
-#     premium = Profile.objects.filter(
-#         Q(premium=True)).filter(user__exact=request.user)
-#     return render(request, "index.html", {"projects": projects,
-#                                           "categories": categories,
-#                                           "premium": premium})
-
-
+# ********************
+# Categories Views
+# ********************
 @login_required
 def get_categories(request, pk):
     categories = Category.objects.filter(user__exact=request.user)
@@ -50,23 +36,16 @@ def get_categories(request, pk):
                                                    "categories": categories,
                                                    "projects_in_category": projects_in_category})
 
-
+# Manage categories
 @login_required
-def project_details(request, pk):
-    """
-    Create view returning a Project object referenced by its PrimaryKey/ID,
-    render the Project details to projectdetails.html.
-    Return a 404 if Project is not found.
-    """
-    # Display details on a given Project
-    categories = Category.objects.filter(user__exact=request.user)
-    projects = Projects.objects.filter(user__exact=request.user)
-    project = get_object_or_404(Projects, pk=pk)
-    project.views += 1
-    project.save()
-    return render(request, "projectdetails.html", {"project": project,
-                                                   "projects": projects,
-                                                   "categories": categories})
+def manage_categories(request):
+    form = CategoryForm(request.POST, request.FILES)
+    if form.is_valid():
+        form.instance.user = request.user
+        category = form.save()
+        form = CategoryForm()
+    categories = Category.objects.all()
+    return render(request, "categories.html", {"form": form, "categories": categories})
 
 
 # Create/edit a category
@@ -92,18 +71,43 @@ def create_or_edit_category(request, pk=None):
                                                 "projects": projects,
                                                 "categories": categories})
 
-
+# Delete a category
 @login_required
-def manage_categories(request):
+def delete_category(request, pk):
+    """
+    Delete the project, return all existing projects
+    """
+    category = get_object_or_404(Category, pk=pk) if pk else None
+    category.delete()
     form = CategoryForm(request.POST, request.FILES)
-    if form.is_valid():
-        form.instance.user = request.user
-        category = form.save()
-        form = CategoryForm()
     categories = Category.objects.all()
+    sweetify.success(request, "You have deleted the category!", timer=500)
     return render(request, "categories.html", {"form": form, "categories": categories})
 
 
+# ********************
+# Projects Views
+# ********************
+
+# Display the details of a given project
+@login_required
+def project_details(request, pk):
+    """
+    Create view returning a Project object referenced by its PrimaryKey/ID,
+    render the Project details to projectdetails.html.
+    Return a 404 if Project is not found.
+    """   
+    categories = Category.objects.filter(user__exact=request.user)
+    projects = Projects.objects.filter(user__exact=request.user)
+    project = get_object_or_404(Projects, pk=pk)
+    project.views += 1
+    project.save()
+    return render(request, "projectdetails.html", {"project": project,
+                                                   "projects": projects,
+                                                   "categories": categories})
+
+
+# Create project or edit if exists
 @login_required
 def create_or_edit_project(request, pk=None):
     """
@@ -115,7 +119,8 @@ def create_or_edit_project(request, pk=None):
     project = get_object_or_404(Projects, pk=pk) if pk else None
     projects_count = Projects.objects.all().count()
     if projects_count > 5:
-        sweetify.error(request, "You already have 5 notes!", html='<a class="btn btn-info btn-lg" href="//#">Upgrade <i class="fa fa-arrow-right"></i></a>',
+        sweetify.error(request, "You already have 5 notes!",
+                       html='<a class="btn btn-info btn-lg" href="//#">Upgrade <i class="fa fa-arrow-right"></i></a>',
                        timer=5000)
         return redirect(index)
     else:
@@ -131,24 +136,8 @@ def create_or_edit_project(request, pk=None):
                                                     "projects": projects,
                                                     "categories": categories})
 
-# Delete a category
-
-
-@login_required
-def delete_category(request, pk):
-    """
-    Delete the project, return all existing projects
-    """
-    category = get_object_or_404(Category, pk=pk) if pk else None
-    category.delete()
-    form = CategoryForm(request.POST, request.FILES)
-    categories = Category.objects.all()
-    sweetify.success(request, "You have deleted the category!", timer=500)
-    return render(request, "categories.html", {"form": form, "categories": categories})
 
 # Delete a project/note
-
-
 @login_required
 def delete_project(request, pk):
     """
