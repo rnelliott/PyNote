@@ -146,7 +146,7 @@ This application is built with a mobile first, responsive design in mind.
 
 - Once TravisCI builds, deployment is carried out on Heroku.
 
-- The process I took was as follows:
+##### The process I took was as follows:
 - Set up a new instance of a Heroku app, along with a PostgreSQL instance.
 - Store the necessary config variables in the Heroku app settings.
 - Set up the gunicorn server in the Heroku Procfile.
