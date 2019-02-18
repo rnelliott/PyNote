@@ -147,8 +147,18 @@ This application is built with a mobile first, responsive design in mind.
 - Once TravisCI builds, deployment is carried out on Heroku.
 
 - The process I took was as follows:
-    - 
-
+- Set up a new instance of a Heroku app, along with a PostgreSQL instance.
+- Store the necessary config variables in the Heroku app settings.
+- Set up the gunicorn server in the Heroku Procfile.
+- Set the necessary  variables in the Django app settings.
+- Set up Travis-CI to trigger when pushes are made to the repository, set up with a yml config file.
+- Set up a automatic deployment hook on Heroku to trigger once Travis-CI has completed.
+- Make migrations.
+- Migrate.
+- Create a superuser.
+- Set Heroku app domains settings.py
+- Set Debug to false.
+- Deploy by pushing to GitHub
 
 - If you wish to deploy - ensure you have set the following config vars set in Heroku app settings:
 ```
