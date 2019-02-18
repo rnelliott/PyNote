@@ -2,12 +2,10 @@
 {% block content %}
 <div class="row row-flex">
     {% for product in products %}
-    <div class="container-fluid-price">
+    <div class="container-fluid-price panel">
         <div class="panel pricing-table">
             <div class="pricing-plan">
-                <h4 class="pricing-header">Store Unlimited Notes !</h4>
-                <img src="https://s28.postimg.cc/ju5bnc3x9/plane.png" alt="" class="pricing-img">
-                <h2 class="pricing-header">{{ product.name }}</h2>
+                <h3 class="pricing-price">{{ product.name }} plan</h3>
                 <ul class="pricing-features">
                     <li class="pricing-features-item">All features of trial</li>
                     <li class="pricing-features-item">Unlimited notes</li>
@@ -17,8 +15,9 @@
                 <span class="pricing-price">€{{ product.price }}</span>per month
                 <form method="post" action="{% url 'add_to_cart' product.id %}">
                     {% csrf_token %}
-                    <button role="submit" class="pricing-button is-featured">Sign Up</button>
+                    <br />
                     <input name='quantity' type="number" min="1" max="999" class="form-control" placeholder="How many months ?" required>
+                    <button role="submit" class="pricing-button is-featured">Sign Up</button>
                 </form>
             </div>
         </div>
