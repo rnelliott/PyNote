@@ -126,13 +126,13 @@ This application is built with a mobile first, responsive design in mind.
 - [JavaScript](https://developer.mozilla.org/bm/docs/Web/JavaScript)
 - [jQuery](https://jquery.com/) - for DOM manipulation.
 - [Bootstrap](https://getbpptstrap.com) - Bootstrap is used as the primary CSS framework.
-- [Django](https://www.djangoproject.com/) - MVT (Mode-View-Template) framweork used to build the application. 
+- [Django](https://www.djangoproject.com/) - MVT (Mode-View-Template) framework used to build the application. 
 - [PostgreSQL](https://www.postgresql.org/) - Relational database store for model data.
 - [Heroku](https://www.heroku.com/) - Platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
 - [Travis-CI](https://travis-ci.com) - Test and deploy code projects.
 
 ## Deployment
-- The Django application and the PostgreSQL database are deployed to seperate Heroku instances.
+- The Django application and the PostgreSQL database are deployed to separate Heroku instances.
 
 - Testing is triggered via TravisCI upon PR's to the GitHub repository.
 
@@ -143,6 +143,7 @@ This application is built with a mobile first, responsive design in mind.
 
 
 - If you wish to deploy - ensure you have set the following config vars set in Heroku app settings:
+```
     - 'DATABASE_URL'
     - 'EMAIL_ADDRESS
     - 'EMAIL_PASSWORD'
@@ -159,7 +160,8 @@ This application is built with a mobile first, responsive design in mind.
     - 'SOCIAL_AUTH_TWITTER_SECRET'
     - 'STRIPE_PUBLISHABLE'
     - 'STRIPE_SECRET'
-    
+```
+
 ## Install locally
 
 This is the process I have tested to enable local development and deployment.
@@ -225,8 +227,6 @@ urllib3==1.24.1
 virtualenv==16.0.0
 whitenoise==4.1
 wrapt==1.10.11
-
-
 ```
 
 
