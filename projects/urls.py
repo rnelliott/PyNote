@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import index, project_details, create_or_edit_project, delete_project, search_project, public_url, get_categories, manage_categories, delete_category
+from .views import index, project_details, create_or_edit_project, delete_project, search_project, get_categories, manage_categories, delete_category
 
 urlpatterns = [
     
@@ -23,8 +23,4 @@ urlpatterns = [
     url(r'^categories/$', manage_categories, name='manage_catagories'),
     # Delete a category
     url(r'^(?P<pk>\d+)/delete-category/$', delete_category, name='delete_category'),
-    # sharable urls
-    url(r'^public/([a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12})$',
-        public_url, name='public_url'),
-
 ]

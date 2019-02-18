@@ -142,10 +142,3 @@ def search_project(request):
 
     return render(request, "search.html", {"projects": results,
                                            "categories": categories})
-
-
-# Sharable URLs
-def public_url(request, url):
-    # project = get_object_or_404(Projects, uuid=url)
-    results = Projects.objects.filter(Q(uuid__icontains=url))
-    return render(request, "sharedproject.html", {"project": results})
