@@ -132,6 +132,8 @@ This application is built with a mobile first, responsive design in mind.
 - [Travis-CI](https://travis-ci.com) - Test and deploy code projects.
 
 ## Deployment
+- A live version of this app is available [here](https://pynote.daveodea.com).
+
 - The Django application and the PostgreSQL database are deployed to separate Heroku instances.
 
 - Testing is triggered via TravisCI upon PR's to the GitHub repository.
