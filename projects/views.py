@@ -125,10 +125,10 @@ def create_or_edit_project(request, pk=None):
         return redirect(index)
     else:
         if request.method == 'POST':
-            form = ProjectForm(request.POST, request.FILES, instance=project)
+            form = ProjectForm(request.user, request.POST)
             if form.is_valid():
                 form.instance.user = request.user
-                project = form.save()
+                form.save()
                 return redirect(index)
         else:
             form = ProjectForm(request.user)
