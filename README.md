@@ -98,6 +98,9 @@ This application is built with a mobile first, responsive design in mind.
 #### Validation
 - My HTML, CSS an Javascript were all validated successfully with the relevant online tools.
 
+#### Python linting
+- All code was linted and formatted to the [Pep8](https://www.python.org/dev/peps/pep-0008/) standard.
+
 
 ## Features overview
 - Full user account system for authorisation and authentication,.
