@@ -187,53 +187,9 @@ This is the process I have tested to enable local development and deployment.
 
 - Run the server: `python3 manage.py runserver`
 
-```python
-requirements.txt
-
-astroid==2.1.0
-certifi==2018.11.29
-chardet==3.0.4
-defusedxml==0.5.0
-dj-database-url==0.5.0
-Django==1.11.15
-django-colorfield==0.1.15
-django-forms-bootstrap==3.1.0
-django-js-asset==1.1.0
-django-tinymce4-lite==1.7.3
-gunicorn==19.9.0
-idna==2.7
-isort==4.3.4
-jsmin==2.2.2
-lazy-object-proxy==1.3.1
-mccabe==0.6.1
-oauthlib==3.0.0
-Pillow==5.3.0
-psycopg2==2.7.5
-psycopg2-binary==2.7.5
-pycodestyle==2.4.0
-PyJWT==1.6.4
-pylint==2.1.1
-python3-openid==3.1.0
-pytz==2018.5
-requests==2.20.1
-requests-oauthlib==1.0.0
-six==1.11.0
-social-auth-app-django==3.1.0
-social-auth-core==2.0.0
-stripe==2.18.0
-sweetify==1.0.3
-typed-ast==1.1.0
-urllib3==1.24.1
-virtualenv==16.0.0
-whitenoise==4.1
-wrapt==1.10.11
-```
-
-
 ## Credits
-TODO
 
-### Acknowledgements
+### Third-party
 - Social buttons for Bootstrap:
    - https://github.com/lipis/bootstrap-social
 
