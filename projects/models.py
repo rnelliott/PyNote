@@ -6,7 +6,7 @@ from tinymce import HTMLField
 
 
 class Category(models.Model):
-    color = ColorField(default='#FF0000')
+    color = ColorField(default='#FFFFFF')
     name = models.CharField(max_length=200)
     user = models.ForeignKey(User, null=True, blank=True)
 
@@ -17,7 +17,7 @@ class Projects(models.Model):
     """
     Model for project/post by users
     """
-    color = ColorField(default='#FF0000')
+    color = ColorField(default='#FFFFFF')
     category = models.ForeignKey('Category')
     is_sharable = models.BooleanField(default=False)
     user = models.ForeignKey(User, null=True, blank=True)
