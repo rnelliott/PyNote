@@ -286,12 +286,10 @@
     <!-- Custom scripts -->
     <script>
         $(".iD").click(function (event) {
-            console.log('fired!', $(this).attr('data-href'));
             var target = $(this).attr("data-href");
             $("#ajax-content").load(target)
         });
         $(".iDProjects").click(function (event) {
-            console.log('clicked read more', $(this).attr('data-href'));
             var target = $(this).attr("data-href");
             $("#ajax-content").load(target)
         });

@@ -1,7 +1,6 @@
     {% extends "base.html" %}
 <script>
     $("#login-link").click(function (event) {
-        console.log('load project details fired!');
         var target = $(this).attr("data-href");
         $("#ajax-content").load(target)
     });

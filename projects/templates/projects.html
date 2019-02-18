@@ -7,7 +7,6 @@
     // Back to projects
     $(".iDProjects").click(function () {
         var dataHref = $(this).attr("data-href");
-        console.log("clicked read more", $(this).attr("data-href"));
         $("#ajax-content").load(dataHref);
         //$('#third').trigger('click');
     });
