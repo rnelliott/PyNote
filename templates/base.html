@@ -78,7 +78,7 @@
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         {% for project in projects|slice:":5" %}
                         <li>
-                            <a href="{% url 'project_details' project.id %}"><i class="fa fa-circle fa-fw" style="color: {{ project.color}}"></i> {{project.title | truncatechars:15 }}</a>
+                            <a href="{% url 'project_details' project.id %}"><i class="fa fa-sticky-note-o fa-fw" style="color: {{ project.color}}"></i> {{project.title | truncatechars:15 }}</a>
                         </li>
                         {% endfor %}
                         <li>
@@ -94,7 +94,7 @@
                     <ul class="collapse list-unstyled" id="homeSubmenu2">
                         {% for category in categories|slice:":5" %}
                         <li>
-                            <a href="{% url 'get_categories' pk=category.id %}" name="search"><i class="fa fa-square fa-fw" style="color: {{ category.color }}"></i> {{category.name | truncatechars:15 }}</a>
+                            <a href="{% url 'get_categories' pk=category.id %}" name="search"><i class="fa fa-circle-thin fa-fw" style="color: {{ category.color }}"></i> {{category.name | truncatechars:15 }}</a>
                         </li>
                         {% endfor %}
                         <li>
