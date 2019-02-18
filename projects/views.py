@@ -130,13 +130,13 @@ def create_or_edit_project(request, pk=None):
             return redirect(index)
         else:
             if request.method == 'POST':
-                form = ProjectForm(request.user, request.POST)
+                form = ProjectForm(request.user, request.POST, request.FILES, instance=project)
                 if form.is_valid():
                     form.instance.user = request.user
-                    form.save()
+                    project = form.save()
                     return redirect(index)
             else:
-                form = ProjectForm(request.user)
+                form = ProjectForm(request.user, instance=project)
             return render(request, "projectform.html", {"form": form,
                                                         "projects": projects,
                                                         "categories": categories})
