@@ -1,7 +1,8 @@
-from django.shortcuts import render
-
-# Create your views here.
-
+from django.shortcuts import redirect, render
+from projects.views import index
 
 def home(request):
-    return render(request, "home.html")
+    if request.user.is_authenticated():
+        return redirect(index)
+    else:
+        return render(request, "home.html")
