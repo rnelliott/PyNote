@@ -39,7 +39,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'airdnc.herokuapp.com', 'airdnc.daveodea.com', 'pynote.daveodea.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'airdnc.herokuapp.com',
+                 'airdnc.daveodea.com', 'pynote.daveodea.com']
 
 
 # Application definition
@@ -67,9 +68,6 @@ INSTALLED_APPS = [
     'accounts',
     # Userprofile
     'userprofile',
-    # CKEditor
-    # 'ckeditor',
-    # 'ckeditor_uploader',
     # Social auth
     'social_django',
     'tinymce',
@@ -227,13 +225,13 @@ SOCIAL_AUTH_TWITTER_KEY = os.environ.get('SOCIAL_AUTH_TWITTER_KEY')
 SOCIAL_AUTH_TWITTER_SECRET = os.environ.get('SOCIAL_AUTH_TWITTER_SECRET')
 # Google
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get(
+    'SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 
 
 # Stripe
 STRIPE_PUBLISHABLE = os.environ.get('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.environ.get('STRIPE_SECRET')
-
 
 
 # Tinymce
@@ -244,7 +242,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'custom_undo_redo_levels': 20,
     'selector': 'textarea',
     'theme': 'modern',
-    'mobile': 'theme: mobile',
+    'mobile': 'theme: mobile', 'toolbar': ''' undo redo removeformat bold italic underline | fontsizeselect | bullist numlist''',
     'plugins': '''
             textcolor save link image media preview codesample contextmenu
             table code lists fullscreen  insertdatetime  nonbreaking
@@ -255,15 +253,9 @@ TINYMCE_DEFAULT_CONFIG = {
     'toolbar1': '''
             fullscreen preview bold italic underline | fontselect,
             fontsizeselect  | forecolor backcolor | alignleft alignright |
-            aligncenter alignjustify | indent outdent | bullist numlist table |
-            | link image media | codesample |
+            aligncenter alignjustify | indent outdent | bullist numlist
             ''',
-    # 'toolbar2': '''
-    #         visualblocks visualchars |
-    #         charmap hr pagebreak nonbreaking anchor |  code |
-    #         ''',
-    'contextmenu': 'formats | link image',
+    'contextmenu': 'formats',
     'menubar': False,
     'statusbar': False,
-    }
-    
+}
