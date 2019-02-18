@@ -1,13 +1,60 @@
 [![Build Status](https://travis-ci.com/davedodea/PyNote.svg?branch=master)](https://travis-ci.com/davedodea/PyNote)
 # PyNote
+This repository contains the code for a modern note-taking application. It is built largely with Python and the Django framework.
 
-A modern note-taking application. Built with Python and the Django framework.
-
-Allow users to create, store and organise their notes.
-
- 
 ## UX
-This application is built with a mobile first, responsive design in mind
+This application is built with a mobile first, responsive design in mind.
+
+#### User stories
+- As a first time user, I should: 
+    - see a homepage with a header section describing the application.
+    - see links to either login or register.
+
+- As a unregistered user, I should:
+    - with a form to enable me to register a username, email and password for the site.
+    - with the choice to register via OAuth providers such as GitHub, Twitter or Google.
+
+- As a registered user, I should:
+    - see a form to enter my username or email and password.
+    - see a link to reset my password if I have forgotten it.
+
+- As a logged in user, I should:
+    - see a confirmation that I have logged in successfully.
+    - if I have created notes before: 
+        - see a screen presenting all of my notes in my account, 
+    - if not:
+        - see a message prompting me to create a note.
+    - on large/desktop screens:
+        - see a top navigation bar with links to:
+        - main/home page.
+        - create:
+            - note, link to the form to create a new note.
+            - category, link to a page to manage/create categories.
+        - username:
+            - profile page where I can edit various fields of info on my user:
+                - also view my 'user type' i.e. Premium or else see an Upgrade button.
+            - logout button
+        - search field where I can search al of my notes with keywords.
+        - see a collapsible side-navigation menu with the following links:
+            - main/home page.
+            - create a note.
+            - search notes field.
+            - dropdown menus for both notes and categories.
+            - settings/profile.
+            - logout button.
+    - on mobile devices all my navigation is through the side-navigation menu.
+- As a user who wants to create a note, I should see a form page with the following fields for the note:
+    - Name or title.
+    - Content - using a rich text [WYSIWYG Editor](https://en.wikipedia.org/wiki/WYSIWYG)so that I can format my note with various text editing options.
+    - Category
+    
+
+
+
+
+
+
+
 
 ## Features
 - Full user account system for authenticaion.
@@ -23,26 +70,15 @@ This application is built with a mobile first, responsive design in mind
 - Tags for notes.
 
 ## Technologies Used
-- Python
-- JavaScript
-- HTML
-- CSS
-
-- [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
-    - Also used for asynchronous HTTP (Ajax) requests.
-
-- [Django](https://www.djangoproject.com/)
-    - MVT (Mode-View-Template) framweork used to build the application. 
-
-- [PostgreSQL](https://www.postgresql.org/)
-    - Relational database store for model data.
-    
-- [Heroku](https://www.heroku.com/)
-    - Platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
-    
-- [Bootstrap](https://getbpptstrap.com)
-    - Bootstrap is used as the primary CSS framework.
+- [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [JavaScript](https://developer.mozilla.org/bm/docs/Web/JavaScript)
+- [jQuery](https://jquery.com/) - for DOM manipulation.
+- [Bootstrap](https://getbpptstrap.com) - Bootstrap is used as the primary CSS framework.
+- [Django](https://www.djangoproject.com/) - MVT (Mode-View-Template) framweork used to build the application. 
+- [PostgreSQL](https://www.postgresql.org/) - Relational database store for model data.
+- [Heroku](https://www.heroku.com/) - Platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+- [Travis-CI](https://travis-ci.com) - Test and deploy code projects.
 
 ## Deployment
 - The Django application and the PostgreSQL database are deployed to seperate Heroku instances.
@@ -73,30 +109,15 @@ This application is built with a mobile first, responsive design in mind
 
 - Clone the repository
 
-- Activate a virtual environment
-
 - CD into the repository
 
-- Install requirements: `pip install -r requirements.txt`
+- Activate a virtual environment: `pipenv` etc.
 
-- Ensure you have set the following environment variables:
-    - 'DATABASE_URL'
-    - 'EMAIL_ADDRESS
-    - 'EMAIL_PASSWORD'
-    - 'SECRET_KEY' (arbitrary string)
-    - 'DATABASE_URL'
-    - 'EMAIL_ADDRESS'
-    - 'EMAIL_PASSWORD'
-    - 'SECRET_KEY'
-    - 'SOCIAL_AUTH_GITHUB_KEY'
-    - 'SOCIAL_AUTH_GITHUB_SECRET'
-    - 'SOCIAL_AUTH_GOOGLE_OAUTH2_KEY'
-    - 'SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET'
-    - 'SOCIAL_AUTH_TWITTER_KEY'
-    - 'SOCIAL_AUTH_TWITTER_SECRET'
-    - 'STRIPE_PUBLISHABLE'
-    - 'STRIPE_SECRET'
+- Install requirements: `pipenv install`
 
+- Ensure you have set the above environment variables: 
+    - Suggest to do so in a file called `env.py` and follow the format for each:
+        - `os.environ['DATABASE_URL'] = '...'`.
 
 - Make migrations: `python3 manage.py makemigrations`
 
