@@ -118,23 +118,28 @@ def create_or_edit_project(request, pk=None):
     projects = Projects.objects.filter(user__exact=request.user)
     project = get_object_or_404(Projects, pk=pk) if pk else None
     projects_count = Projects.objects.all().count()
-    if projects_count > 4:
-        sweetify.error(request, "To create more than 5 notes ...",
-                       html='<button class="btn btn-info btn-lg" id="upgrade-btn">Please upgrade <i class="fa fa-arrow-right"></i></>',
-                       timer=7000)
-        return redirect(index)
+    categories_count = Category.objects.all().count()
+
+    if categories.count() < 1:
+        return redirect(manage_categories)
     else:
-        if request.method == 'POST':
-            form = ProjectForm(request.user, request.POST)
-            if form.is_valid():
-                form.instance.user = request.user
-                form.save()
-                return redirect(index)
+        if projects_count > 4:
+            sweetify.error(request, "To create more than 5 notes ...",
+                        html='<button class="btn btn-info btn-lg" id="upgrade-btn">Please upgrade <i class="fa fa-arrow-right"></i></>',
+                        timer=7000)
+            return redirect(index)
         else:
-            form = ProjectForm(request.user)
-        return render(request, "projectform.html", {"form": form,
-                                                    "projects": projects,
-                                                    "categories": categories})
+            if request.method == 'POST':
+                form = ProjectForm(request.user, request.POST)
+                if form.is_valid():
+                    form.instance.user = request.user
+                    form.save()
+                    return redirect(index)
+            else:
+                form = ProjectForm(request.user)
+            return render(request, "projectform.html", {"form": form,
+                                                        "projects": projects,
+                                                        "categories": categories})
 
 
 # Delete a project/note
