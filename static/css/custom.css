@@ -885,17 +885,18 @@ html {
 }
 
 .pricing-features {
-	color: #016FF9;
+	color: #348EFE;
 	font-weight: 600;
 	letter-spacing: 1px;
-	margin: 50px 0 25px;
+	margin: 0px 70px 30px 28px
 }
 
 .pricing-features-item {
-	border-top: 1px solid #e1f1ff;
+	border-bottom: 1px solid #e1f1ff;
 	font-size: 12px;
 	line-height: 1.5;
 	padding: 15px 0;
+	list-style-type:none;
 }
 
 .pricing-features-item:last-child {
@@ -903,7 +904,7 @@ html {
 }
 
 .pricing-price {
-	color: #016FF9;
+	color: #348EFE;
 	display: block;
 	font-size: 32px;
 	font-weight: 700;
