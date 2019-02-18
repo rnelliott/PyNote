@@ -120,6 +120,9 @@ This application is built with a mobile first, responsive design in mind.
 
 - Stripe payment processing was another large challenge. Learning how to utilise the Stripe API and integrate with Django was difficult at times. However, I would be confident in installing a similar system again.
 
+- Integrating TinyMCE WYSIWYG editor into Django was a tricky process which required extensive reading of the documentation n order to configure properly. However, I believe the rich text editing functionality enabled by having TinyMCE provides the user with a great experience on both dekstop and mobile.
+
+
 ## Technologies Used
 - [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML)
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
@@ -130,6 +133,9 @@ This application is built with a mobile first, responsive design in mind.
 - [PostgreSQL](https://www.postgresql.org/) - Relational database store for model data.
 - [Heroku](https://www.heroku.com/) - Platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
 - [Travis-CI](https://travis-ci.com) - Test and deploy code projects.
+- [TinyMCE](https://tiny.cloud) - Advanced WYSIWYG HTML Editor.
+- [Stripe](https://stripe.com) - A complete payments platform‎.
+
 
 ## Deployment
 - A live version of this app is available [here](https://pynote.daveodea.com).
