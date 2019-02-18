@@ -15,7 +15,6 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title"><i class="fa fa-circle-thin" style="color: {{ project.color }};"></i> {{ project.title | truncatechars:20}}</h5>
-                            <p class="card-text">{{ project.content | truncatewords:10 | safe }}</p>
                         </div>
                         <div class="card-footer">
                             {{ project.category.name }}
