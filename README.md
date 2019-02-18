@@ -113,6 +113,13 @@ This application is built with a mobile first, responsive design in mind.
 - Tags for notes.
 - Build a decoupled REST API for all the model functions/views to enable other front ends to be used outside of Django's templates
 
+## Challenges
+- Overall, I found learning the Django framework to be difficult at times, but with persistance, I began to find my way and I am now quite comfortable with its functionality. The project has taught me an awful lot about not only Django but also Python as a whole.
+
+- I had never implemented a social sign-on/OAuth system before. This was a great learning experience. I had to read over the documentation of the different providers and learn how to implement them with Django's system.
+
+- Stripe payment processing was another large challenge. Learning how to utilise the Stripe API and integrate with Django was difficult at times. However, I would be confident in installing a similar system again.
+
 ## Technologies Used
 - [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML)
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
