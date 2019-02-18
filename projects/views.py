@@ -36,6 +36,7 @@ def get_categories(request, pk):
                                                    "categories": categories,
                                                    "projects_in_category": projects_in_category})
 
+
 # Manage categories
 @login_required
 def manage_categories(request):
@@ -47,29 +48,6 @@ def manage_categories(request):
     categories = Category.objects.filter(user__exact=request.user)
     return render(request, "categories.html", {"form": form, "categories": categories})
 
-
-# Create/edit a category
-# @login_required
-# def create_or_edit_category(request, pk=None):
-#     """
-#     Create view that can either create or edit a Project,
-#     edits if exists or creates if not.
-#     """
-#     categories = Category.objects.filter(user__exact=request.user)
-#     projects = Projects.objects.filter(user__exact=request.user)
-
-#     category = get_object_or_404(Category, pk=pk) if pk else None
-#     if request.method == 'POST':
-#         form = CategoryForm(request.POST, request.FILES, instance=project)
-#         if form.is_valid():
-#             form.instance.user = request.user
-#             category = form.save()
-#             return redirect(index)
-#     else:
-#         form = ProjectForm(instance=category)
-#     return render(request, "projectform.html", {"form": form,
-#                                                 "projects": projects,
-#                                                 "categories": categories})
 
 # Delete a category
 @login_required
