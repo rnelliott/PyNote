@@ -3,7 +3,7 @@
 <!-- Anything placed in this block will load in ''block content' tags n base.html -->
 {% block content %}
 <div class="container">
-    {% if projects|length > 0 %}
+    {% if projects_in_category|length > 0 %}
     <h3>Category results: </h3>
     <hr>
     <div class="container-fluid">
@@ -31,7 +31,7 @@
     <div class="col-sm-12 projects-row">
         <div class=" jumbotron jumbotron-fluid">
             <div class="offset-sm-2 col-sm-8 container">
-                <h1 class="display-4">You haven't created any notes, yet!</h1>
+                <h1 class="display-4">No notes in that category, yet!</h1>
                 <p class="lead alert alert-primary alignright"><a href="{%url 'new_project'%}"> Create one now <i class="fa fa-arrow-right"></i></a></p>
             </div>
         </div>
