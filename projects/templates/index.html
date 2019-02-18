@@ -14,10 +14,10 @@
                             {{ project.published_date }}
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title"><i class="fa fa-circle-thin" style="color: {{ project.color }};"></i> {{ project.title | truncatechars:20}}</h5>
+                            <h5 class="card-title"><i class="fa fa-sticky-note-o" style="color: {{ project.color }};"></i> {{ project.title | truncatechars:20}}</h5>
                         </div>
                         <div class="card-footer">
-                            {{ project.category.name }}
+                            <i class="fa fa-circle-thin" style="color: {{ project.category.color }};"></i> {{ project.category.name }}
                         </div>
                     </div>
                 </a>
