@@ -44,32 +44,32 @@ def manage_categories(request):
         form.instance.user = request.user
         category = form.save()
         form = CategoryForm()
-    categories = Category.objects.all()
+    categories = Category.objects.filter(user__exact=request.user)
     return render(request, "categories.html", {"form": form, "categories": categories})
 
 
 # Create/edit a category
-@login_required
-def create_or_edit_category(request, pk=None):
-    """
-    Create view that can either create or edit a Project,
-    edits if exists or creates if not.
-    """
-    categories = Category.objects.filter(user__exact=request.user)
-    projects = Projects.objects.filter(user__exact=request.user)
+# @login_required
+# def create_or_edit_category(request, pk=None):
+#     """
+#     Create view that can either create or edit a Project,
+#     edits if exists or creates if not.
+#     """
+#     categories = Category.objects.filter(user__exact=request.user)
+#     projects = Projects.objects.filter(user__exact=request.user)
 
-    category = get_object_or_404(Category, pk=pk) if pk else None
-    if request.method == 'POST':
-        form = CategoryForm(request.POST, request.FILES, instance=project)
-        if form.is_valid():
-            form.instance.user = request.user
-            category = form.save()
-            return redirect(index)
-    else:
-        form = ProjectForm(instance=category)
-    return render(request, "projectform.html", {"form": form,
-                                                "projects": projects,
-                                                "categories": categories})
+#     category = get_object_or_404(Category, pk=pk) if pk else None
+#     if request.method == 'POST':
+#         form = CategoryForm(request.POST, request.FILES, instance=project)
+#         if form.is_valid():
+#             form.instance.user = request.user
+#             category = form.save()
+#             return redirect(index)
+#     else:
+#         form = ProjectForm(instance=category)
+#     return render(request, "projectform.html", {"form": form,
+#                                                 "projects": projects,
+#                                                 "categories": categories})
 
 # Delete a category
 @login_required
@@ -80,7 +80,7 @@ def delete_category(request, pk):
     category = get_object_or_404(Category, pk=pk) if pk else None
     category.delete()
     form = CategoryForm(request.POST, request.FILES)
-    categories = Category.objects.all()
+    categories = Category.objects.filter(user__exact=request.user)
     sweetify.success(request, "You have deleted the category!", timer=500)
     return render(request, "categories.html", {"form": form, "categories": categories})
 
@@ -118,10 +118,10 @@ def create_or_edit_project(request, pk=None):
     projects = Projects.objects.filter(user__exact=request.user)
     project = get_object_or_404(Projects, pk=pk) if pk else None
     projects_count = Projects.objects.all().count()
-    if projects_count > 5:
-        sweetify.error(request, "You already have 5 notes!",
-                       html='<a class="btn btn-info btn-lg" href="//#">Upgrade <i class="fa fa-arrow-right"></i></a>',
-                       timer=5000)
+    if projects_count > 4:
+        sweetify.error(request, "To create more than 5 notes ...",
+                       html='<button class="btn btn-info btn-lg" id="upgrade-btn">Please upgrade <i class="fa fa-arrow-right"></i></>',
+                       timer=7000)
         return redirect(index)
     else:
         if request.method == 'POST':
