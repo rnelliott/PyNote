@@ -81,8 +81,8 @@ def delete_category(request, pk):
     category.delete()
     form = CategoryForm(request.POST, request.FILES)
     categories = Category.objects.filter(user__exact=request.user)
-    sweetify.success(request, "You have deleted the category!", timer=500)
-    return render(request, "categories.html", {"form": form, "categories": categories})
+    sweetify.success(request, "You have deleted the category!", timer=1000)
+    return redirect(manage_categories)
 
 
 # ********************
