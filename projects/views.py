@@ -131,7 +131,7 @@ def create_or_edit_project(request, pk=None):
                 project = form.save()
                 return redirect(index)
         else:
-            form = ProjectForm(instance=project)
+            form = ProjectForm(request.user)
         return render(request, "projectform.html", {"form": form,
                                                     "projects": projects,
                                                     "categories": categories})

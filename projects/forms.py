@@ -11,6 +11,9 @@ class ProjectForm(forms.ModelForm):
         # Remove fields
         exclude = ['user', 'image', 'published_date']
 
+    def __init__(self, user, *args, **kwargs):
+        super(ProjectForm, self).__init__(*args, **kwargs)
+        self.fields['category'].queryset = Category.objects.filter(user=user)
 
 class CategoryForm(forms.ModelForm):
     class Meta:
