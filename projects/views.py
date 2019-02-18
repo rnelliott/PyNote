@@ -74,7 +74,7 @@ def project_details(request, pk):
     Create view returning a Project object referenced by its PrimaryKey/ID,
     render the Project details to projectdetails.html.
     Return a 404 if Project is not found.
-    """   
+    """
     categories = Category.objects.filter(user__exact=request.user)
     projects = Projects.objects.filter(user__exact=request.user)
     project = get_object_or_404(Projects, pk=pk)
@@ -95,20 +95,21 @@ def create_or_edit_project(request, pk=None):
     categories = Category.objects.filter(user__exact=request.user)
     projects = Projects.objects.filter(user__exact=request.user)
     project = get_object_or_404(Projects, pk=pk) if pk else None
-    projects_count = Projects.objects.all().count()
+    projects_count = Projects.objects.filter(user__exact=request.user).count()
     categories_count = Category.objects.all().count()
 
     if categories.count() < 1:
         return redirect(manage_categories)
     else:
-        if projects_count > 4:
+        if projects.count() > 4:
             sweetify.error(request, "To create more than 5 notes ...",
-                        html='<button class="btn btn-info btn-lg" id="upgrade-btn">Please upgrade <i class="fa fa-arrow-right"></i></>',
-                        timer=7000)
+                           html='<button class="btn btn-info btn-lg" id="upgrade-btn">Please upgrade <i class="fa fa-arrow-right"></i></>',
+                           timer=7000)
             return redirect(index)
         else:
             if request.method == 'POST':
-                form = ProjectForm(request.user, request.POST, request.FILES, instance=project)
+                form = ProjectForm(request.user, request.POST,
+                                   request.FILES, instance=project)
                 if form.is_valid():
                     form.instance.user = request.user
                     project = form.save()
